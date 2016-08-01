@@ -1,0 +1,16 @@
+.navbar.navbar-default.navbar-static-top#navbar-area
+  .container-fluid
+    .row
+      .navbar-header.col-md-2
+        %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#sign-form", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand{:href => "/"} Zoker
+      #sign-form.col-md-5.navbar-collapse.collapse{"aria-expanded" => "false", :style => "height: 1px;"}
+        %ul.nav.navbar-nav
+          %li
+            %a{:href => "#"} 帮助
+          %li
+            %a{:href => "#"} 反馈

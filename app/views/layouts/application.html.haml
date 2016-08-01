@@ -1,10 +1,8 @@
 !!!
-%html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title NilStack
-    = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+%html{:lang => "zh-CN"}
+  = render 'layouts/head'
   %body
-    = yield
+    = render 'layouts/header'
+    .container-fluid
+      = render 'layouts/flash'
+      = yield
