@@ -3,19 +3,19 @@ default: &default
   encoding: utf8
   reconnect: false
   pool: 5
-  database: blogit
+  database: blogine
   username: root
   password: ""
   timeout: 5000
 
 development:
   <<: *default
-  database: blogit
+  database: blogine
 
 test:
   <<: *default
-  database: blogit_test
+  database: blogine_test
 
 production:
   <<: *default
-  database: blogit_production
+  database: blogine_production
