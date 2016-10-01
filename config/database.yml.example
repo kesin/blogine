@@ -3,19 +3,19 @@ default: &default
   encoding: utf8
   reconnect: false
   pool: 5
-  database: nilstack
+  database: blogit
   username: root
   password: ""
   timeout: 5000
 
 development:
   <<: *default
-  database: nilstack
+  database: blogit
 
 test:
   <<: *default
-  database: nilstack_test
+  database: blogit_test
 
 production:
   <<: *default
-  database: nilstack_production
+  database: blogit_production

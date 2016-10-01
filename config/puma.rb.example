@@ -1,8 +1,8 @@
-app_root = '/Users/zoker/Hobby/NilStack'
+app_root = '/Users/zoker/Hobby/Blogit'
 pidfile "#{app_root}/tmp/pids/puma.pid"
 state_path "#{app_root}/tmp/pids/puma.state"
 stdout_redirect "#{app_root}/log/puma.stdout.log", "#{app_root}/log/puma.stderr.log", true
-bind 'tcp://127.0.0.1:3002'
+bind 'tcp://127.0.0.1:3003'
 daemonize true
 workers 1
 threads 4, 8

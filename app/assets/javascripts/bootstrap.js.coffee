@@ -4,7 +4,7 @@ jQuery ->
 
 # Flash
 $(document).ready ->
-  if (flash = $("#nilstack_alert")).length > 0
+  if (flash = $("#blogit_alert")).length > 0
     flash.click -> $(@).fadeOut()
     flash.show()
     if flash_time?
