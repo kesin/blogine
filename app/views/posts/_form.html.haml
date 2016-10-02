@@ -16,8 +16,8 @@
     = f.label :content
     = f.text_area :content
   .field
-    = f.label :html_content
-    = f.text_area :html_content
+    %label Tags
+    = text_field_tag :tags
   .field
     = f.label :column_id
     = f.number_field :column_id

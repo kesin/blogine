@@ -4,12 +4,6 @@
   %b Title:
   = @post.title
 %p
-  %b Ident:
-  = @post.ident
-%p
-  %b Content:
-  = @post.content
-%p
   %b Html content:
   = @post.html_content
 %p
@@ -18,6 +12,9 @@
 %p
   %b Status:
   = @post.status
+%p
+  %b Created_at
+  = @post.created_at
 
 = link_to 'Edit', edit_post_path(@post)
 \|

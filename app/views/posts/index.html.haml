@@ -1,11 +1,9 @@
-%h1 Listing posts
+%h1 博客列表
 
 %table
   %thead
     %tr
       %th Title
-      %th Ident
-      %th Content
       %th Html content
       %th Column
       %th Status
@@ -17,8 +15,6 @@
     - @posts.each do |post|
       %tr
         %td= post.title
-        %td= post.ident
-        %td= post.content
         %td= post.html_content
         %td= post.column_id
         %td= post.status
