@@ -15,6 +15,7 @@
     = f.text_field :ident
   .field
     = f.label :content
+    -# a bug around haml whitespace, I have find some solutions: https://github.com/haml/haml/issues/643#issuecomment-255546050
     = f.text_area :content
     = f.hidden_field :html_content
   .field
