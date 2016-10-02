@@ -4,7 +4,6 @@
   %thead
     %tr
       %th Title
-      %th Html content
       %th Column
       %th Status
       %th
@@ -15,7 +14,6 @@
     - @posts.each do |post|
       %tr
         %td= post.title
-        %td= post.html_content
         %td= post.column_id
         %td= post.status
         %td= link_to 'Show', post
