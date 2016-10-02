@@ -16,6 +16,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    sign_out
+    redirect_to root_path, alert: '退出成功!'
   end
 
   private
@@ -24,7 +26,7 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
   end
 
-  def sign_out(user)
+  def sign_out
     session.delete(:user_id)
   end
 
