@@ -10,15 +10,6 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: EMAIL_REGEX
   validates :password, presence: true, length: 6..20
 
-  def encrypt_password
-    self.password_salt = BCrypt::Engine.generate_salt
-    self.password_digest = BCrypt::Engine.hash_secret(password, password_salt)
-  end
-
-  def empty_password
-    self.password = nil
-  end
-
   def valid_password(password)
     password_digest == BCrypt::Engine.hash_secret(password, password_salt)
   end
@@ -30,6 +21,17 @@ class User < ApplicationRecord
     else
       false
     end
+  end
+
+  private
+
+  def encrypt_password
+    self.password_salt = BCrypt::Engine.generate_salt
+    self.password_digest = BCrypt::Engine.hash_secret(password, password_salt)
+  end
+
+  def empty_password
+    self.password = nil
   end
 
 end
