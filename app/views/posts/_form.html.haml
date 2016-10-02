@@ -1,5 +1,5 @@
 = javascript_include_tag 'mdeditor'
-= form_for @post do |f|
+= form_for @post, html: {onsubmit: "html_content();"} do |f|
   - if @post.errors.any?
     #error_explanation
       %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
@@ -16,6 +16,7 @@
   .field
     = f.label :content
     = f.text_area :content
+    = f.hidden_field :html_content
   .field
     %label Tags
     = text_field_tag :tags
@@ -38,3 +39,6 @@
     localStorage: 'md',
     hiddenButtons: ['cmdEmoji'],
   });
+  function html_content(){
+    $('#post_html_content').val(marked($('#post_content').val()))
+  }
