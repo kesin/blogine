@@ -19,4 +19,17 @@ class User < ApplicationRecord
     self.password = nil
   end
 
+  def valid_password(password)
+    password_digest == BCrypt::Engine.hash_secret(password, password_salt)
+  end
+
+  def self.authenticate_user(name_or_email, password)
+    user = User.find_by_email(name_or_email) || User.find_by_name(name_or_email)
+    if user && user.valid_password(password)
+      user
+    else
+      false
+    end
+  end
+
 end
