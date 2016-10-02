@@ -1,0 +1,9 @@
+.row
+  .col-md-6.col-md-offset-3
+    = form_for :session, url: login_url, method: :post do |f|
+      = f.text_field :login, class: "form-control", placeholder: "请输入邮箱或用户名"
+      = f.password_field :password, class: "form-control", placeholder: "请输入密码"
+      = f.label :remeber_me, class: "checkbox inline" do
+        = f.check_box :remeber_me
+        %span 记住我
+      = f.submit "登陆", class: "btn-primary"
