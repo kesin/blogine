@@ -1,0 +1,9 @@
+//= require mdeditor/underscore-min.js
+//= require mdeditor/highlight.js
+//= require mdeditor/he.js
+//= require mdeditor/marked.js
+//= require mdeditor/to-markdown.js
+//= require mdeditor/jsHtmlToText.js
+//= require mdeditor/tab.js
+//= require mdeditor/config.js
+//= require mdeditor/bootstrap-markdown.js

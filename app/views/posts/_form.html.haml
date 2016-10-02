@@ -1,3 +1,4 @@
+= javascript_include_tag 'mdeditor'
 = form_for @post do |f|
   - if @post.errors.any?
     #error_explanation
@@ -26,3 +27,14 @@
     = f.number_field :status
   .actions
     = f.submit 'Save'
+
+:javascript
+  $("textarea").markdown({
+    language: 'zh',
+    fullscreen: {
+        enable: true
+    },
+    resize: 'vertical',
+    localStorage: 'md',
+    hiddenButtons: ['cmdEmoji'],
+  });
