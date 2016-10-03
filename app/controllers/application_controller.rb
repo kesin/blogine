@@ -6,4 +6,5 @@ class ApplicationController < ActionController::Base
   def authenticate_user
     return redirect_to login_path, alert: '请登录后进行操作。' unless current_user
   end
+
 end
