@@ -14,7 +14,7 @@
     - @posts.each do |post|
       %tr
         %td= post.title
-        %td= post.column_id
+        %td= post.column.try(:name)
         %td= post.status
         %td= link_to 'Show', post
         %td= link_to 'Edit', edit_post_path(post)

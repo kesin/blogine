@@ -64,11 +64,11 @@ class ColumnsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_column
-      @column = Column.find(params[:id])
+      @column = Column.find_by_ident(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def column_params
-      params.require(:column).permit(:name, :ident, :posts_count)
+      params.require(:column).permit(:name, :ident)
     end
 end

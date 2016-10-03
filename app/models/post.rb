@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
 
+  belongs_to :column
   IDENT_REGEX = /\A[a-zA-Z][a-zA-Z0-9_\-]*\z/
   validates :ident, uniqueness: true, presence: true, length: {within: 0..255},
             format: {with: IDENT_REGEX,
