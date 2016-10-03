@@ -18,6 +18,22 @@ class User < ApplicationRecord
     user && user.valid_password(password) ? user : false
   end
 
+  def generate_remember_token
+    BCrypt::Engine.hash_secret(SecureRandom.hex(10), BCrypt::Engine.generate_salt)
+  end
+
+  def remember_me
+    self.update_attribute(:remember_token, generate_remember_token)
+  end
+
+  def forget_me
+    self.update_attribute(:remember_token, nil)
+  end
+
+  def authenticate_with_remember(remember_token)
+    remember_token == self.remember_token
+  end
+
   private
 
   def encrypt_password
