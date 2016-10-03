@@ -99,7 +99,7 @@
     line-height: 1.6em;
     margin-left: 25px;
     height: 100%;
-    background-color: #f6f6f6;
+    background-color: #f9f9f9;
     overflow-y: auto;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -182,7 +182,13 @@
 }
 
 .md-editor > .md-full-preview .md-full-preview-body .md-full-preview-inner pre {
+    border: none;
+    padding: 0;
     margin: 0 0 1.1em;
+}
+
+.md-editor > .md-full-preview .md-full-preview-body .md-full-preview-inner pre code {
+    background-color: #eee;
 }
 
 .md-editor > .md-full-preview .md-full-preview-body .md-full-preview-inner table {
@@ -212,7 +218,7 @@
 
 .md-editor > .md-preview {
     padding: 10px;
-    background: #f6f6f6;
+    background: #ffffff;
     border-top: 1px dashed #ddd;
     border-bottom: 1px dashed #ddd;
     min-height: 10px;
@@ -304,6 +310,11 @@
     font-weight: bold;
 }
 
+.md-editor > .md-preview pre {
+    border: none;
+    padding: 0;
+}
+
 .md-editor > .md-preview blockquote {
     border-left: 5px solid rgba(0, 0, 0, .4);
     padding-left: 25px;
@@ -392,7 +403,7 @@
     top: 50px;
     bottom: 0;
     display: inline-block;
-    background-color: #f6f6f6;
+    background-color: #f9f9f9;
 }
 
 .md-editor.md-fullscreen-mode .md-footer {
