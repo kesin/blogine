@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @column.name
+%p
+  %b Ident:
+  = @column.ident
+%p
+  %b Posts count:
+  = @column.posts_count
+
+= link_to 'Edit', edit_column_path(@column)
+\|
+= link_to 'Back', columns_path
