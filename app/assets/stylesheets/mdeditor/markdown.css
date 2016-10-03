@@ -8,11 +8,6 @@
     line-height: 1.6;
 }
 
-.pre,
-.code {
-    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-}
-
 .md-editor {
     font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
     font-size: 14px;
