@@ -1,26 +1,8 @@
-.navbar.navbar-default.navbar-static-top#navbar-area
-  .container-fluid
-    .row
-      .navbar-header.col-md-2
-        %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#sign-form", "data-toggle" => "collapse", :type => "button"}
-          %span.sr-only Toggle navigation
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        %a.navbar-brand{:href => "/"} Zoker
-      #sign-form.col-md-5.navbar-collapse.collapse{"aria-expanded" => "false", :style => "height: 1px;"}
-        %ul.nav.navbar-nav
-          %li
-            %a{:href => "#"} 帮助
-          %li
-            %a{:href => "#"} 反馈
-          - if current_user
-            %li
-              = link_to '退出', logout_path, method: :delete
-            %li
-              %a{:href => "#"}
-                %i.icon-user
-                = current_user.name
-          - else
-            %li
-              = link_to '登录', login_path
+%a{:href => "/"} 首页
+- if current_user
+  = link_to '退出', logout_path, method: :delete
+  %a{:href => "#"}
+    %i.icon-user
+    = current_user.name
+- else
+  = link_to '登录', login_path
