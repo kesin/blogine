@@ -1,23 +1,14 @@
-%table
-  %thead
-    %tr
-      %th Title
-      %th Column
-      %th Status
-      %th
-      %th
-      %th
-
-  %tbody
-    - @posts.each do |post|
-      %tr
-        %td= post.title
-        %td= post.column.try(:name)
-        %td= post.status
-        %td= link_to 'Show', post
-        %td= link_to 'Edit', edit_post_path(post), 'data-turbolinks' => false
-        %td= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Post', new_post_path
+.blog-list
+  - @posts.each do |post|
+    %p
+      = link_to post do
+        = post.title
+    %p
+      = "创建时间: #{post.created_at}"
+      - if post.column.present?
+        = "分类: #{post.column.name}"
+      - if current_user
+        = link_to 'Edit', edit_post_path(post), 'data-turbolinks' => false
+        = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+- if current_user
+  = link_to 'New Post', new_post_path
