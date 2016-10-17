@@ -1,8 +1,16 @@
-%a{:href => "/"} 首页
-- if current_user
-  = link_to '退出', logout_path, method: :delete
-  %a{:href => "#"}
-    %i.icon-user
-    = current_user.name
-- else
-  = link_to '登录', login_path
+.panel.panel-default.panel-profile
+  .panel-heading
+  .panel-body.text-center
+    %a{:href => "/"}
+      %img.panel-profile-img{:src => "//static.oschina.net/uploads/user/522/1045481_100.png?t=1407922480000"}/
+    %h5.panel-title Zoker - Just do IT
+    -#%p Great hopes make great man.
+    %p
+      首页 / 分类 / 标签 / 作品 / 关于我
+    %p
+      - if current_user
+        = link_to '退出', logout_path, method: :delete
+      - else
+        = link_to '登录', login_path
+  .panel-footer
+    Powered By Blogine

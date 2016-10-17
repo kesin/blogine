@@ -1,1 +1,104 @@
 // Main css style put here
+
+#container-area{
+  position: relative;
+  height: 100%;
+  .left-bar{
+    color: #ffffff;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+    position: fixed;
+    width: 25%;
+    height: 100%;
+    text-align: center;
+    border-right: 3px solid #eee;
+    background-position: left;
+    background-size: cover;
+    background-image: url(image_path('plume.jpg'));
+    .panel-profile {
+      height: 100%;
+      border: none;
+      background: none;
+      .panel-heading {
+        height: 150px;
+        background: none;
+        border: none;
+      }
+      .panel-body{
+        .panel-title{
+          padding: 5px 0 10px 0;
+        }
+        .panel-profile-img {
+          max-width: 100px;
+          margin-top: -70px;
+          margin-bottom: 5px;
+          border: 3px solid #fff;
+          border-radius: 100%;
+          box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+      }
+      .panel-footer{
+        position: absolute;
+        bottom: 0;
+        padding: 3% 0 3% 0;
+        width: 100%;
+        border: none;
+        background-color: rgba(0,0,0,0.4);
+      }
+    }
+  }
+  .right-bar{
+    padding: 1% 3%;
+    width: 75%;
+    margin-left: 25%;
+    color: #555;
+    font-size: 18px;
+  }
+  @media screen and (max-width: 980px) {
+    .left-bar {
+      position: relative;
+      width: 100%;
+      border-right: 0;
+      border-bottom: 3px solid #eee;
+      .panel-footer{
+        display: none;
+      }
+    }
+    .right-bar {
+      margin: 5px 0 0 0;
+      width: 100%;
+    }
+  }
+  .blog-list{
+    margin-bottom: 20px;
+    .post-item{
+      padding: 20px 0 10px 0;
+      border-bottom: 1px solid #efefef;
+      &:first-child{
+        padding-top: 10px;
+      }
+      .post-title{
+        margin-bottom: 10px;
+        a{
+          color: #333;
+          font-size: 26px;
+          font-weight: bold;
+          &:hover{
+            color: #25a1a2;
+            text-decoration: none;
+          }
+        }
+      }
+      .post-detail{
+        font-size: 14px;
+        color: #999999;
+        .detail-item{
+          display: inline;
+          padding-right: 12px;
+          i{
+            padding-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
