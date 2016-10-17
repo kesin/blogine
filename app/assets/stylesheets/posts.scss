@@ -35,4 +35,37 @@
       width: 100%;
     }
   }
+  .blog-list{
+    margin-bottom: 20px;
+    .post-item{
+      padding: 20px 0 10px 0;
+      border-bottom: 1px solid #efefef;
+      &:first-child{
+        padding-top: 10px;
+      }
+      .post-title{
+        margin-bottom: 10px;
+        a{
+          color: #333;
+          font-size: 26px;
+          font-weight: bold;
+          &:hover{
+            color: #25a1a2;
+            text-decoration: none;
+          }
+        }
+      }
+      .post-detail{
+        font-size: 14px;
+        color: #999999;
+        .detail-item{
+          display: inline;
+          padding-right: 12px;
+          i{
+            padding-right: 5px;
+          }
+        }
+      }
+    }
+  }
 }

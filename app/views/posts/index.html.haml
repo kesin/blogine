@@ -1,14 +1,24 @@
 .blog-list
   - @posts.each do |post|
-    %p
-      = link_to post do
-        = post.title
-    %p
-      = "创建时间: #{post.created_at}"
-      - if post.column.present?
-        = "分类: #{post.column.name}"
-      - if current_user
-        = link_to 'Edit', edit_post_path(post), 'data-turbolinks' => false
-        = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    .post-item
+      .post-title
+        = link_to post do
+          = post.title
+      .post-detail
+        .detail-item
+          %i.icon-time
+          = post.created_at.to_formatted_s(:long)
+        .detail-item
+          - if post.column.present?
+            %i.icon-columns
+            = post.column.name
+        .detail-item
+          %i.icon-tags
+          php,ruby,mysql
+        - if current_user
+          .detail-item
+            = link_to 'Edit', edit_post_path(post), 'data-turbolinks' => false
+          .detail-item
+            = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
 - if current_user
   = link_to 'New Post', new_post_path
