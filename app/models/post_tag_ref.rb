@@ -1,0 +1,2 @@
+class PostTagRef < ApplicationRecord
+end
