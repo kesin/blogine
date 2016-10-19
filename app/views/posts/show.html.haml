@@ -6,14 +6,11 @@
   = raw @post.html_content
 %p
   %b Column:
-  = @post.column_id
-%p
-  %b Status:
-  = @post.status
+  = @post.column.name
 %p
   %b Created_at
   = @post.created_at
 
-= link_to 'Edit', edit_post_path(@post)
+= link_to 'Edit', edit_post_path(@post), 'data-turbolinks' => false
 \|
 = link_to 'Back', root_path
