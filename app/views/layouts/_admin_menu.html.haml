@@ -6,7 +6,7 @@
       %span.icon-bar
       %span.icon-bar
     %a.navbar-brand{:href => "index.html"} Blogine 后台管理
-  .nav.navbar-left.top-nav
+  .nav.navbar-right.top-nav.hidden-small
     %li
       %a{:href => "#"}
         返回博客首页
@@ -37,3 +37,10 @@
         %a{:href => "bootstrap-grid.html"}
           .icon-cogs.icon-padding-5
           博客设置
+    .sidebar-footer.hidden-small
+      %a.has-tooltip{"data-original-title" => "更新日志", "data-placement" => "top", "data-toggle" => "tooltip", :title => ""}
+        %span.icon-rss{"aria-hidden" => "true"}
+      %a.has-tooltip{"data-original-title" => "建议反馈", "data-placement" => "top", "data-toggle" => "tooltip", :title => ""}
+        %span.icon-comments{"aria-hidden" => "true"}
+      %a.has-tooltip{"data-original-title" => "退出", "data-placement" => "top", "data-toggle" => "tooltip", :title => ""}
+        %span.icon-signout{"aria-hidden" => "true"}

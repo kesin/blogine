@@ -1,11 +1,13 @@
 - title '管理首页'
 .container-fluid
   / Page Heading
-  .row
+  .row#welcome-intro
     .col-lg-12
       %ol.breadcrumb
         %li.active
-          = "#{current_user.name} 您好，欢迎来到 Blogine 管理后台！ 当前时间是："
+          %span.username
+            = current_user.name
+          您好，欢迎来到 Blogine 管理后台！ 当前时间是：
           %span#showTime
   / /.row
   .row
@@ -14,69 +16,45 @@
         .panel-heading
           .row
             .col-xs-3
-              %i.fa.fa-comments.fa-5x
+              .icon-book.icon-5x
             .col-xs-9.text-right
               .huge 26
-              %div New Comments!
-        %a{:href => "#"}
-          .panel-footer
-            %span.pull-left View Details
-            %span.pull-right
-              %i.fa.fa-arrow-circle-right
-            .clearfix
+              %div 总文章数
     .col-lg-3.col-md-6
       .panel.panel-green
         .panel-heading
           .row
             .col-xs-3
-              %i.fa.fa-tasks.fa-5x
+              .icon-comments.icon-5x
             .col-xs-9.text-right
               .huge 12
-              %div New Tasks!
-        %a{:href => "#"}
-          .panel-footer
-            %span.pull-left View Details
-            %span.pull-right
-              %i.fa.fa-arrow-circle-right
-            .clearfix
+              %div 总评论数
     .col-lg-3.col-md-6
       .panel.panel-yellow
         .panel-heading
           .row
             .col-xs-3
-              %i.fa.fa-shopping-cart.fa-5x
+              .icon-columns.icon-5x
             .col-xs-9.text-right
-              .huge 124
-              %div New Orders!
-        %a{:href => "#"}
-          .panel-footer
-            %span.pull-left View Details
-            %span.pull-right
-              %i.fa.fa-arrow-circle-right
-            .clearfix
+              .huge 6
+              %div 总分类数
     .col-lg-3.col-md-6
       .panel.panel-red
         .panel-heading
           .row
             .col-xs-3
-              %i.fa.fa-support.fa-5x
+              .icon-tags.icon-5x
             .col-xs-9.text-right
-              .huge 13
-              %div Support Tickets!
-        %a{:href => "#"}
-          .panel-footer
-            %span.pull-left View Details
-            %span.pull-right
-              %i.fa.fa-arrow-circle-right
-            .clearfix
+              .huge 45
+              %div 总标签数
   / /.row
   .row
     .col-lg-12
       .panel.panel-default
         .panel-heading
           %h3.panel-title
-            %i.fa.fa-bar-chart-o.fa-fw
-            Area Chart
+            .icon-bar-chart.icon-padding-5
+            访问统计
         .panel-body
           #morris-area-chart
   / /.row

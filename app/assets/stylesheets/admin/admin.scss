@@ -1,8 +1,48 @@
 #wrapper{
+  .sidebar-footer {
+    bottom: 0px;
+    clear: both;
+    display: block;
+    padding: 5px 0 0 0;
+    position: fixed;
+    width: 225px;
+    background: #222;
+    a {
+      color: #555;
+      padding: 7px 0 3px;
+      cursor: pointer;
+      text-align: center;
+      width: 33.33%;
+      font-size: 17px;
+      display: block;
+      float: left;
+      background: rgba(0, 0, 0, 0.4);
+      &:hover {
+        background: #333333;
+        text-decoration: none;
+      }
+    }
+  }
   #page-wrapper{
     padding-top: 20px;
+    #welcome-intro{
+      .active{
+        color: #333;
+      }
+      .username{
+        font-weight: bolder;
+        padding-right: 5px;
+      }
+    }
   }
   .icon-padding-5{
     padding: 5px;
+  }
+}
+@media screen and (max-width: 980px) {
+  #wrapper{
+    .hidden-small{
+      display: none;
+    }
   }
 }
