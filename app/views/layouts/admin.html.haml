@@ -22,5 +22,6 @@
     = render 'layouts/flash'
     #wrapper
       = render 'layouts/admin_menu'
-      = yield
+      #page-wrapper
+        = yield
     = javascript_include_tag 'admin/application'
