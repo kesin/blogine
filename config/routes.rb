@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   resources :tags
   resources :columns
 
+  #
+  # Admin Area
+  #
+  namespace :admin do
+    root to: "dashboard#index"
+  end
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
