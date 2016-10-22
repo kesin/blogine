@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   #
   namespace :admin do
     root to: "dashboard#index"
+    resources :posts
+    resources :comments
+    resources :columns
+    resources :tags
+    resources :pages
+    resource :settings
   end
 
   #

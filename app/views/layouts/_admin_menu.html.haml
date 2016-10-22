@@ -7,43 +7,44 @@
       %span.icon-bar
     = link_to admin_root_path, class: 'navbar-brand' do
       Blogine 后台管理
-  .nav.navbar-right.top-nav.hidden-small
-    %li
-      = link_to root_path do
-        返回博客首页
-        .fa.fa-arrow-right.icon-padding-5
+  .hidden-area
+    .nav.navbar-right.top-nav
+      %li
+        = link_to new_admin_post_path, class: 'create-blog' do
+          .fa.fa-pencil.icon-padding-5
+          发表博客
+      %li
+        = link_to root_path do
+          返回博客首页
+          .fa.fa-arrow-right.icon-padding-5
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav.side-nav
       %li.active
-        = link_to root_path do
+        = link_to admin_root_path do
           .fa.fa-dashboard.icon-padding-5
           管理首页
       %li
-        = link_to '/admin/blog' do
+        = link_to admin_posts_path do
           .fa.fa-book.icon-padding-5
           文章管理
       %li
-        = link_to '/admin/comment' do
+        = link_to admin_comments_path do
           .fa.fa-comments.icon-padding-5
           评论管理
       %li
-        = link_to '/admin/column' do
+        = link_to admin_columns_path do
           .fa.fa-columns.icon-padding-5
           分类管理
       %li
-        = link_to '/admin/tag' do
+        = link_to admin_tags_path do
           .fa.fa-tags.icon-padding-5
           标签管理
       %li
-        = link_to '/admin/pages' do
+        = link_to admin_pages_path do
           .fa.fa-list-alt.icon-padding-5
           页面管理
       %li
-        = link_to '/admin/statistic' do
-          .fa.fa-line-chart.icon-padding-5
-          访问统计
-      %li
-        = link_to '/admin/setting' do
+        = link_to admin_settings_path do
           .fa.fa-cogs.icon-padding-5
           博客设置
     .sidebar-footer.hidden-small

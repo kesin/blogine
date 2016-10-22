@@ -38,10 +38,13 @@
   .icon-padding-5{
     padding: 5px;
   }
+  .create-blog{
+    color: #3dca3d;
+  }
 }
 @media screen and (max-width: 980px) {
   #wrapper{
-    .hidden-small{
+    .hidden-area{
       display: none;
     }
   }
