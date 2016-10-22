@@ -8,19 +8,17 @@
         = post.intro
       .post-detail
         .detail-item
-          .fa.fa-clock-o
+          .fa.fa-clock-o.fa-pr5
           = post.created_at.to_formatted_s(:long)
         .detail-item
           - if post.column.present?
-            .fa.fa-columns
+            .fa.fa-columns.fa-pr5
             = post.column.name
         .detail-item
-          .fa.fa-tags
+          .fa.fa-tags.fa-pr5
           php,ruby,mysql
         - if current_user
-          .detail-item
-            = link_to 'Edit', edit_post_path(post), 'data-turbolinks' => false
-          .detail-item
-            = link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
-- if current_user
-  = link_to 'New Post', new_post_path
+          .edit-post
+            = link_to edit_admin_post_path(post) do
+              .fa.fa-edit.fa-pr5
+              编辑

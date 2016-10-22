@@ -117,10 +117,21 @@
         .detail-item{
           display: inline;
           padding-right: 12px;
-          i{
-            padding-right: 5px;
+        }
+        .edit-post{
+          display: none;
+          padding-right: 12px;
+          a {
+            color: #a8a8a8;
+            &:hover{
+              text-decoration: none;
+              color: #888888;
+            }
           }
         }
+      }
+      &:hover .edit-post{
+        display: inline;
       }
     }
   }

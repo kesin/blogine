@@ -1,5 +1,5 @@
 = javascript_include_tag 'mdeditor'
-= form_for @post, html: {onsubmit: "html_content();"} do |f|
+= form_for [:admin, @post], html: {onsubmit: "html_content();"} do |f|
   - if @post.errors.any?
     #error_explanation
       %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
