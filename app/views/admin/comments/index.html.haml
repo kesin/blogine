@@ -1,0 +1,38 @@
+%ol.breadcrumb
+  %li
+    %i.fa.fa-dashboard.fa-prl5
+    = link_to admin_root_path do
+      管理首页
+  %li.active
+    %i.fa.fa-comments.fa-prl5
+    评论管理
+#admin-comment-index
+  .table-responsive
+    %table.table.table-bordered.table-hover.table-striped
+      %thead
+        %tr
+          %th ID
+          %th 内容
+          %th 昵称
+          %th 邮箱
+          %th Target
+          %th 创建时间
+          %th 操作
+      %tbody
+        - @comments.each do |c|
+          %tr
+            %td
+              = c.id
+            %td
+              = c.html_content
+            %td
+              = c.author_name
+            %td
+              = c.author_email
+            %td
+              = c.target.name
+            %td
+              = c.created_at.strftime("%x %H:%M")
+            %td
+              .fa.fa-pencil-square.fa-prl5
+              .fa.fa-trash

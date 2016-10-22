@@ -1,0 +1,37 @@
+%ol.breadcrumb
+  %li
+    %i.fa.fa-dashboard.fa-prl5
+    = link_to admin_root_path do
+      管理首页
+  %li.active
+    %i.fa.fa-list-alt.fa-prl5
+    页面管理
+#admin-page-index
+  .table-responsive
+    %table.table.table-bordered.table-hover.table-striped
+      %thead
+        %tr
+          %th 页面Title
+          %th 路径
+          %th 评论数
+          %th 创建时间
+          %th 操作
+      %tbody
+        - @pages.each do |p|
+          %tr
+            %td
+              = link_to p.title, edit_admin_page_path(p)
+            %td
+              = p.ident
+            %td
+              = p.comments.count rescue 0
+            %td
+              = p.created_at.strftime("%x %H:%M")
+            %td
+              = link_to edit_admin_page_path(p), class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '编辑文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
+                .fa.fa-pencil-square
+              = link_to admin_page_path(p), method: :delete, class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '删除文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip', 'data-confirm' => '删除文章不可恢复，确定要删除？' do
+                .fa.fa-trash
+  %button.btn.btn-sm.btn-success
+    .fa.fa-plus.fa-pr5
+    添加页面

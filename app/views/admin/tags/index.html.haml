@@ -1,0 +1,35 @@
+%ol.breadcrumb
+  %li
+    %i.fa.fa-dashboard.fa-prl5
+    = link_to admin_root_path do
+      管理首页
+  %li.active
+    %i.fa.fa-tags.fa-prl5
+    标签管理
+#admin-tag-index
+  .table-responsive
+    %table.table.table-bordered.table-hover.table-striped
+      %thead
+        %tr
+          %th ID
+          %th 名称
+          %th 文章数
+          %th 创建时间
+          %th 操作
+      %tbody
+        - @tags.each do |t|
+          %tr
+            %td
+              = t.id
+            %td
+              = t.name
+            %td
+              = t.posts.count rescue 0
+            %td
+              = t.created_at.strftime("%x %H:%M")
+            %td
+              .fa.fa-pencil-square.fa-prl5
+              .fa.fa-trash
+  %button.btn.btn-sm.btn-success
+    .fa.fa-plus.fa-pr5
+    添加标签

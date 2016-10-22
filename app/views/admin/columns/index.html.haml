@@ -1,0 +1,38 @@
+%ol.breadcrumb
+  %li
+    %i.fa.fa-dashboard.fa-prl5
+    = link_to admin_root_path do
+      管理首页
+  %li.active
+    %i.fa.fa-columns.fa-prl5
+    分类管理
+#admin-column-index
+  .table-responsive
+    %table.table.table-bordered.table-hover.table-striped
+      %thead
+        %tr
+          %th ID
+          %th 名称
+          %th 标识符
+          %th 文章数
+          %th 创建时间
+          %th 操作
+      %tbody
+        - @columns.each do |c|
+          %tr
+            %td
+              = c.id
+            %td
+              = c.name
+            %td
+              = c.ident
+            %td
+              = c.posts_count rescue 0
+            %td
+              = c.created_at.strftime("%x %H:%M")
+            %td
+              .fa.fa-pencil-square.fa-prl5
+              .fa.fa-trash
+  %button.btn.btn-sm.btn-success
+    .fa.fa-plus.fa-pr5
+    添加分类

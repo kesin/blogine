@@ -865,18 +865,6 @@ emoji[data-emoji~=emoji] {
     height: 24px;
 }
 
-.btn {
-    border: 1px solid #ccc;
-    outline: none;
-    padding: 5px 15px;
-    cursor: pointer;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    font-size: 18px;
-    line-height: 1.4;
-}
-
 .btn-default {
     background-color: #ffffff;
 }
