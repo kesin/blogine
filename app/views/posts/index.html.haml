@@ -8,14 +8,14 @@
         = post.intro
       .post-detail
         .detail-item
-          %i.icon-time
+          .fa.fa-clock-o
           = post.created_at.to_formatted_s(:long)
         .detail-item
           - if post.column.present?
-            %i.icon-columns
+            .fa.fa-columns
             = post.column.name
         .detail-item
-          %i.icon-tags
+          .fa.fa-tags
           php,ruby,mysql
         - if current_user
           .detail-item

@@ -10,21 +10,20 @@
       - unless current_user
         = link_to '登录', login_path
     %p
-      %span.icon-weibo.icon-2x.padding-right-10
-      %span.icon-twitter.icon-2x.padding-right-10
-      %span.icon-github.icon-2x
-
+      %span.fa.fa-wechat.fa-2x.padding-right-10{style: 'font-size: 1.7em;'}
+      %span.fa.fa-twitter.fa-2x.padding-right-10
+      %span.fa.fa-github.fa-2x.padding-right-10
 
   - if current_user
     .sidebar-footer
       = link_to 'https://zoker.io/blogine', class: 'has-tooltip', 'data-original-title' => '更新日志', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
-        %span.icon-rss{'aria-hidden' => 'true'}
+        %span.fa.fa-rss{'aria-hidden' => 'true'}
       = link_to '/admin/blog/new', class: 'has-tooltip', 'data-original-title' => '发布博客', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
-        %span.icon-pencil{'aria-hidden' => 'true'}
+        %span.fa.fa-pencil{'aria-hidden' => 'true'}
       = link_to admin_root_path, class: 'has-tooltip', 'data-original-title' => '管理后台', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
-        %span.icon-cogs{'aria-hidden' => 'true'}
+        %span.fa.fa-cogs{'aria-hidden' => 'true'}
       = link_to logout_path, method: :delete, class: 'has-tooltip', 'data-original-title' => '退出登录', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
-        %span.icon-signout{'aria-hidden' => 'true'}
+        %span.fa.fa-sign-out{'aria-hidden' => 'true'}
   - else
     .panel-footer
       Powered By Blogine

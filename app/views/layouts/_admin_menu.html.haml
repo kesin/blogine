@@ -11,45 +11,45 @@
     %li
       = link_to root_path do
         返回博客首页
-        .icon-arrow-right.icon-padding-5
+        .fa.fa-arrow-right.icon-padding-5
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav.side-nav
       %li.active
         = link_to root_path do
-          .icon-dashboard.icon-padding-5
+          .fa.fa-dashboard.icon-padding-5
           管理首页
       %li
         = link_to '/admin/blog' do
-          .icon-book.icon-padding-5
+          .fa.fa-book.icon-padding-5
           文章管理
       %li
         = link_to '/admin/comment' do
-          .icon-comments.icon-padding-5
+          .fa.fa-comments.icon-padding-5
           评论管理
       %li
         = link_to '/admin/column' do
-          .icon-columns.icon-padding-5
+          .fa.fa-columns.icon-padding-5
           分类管理
       %li
         = link_to '/admin/tag' do
-          .icon-tags.icon-padding-5
+          .fa.fa-tags.icon-padding-5
           标签管理
       %li
         = link_to '/admin/pages' do
-          .icon-list-alt.icon-padding-5
+          .fa.fa-list-alt.icon-padding-5
           页面管理
       %li
         = link_to '/admin/statistic' do
-          .icon-bar-chart.icon-padding-5
+          .fa.fa-line-chart.icon-padding-5
           访问统计
       %li
         = link_to '/admin/setting' do
-          .icon-cogs.icon-padding-5
+          .fa.fa-cogs.icon-padding-5
           博客设置
     .sidebar-footer.hidden-small
       = link_to 'https://zoker.io/blogine', class: 'has-tooltip', 'data-original-title' => '更新日志', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
-        %span.icon-rss{'aria-hidden' => 'true'}
+        %span.fa.fa-rss{'aria-hidden' => 'true'}
       = link_to 'https://zoker.io/blogine#comments', class: 'has-tooltip', 'data-original-title' => '建议反馈', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
-        %span.icon-comments{'aria-hidden' => 'true'}
+        %span.fa.fa-comments{'aria-hidden' => 'true'}
       = link_to logout_path, method: :delete, class: 'has-tooltip', 'data-original-title' => '退出登录', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
-        %span.icon-signout{'aria-hidden' => 'true'}
+        %span.fa.fa-sign-out{'aria-hidden' => 'true'}
