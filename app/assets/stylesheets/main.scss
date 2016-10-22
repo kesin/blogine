@@ -44,6 +44,29 @@
         border: none;
         background-color: rgba(0,0,0,0.4);
       }
+      .sidebar-footer {
+        bottom: 0px;
+        clear: both;
+        display: block;
+        padding: 5px 0 0 0;
+        position: absolute;
+        width: 100%;
+        a {
+          color: #a8a8a8;
+          padding: 7px 0 3px;
+          cursor: pointer;
+          text-align: center;
+          width: 25%;
+          font-size: 17px;
+          display: block;
+          float: left;
+          background: rgba(0, 0, 0, 0.4);
+          &:hover {
+            background: #333333;
+            text-decoration: none;
+          }
+        }
+      }
     }
   }
   .right-bar{
@@ -100,5 +123,8 @@
         }
       }
     }
+  }
+  .padding-right-10{
+    padding-right: 10px;
   }
 }

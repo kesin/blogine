@@ -3,13 +3,28 @@
   .panel-body.text-center
     %a{:href => "/"}
       %img.panel-profile-img{:src => "http://p1.bpimg.com/567571/d9b21a15556b8b89.jpg"}/
-    %h5.panel-title Zoker - Just do IT
+    %h5.panel-title Zoker
     %p
       首页 / 分类 / 标签 / 作品 / 关于我
     %p
-      - if current_user
-        = link_to '退出', logout_path, method: :delete
-      - else
+      - unless current_user
         = link_to '登录', login_path
-  .panel-footer
-    Powered By Blogine
+    %p
+      %span.icon-weibo.icon-2x.padding-right-10
+      %span.icon-twitter.icon-2x.padding-right-10
+      %span.icon-github.icon-2x
+
+
+  - if current_user
+    .sidebar-footer
+      = link_to 'https://zoker.io/blogine', class: 'has-tooltip', 'data-original-title' => '更新日志', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
+        %span.icon-rss{'aria-hidden' => 'true'}
+      = link_to '/admin/blog/new', class: 'has-tooltip', 'data-original-title' => '发布博客', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
+        %span.icon-pencil{'aria-hidden' => 'true'}
+      = link_to admin_root_path, class: 'has-tooltip', 'data-original-title' => '管理后台', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
+        %span.icon-cogs{'aria-hidden' => 'true'}
+      = link_to logout_path, method: :delete, class: 'has-tooltip', 'data-original-title' => '退出登录', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
+        %span.icon-signout{'aria-hidden' => 'true'}
+  - else
+    .panel-footer
+      Powered By Blogine
