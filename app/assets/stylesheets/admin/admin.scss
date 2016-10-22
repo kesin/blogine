@@ -25,6 +25,7 @@
   }
   #page-wrapper{
     padding-top: 20px;
+    min-height: calc(100vh);
     #welcome-intro{
       .active{
         color: #333;
@@ -34,9 +35,16 @@
         padding-right: 5px;
       }
     }
-  }
-  .icon-padding-5{
-    padding: 5px;
+    .operation-fa-pr3{
+      padding-right: 3px;
+      color: #888;
+    }
+    #admin-post-index{
+      .view-blog{
+        margin-left: 10px;
+        color: #888;
+      }
+    }
   }
   .create-blog{
     color: #3dca3d;
@@ -46,6 +54,10 @@
   #wrapper{
     .hidden-area{
       display: none;
+    }
+    #page-wrapper{
+      padding-right: 5px;
+      padding-left: 5px;
     }
   }
 }

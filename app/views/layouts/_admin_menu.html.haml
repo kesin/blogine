@@ -11,41 +11,41 @@
     .nav.navbar-right.top-nav
       %li
         = link_to new_admin_post_path, class: 'create-blog' do
-          .fa.fa-pencil.icon-padding-5
+          .fa.fa-pencil.fa-p5
           发表博客
       %li
         = link_to root_path do
           返回博客首页
-          .fa.fa-arrow-right.icon-padding-5
+          .fa.fa-arrow-right.fa-p5
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav.side-nav
       %li.active
         = link_to admin_root_path do
-          .fa.fa-dashboard.icon-padding-5
+          .fa.fa-dashboard.fa-p5
           管理首页
       %li
         = link_to admin_posts_path do
-          .fa.fa-book.icon-padding-5
+          .fa.fa-book.fa-p5
           文章管理
       %li
         = link_to admin_comments_path do
-          .fa.fa-comments.icon-padding-5
+          .fa.fa-comments.fa-p5
           评论管理
       %li
         = link_to admin_columns_path do
-          .fa.fa-columns.icon-padding-5
+          .fa.fa-columns.fa-p5
           分类管理
       %li
         = link_to admin_tags_path do
-          .fa.fa-tags.icon-padding-5
+          .fa.fa-tags.fa-p5
           标签管理
       %li
         = link_to admin_pages_path do
-          .fa.fa-list-alt.icon-padding-5
+          .fa.fa-list-alt.fa-p5
           页面管理
       %li
         = link_to admin_settings_path do
-          .fa.fa-cogs.icon-padding-5
+          .fa.fa-cogs.fa-p5
           博客设置
     .sidebar-footer.hidden-small
       = link_to 'https://zoker.io/blogine', class: 'has-tooltip', 'data-original-title' => '更新日志', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do

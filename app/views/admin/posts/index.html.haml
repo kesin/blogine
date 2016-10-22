@@ -1,0 +1,42 @@
+%ol.breadcrumb
+  %li
+    %i.fa.fa-dashboard.fa-prl5
+    = link_to admin_root_path do
+      管理首页
+  %li.active
+    %i.fa.fa-book.fa-prl5
+    文章管理
+#admin-post-index
+  .table-responsive
+    %table.table.table-bordered.table-hover.table-striped
+      %thead
+        %tr
+          %th 文章名
+          %th 所属分类
+          %th 标签
+          %th 状态
+          %th 评论数
+          %th 创建时间
+          %th 操作
+      %tbody
+        - @posts.each do |p|
+          %tr
+            %td
+              = link_to p.title, edit_admin_post_path(p)
+              = link_to p, class: 'has-tooltip view-blog', 'data-original-title' => '查看文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip', target: '_blank' do
+                .fa.fa-eye
+            %td
+              = p.column.name
+            %td
+              %span.label.label-default rails
+            %td
+              已发布
+            %td
+              = p.comments.count rescue 0
+            %td
+              = p.created_at.strftime("%x %H:%M")
+            %td
+              = link_to edit_admin_post_path(p), class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '编辑文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
+                .fa.fa-pencil-square
+              = link_to admin_post_path(p), method: :delete, class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '删除文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip', 'data-confirm' => '删除文章不可恢复，确定要删除？' do
+                .fa.fa-trash
