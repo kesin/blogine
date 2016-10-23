@@ -37,7 +37,7 @@
           = form_for [:admin, @tag], remote: true do |f|
             %td
             %td
-              = f.text_field :name, class: 'form-control', placeholder: '如: Rails'
+              = f.text_field :name, class: 'form-control', placeholder: '如: Rails', required: true
             %td{colspan: 3}
               = f.submit '创建', class: 'btn btn-success margin-right-5'
               .btn.btn-default.cancle-tag-field
@@ -75,6 +75,10 @@
     edit_tag = $('#edit-tag-'+id)
     tag = $('#tag-'+id)
     name = edit_tag.find('#name').val()
+    if(name == ''){
+      alert('标签不能为空')
+      return
+    }
     $.ajax({
       url: '/admin/tags/update_tag',
       data: {'id': id,'tag[name]': name},

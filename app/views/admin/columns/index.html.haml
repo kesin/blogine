@@ -40,9 +40,9 @@
           = form_for [:admin, @column], remote: true do |f|
             %td
             %td
-              = f.text_field :name, class: 'form-control', placeholder: '如: Web开发'
+              = f.text_field :name, class: 'form-control', placeholder: '如: Web开发', required: true
             %td
-              = f.text_field :ident, class: 'form-control', placeholder: '如: web_dev'
+              = f.text_field :ident, class: 'form-control', placeholder: '如: web_dev', required: true
             %td{colspan: 3}
               = f.submit '创建', class: 'btn btn-success margin-right-5'
               .btn.btn-default.cancle-create-field
@@ -82,6 +82,10 @@
     column = $('#column-'+id)
     name = edit_column.find('#name').val()
     ident = edit_column.find('#ident').val()
+    if(name == '' || ident == ''){
+      alert('名称或标示符不能为空')
+      return
+    }
     $.ajax({
       url: '/admin/columns/update_column',
       data: {'id': id,'column[name]': name, 'column[ident]': ident},
