@@ -15,8 +15,9 @@
             .fa.fa-columns.fa-pr5
             = post.column.name
         .detail-item
-          .fa.fa-tags.fa-pr5
-          php,ruby,mysql
+          - if post.tags.present?
+            .fa.fa-tags.fa-pr5
+            = post.tags.pluck(:name).join(',')
         - if current_user
           .edit-post
             = link_to edit_admin_post_path(post) do

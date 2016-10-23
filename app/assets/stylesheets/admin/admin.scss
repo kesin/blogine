@@ -45,7 +45,12 @@
       }
     }
     #admin-post-index{
-
+      .tags-cell{
+        width: 20%;
+        a{
+          display: inline-block;
+        }
+      }
     }
     #admin-column-index{
       .columns-create-field{

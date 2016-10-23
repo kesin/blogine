@@ -25,8 +25,11 @@
               = link_to p.title, edit_admin_post_path(p)
             %td
               = p.column.name
-            %td
-              %span.label.label-default rails
+            %td.tags-cell
+              - p.tags.each do |t|
+                = link_to t do
+                  %span.label.label-default.label-mr5
+                    = t.name
             %td
               已发布
             %td
