@@ -44,6 +44,14 @@
         color: #888;
       }
     }
+    #admin-column-index{
+      .columns-create-field{
+        display: none;
+      }
+      .add-columns-btn{
+        display: inline;
+      }
+    }
   }
   .create-blog{
     color: #3dca3d;

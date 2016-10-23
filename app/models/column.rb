@@ -6,4 +6,8 @@ class Column < ApplicationRecord
     ident
   end
 
+  def saved?
+    id && persisted?
+  end
+
 end

@@ -18,7 +18,7 @@
     .sidebar-footer
       = link_to 'https://zoker.io/blogine', class: 'has-tooltip', 'data-original-title' => '更新日志', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
         %span.fa.fa-rss{'aria-hidden' => 'true'}
-      = link_to '/admin/blog/new', class: 'has-tooltip', 'data-original-title' => '发布博客', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
+      = link_to new_admin_post_path, class: 'has-tooltip', 'data-original-title' => '发布博客', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
         %span.fa.fa-pencil{'aria-hidden' => 'true'}
       = link_to admin_root_path, class: 'has-tooltip', 'data-original-title' => '管理后台', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
         %span.fa.fa-cogs{'aria-hidden' => 'true'}

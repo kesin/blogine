@@ -17,7 +17,7 @@
           %th 文章数
           %th 创建时间
           %th 操作
-      %tbody
+      %tbody.columns-content
         - @columns.each do |c|
           %tr
             %td
@@ -31,8 +31,29 @@
             %td
               = c.created_at.strftime("%x %H:%M")
             %td
-              .fa.fa-pencil-square.fa-prl5
-              .fa.fa-trash
-  %button.btn.btn-sm.btn-success
+              .fa.fa-pencil-square.fa-prl5.edit-column
+              .fa.fa-trash.delete-column
+        %tr.columns-create-field
+          = form_for [:admin, @column], remote: true do |f|
+            %td
+            %td
+              = f.text_field :name, class: 'form-control', placeholder: '如: Web开发'
+            %td
+              = f.text_field :ident, class: 'form-control', placeholder: '如: web_dev'
+            %td{colspan: 3}
+              = f.submit '创建', class: 'btn btn-success margin-right-5'
+              .btn.btn-default.cancle-create-field
+                取消
+  %button.btn.btn-sm.btn-success.add-columns-btn
     .fa.fa-plus.fa-pr5
     添加分类
+
+:coffee
+  $('.add-columns-btn').click ->
+    $('.add-columns-btn').hide()
+    $('.columns-create-field').show()
+    return
+  $('.cancle-create-field').click ->
+    $('.add-columns-btn').show()
+    $('.columns-create-field').hide()
+    return
