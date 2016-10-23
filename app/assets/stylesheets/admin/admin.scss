@@ -51,6 +51,12 @@
       .add-columns-btn{
         display: inline;
       }
+      .operate-column{
+        .has-tooltip{
+          color: #888;
+          cursor: pointer;
+        }
+      }
     }
   }
   .create-blog{

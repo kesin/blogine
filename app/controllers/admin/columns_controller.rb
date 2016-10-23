@@ -1,13 +1,11 @@
 class Admin::ColumnsController < Admin::ApplicationController
-  before_filter :set_column, only: [:update, :destroy]
+  before_action :set_column, only: [:destroy]
 
   def index
     @columns = Column.all
     @column = Column.new
   end
 
-  # POST /columns
-  # POST /columns.json
   def create
     @column = Column.new(column_params)
 
@@ -17,27 +15,19 @@ class Admin::ColumnsController < Admin::ApplicationController
     end
   end
 
-  # PATCH/PUT /columns/1
-  # PATCH/PUT /columns/1.json
-  def update
-    respond_to do |format|
-      if @column.update(column_params)
-        format.html { redirect_to @column, notice: 'Column was successfully updated.' }
-        format.json { render :show, status: :ok, location: @column }
-      else
-        format.html { render :edit }
-        format.json { render json: @column.errors, status: :unprocessable_entity }
-      end
+  def update_column
+    @column = Column.find_by_id(params[:id])
+    if @column.update(column_params)
+      render json: {status: 1, message: '更新成功!'}
+    else
+      render json: {status: 0, message: @column.errors}
     end
   end
 
-  # DELETE /columns/1
-  # DELETE /columns/1.json
   def destroy
-    @column.destroy
+    @column = @column.destroy
     respond_to do |format|
-      format.html { redirect_to columns_url, notice: 'Column was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js
     end
   end
 

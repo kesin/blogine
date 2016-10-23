@@ -1,0 +1,6 @@
+- if @column.destroyed?
+  :plain
+    $('#column-#{@column.id}').hide()
+- else
+  :plain
+    alert('删除失败,请稍后重试!');

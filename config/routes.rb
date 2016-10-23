@@ -15,7 +15,11 @@ Rails.application.routes.draw do
     root to: "dashboard#index"
     resources :posts
     resources :comments
-    resources :columns
+    resources :columns, except: [:update] do
+      collection do
+        put :update_column
+      end
+    end
     resources :tags
     resources :pages
     resource :settings

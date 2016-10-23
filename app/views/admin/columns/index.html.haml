@@ -19,20 +19,21 @@
           %th 操作
       %tbody.columns-content
         - @columns.each do |c|
-          %tr
-            %td
+          %tr{id: "column-#{c.id}"}
+            %td.id
               = c.id
-            %td{style:'width: 25%'}
+            %td.name{style:'width: 25%'}
               = c.name
-            %td{style:'width: 25%'}
+            %td.ident{style:'width: 25%'}
               = c.ident
             %td
               = c.posts_count rescue 0
             %td
               = c.created_at.strftime("%x %H:%M")
-            %td
-              .fa.fa-pencil-square.fa-prl5.edit-column
-              .fa.fa-trash.delete-column
+            %td.operate-column
+              .fa.fa-pencil-square.fa-prl5.has-tooltip{ 'data-original-title' => '修改此分类', 'data-placement' => 'top', 'data-toggle' => 'tooltip', onclick: "editColumn(#{c.id})"}
+              = link_to admin_column_path(c), method: :delete, remote: true, data: {confirm: '删除后，此分类下的所有文章将会无分类，确认删除？'}, class: 'has-tooltip', 'data-original-title' => '删除此分类', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
+                .fa.fa-trash
         %tr.columns-create-field
           = form_for [:admin, @column], remote: true do |f|
             %td
@@ -57,3 +58,40 @@
     $('.add-columns-btn').show()
     $('.columns-create-field').hide()
     return
+  $('#new_column').submit ->
+    $('input[type=submit]', this).attr 'disabled', 'disabled'
+    return
+
+:javascript
+  function editColumn(id){
+    column = $('#column-'+id)
+    name = column.find('.name').text()
+    ident = column.find('.ident').text()
+    html = "<tr id='edit-column-" + id + "'><td>" + id + "<input type='hidden' name='column_id' id='column_id' value='" + id + "'></td><td style='width: 25%'><input type='text' name='name' id='name' value='" + name + "' class='form-control'></td><td style='width: 25%'><input type='text' name='ident' id='ident' value='" + ident + "' class='form-control'></td><td colspan='3'><div class='btn btn-success margin-right-5' onclick='updateColumn(" + id + ")'>修改</div><div class='btn btn-default cancle-edit-field' onclick='cancleEdit(" + id + ")'>取消</div></td></tr>"
+    column.after(html)
+    column.hide()
+  }
+  function cancleEdit(id){
+    $('#edit-column-' + id).remove()
+    $('#column-'+id).show()
+  }
+  function updateColumn(id){
+    edit_column = $('#edit-column-'+id)
+    column = $('#column-'+id)
+    name = edit_column.find('#name').val()
+    ident = edit_column.find('#ident').val()
+    $.ajax({
+      url: '/admin/columns/update_column',
+      data: {'id': id,'column[name]': name, 'column[ident]': ident},
+      type: "PUT",
+      beforeSend: function(data) {
+        edit_column.find('.btn-success').append('<i class="fa fa-spinner fa-pulse fa-fw"></i>')
+      },
+      success: function(data) {
+        edit_column.remove()
+        column.find('.name').text(name)
+        column.find('.ident').text(ident)
+        column.show()
+      }
+    })
+  }
