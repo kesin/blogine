@@ -45,8 +45,6 @@
   %button.btn.btn-sm.btn-success.add-tags-btn
     .fa.fa-plus.fa-pr5
     添加标签
-  = javascript_include_tag 'admin/bootstrap-tagsinput.min'
-  = javascript_include_tag 'admin/bootstrap3-typeahead.min'
 
 :coffee
   $('.add-tags-btn').click ->
@@ -100,12 +98,3 @@
       }
     })
   }
-  var places = #{@tag_vars} ;
-  $('#tag_name').tagsinput({
-    typeahead: {
-      source: places.map(function(item) { return item }),
-      afterSelect: function() {
-          this.$element[0].value = '';
-      }
-    }
-  })

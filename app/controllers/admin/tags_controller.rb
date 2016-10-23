@@ -3,7 +3,6 @@ class Admin::TagsController < Admin::ApplicationController
 
   def index
     @tags = Tag.all
-    @tag_vars = @tags.pluck(:name)
     @tag = Tag.new
   end
 

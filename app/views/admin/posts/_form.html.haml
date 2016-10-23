@@ -29,6 +29,8 @@
     = f.select :column_id, Column.all.collect { |c| [ c.name, c.id ] }
   .actions
     = f.submit 'Save'
+= javascript_include_tag 'admin/bootstrap-tagsinput.min'
+= javascript_include_tag 'admin/bootstrap3-typeahead.min'
 
 :javascript
   $("#post_content").markdown({
@@ -43,3 +45,22 @@
   function html_content(){
     $('#post_html_content').val(marked($('#post_content').val()))
   }
+  $('form input').keydown(function (e) {
+    if (e.keyCode == 13) {
+      var inputs = $(this).parents("form").eq(0).find(":input");
+      if (inputs[inputs.index(this) + 1] != null) {
+          inputs[inputs.index(this) + 1].focus();
+      }
+      e.preventDefault();
+      return false;
+    }
+  });
+  var places = #{Tag.all.pluck(:name)} ;
+  $('#tags').tagsinput({
+    typeahead: {
+      source: places.map(function(item) { return item }),
+      afterSelect: function() {
+          this.$element[0].value = '';
+      }
+    }
+  })
