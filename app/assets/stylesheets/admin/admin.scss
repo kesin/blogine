@@ -49,6 +49,9 @@
         width: 20%;
         a{
           display: inline-block;
+          &:hover{
+            text-decoration: none;
+          }
         }
       }
     }

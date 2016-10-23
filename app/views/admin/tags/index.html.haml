@@ -24,7 +24,7 @@
             %td.name{style:'width: 25%'}
               = t.name
             %td
-              = t.posts.count rescue 0
+              = t.posts_count || 0
             %td
               = t.created_at.strftime("%x %H:%M")
             %td.operate-icons
