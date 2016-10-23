@@ -37,7 +37,7 @@
           = form_for [:admin, @tag], remote: true do |f|
             %td
             %td
-              = f.text_field :name, class: 'form-control', placeholder: '如: Rails', required: true
+              = f.text_field :name, class: 'form-control', placeholder: '输入标签，回车确认', 'data-role' => 'tagsinput'
             %td{colspan: 3}
               = f.submit '创建', class: 'btn btn-success margin-right-5'
               .btn.btn-default.cancle-tag-field
@@ -45,6 +45,7 @@
   %button.btn.btn-sm.btn-success.add-tags-btn
     .fa.fa-plus.fa-pr5
     添加标签
+  = javascript_include_tag 'admin/bootstrap-tagsinput.min'
 
 :coffee
   $('.add-tags-btn').click ->
@@ -98,3 +99,11 @@
       }
     })
   }
+  $('input').tagsinput({
+    typeaheadjs: {
+      name: 'citynames',
+      displayKey: 'name',
+      valueKey: 'name',
+      source: {name:'sdf'}
+    }
+  });
