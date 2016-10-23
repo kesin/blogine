@@ -1,0 +1,8 @@
+- if @tag.saved?
+  :plain
+    html = "<tr><td>#{@tag.id}</td><td>#{@tag.name}</td><td>0</td><td>#{@tag.created_at.strftime('%x %H:%M')}</td><td class='operate-icons'><div class='fa fa-pencil-square fa-prl5 edit-tag'></div><div class='fa fa-trash delete-tag'></div></td></tr>";
+    $('.tags-create-field').before(html)
+    $('#new_tag')[0].reset()
+- else
+  :plain
+    alert('输入有误,请稍后重试!');

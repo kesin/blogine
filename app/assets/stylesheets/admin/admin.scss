@@ -38,6 +38,12 @@
       padding-right: 3px;
       color: #888;
     }
+    .operate-icons{
+      .has-tooltip{
+        color: #888;
+        cursor: pointer;
+      }
+    }
     #admin-post-index{
       .view-blog{
         margin-left: 10px;
@@ -51,11 +57,13 @@
       .add-columns-btn{
         display: inline;
       }
-      .operate-column{
-        .has-tooltip{
-          color: #888;
-          cursor: pointer;
-        }
+    }
+    #admin-tag-index{
+      .tags-create-field{
+        display: none;
+      }
+      .add-tags-btn{
+        display: inline;
       }
     }
   }

@@ -1,6 +1,6 @@
 - if @column.saved?
   :plain
-    html = "<tr><td>#{@column.id}</td><td>#{@column.name}</td><td>#{@column.ident}</td><td>0</td><td>#{@column.created_at.strftime('%x %H:%M')}</td><td><div class='fa fa-pencil-square fa-prl5 edit-column'></div><div class='fa fa-trash delete-column'></div></td></tr>";
+    html = "<tr><td>#{@column.id}</td><td>#{@column.name}</td><td>#{@column.ident}</td><td>0</td><td>#{@column.created_at.strftime('%x %H:%M')}</td><td class='operate-icons'><div class='fa fa-pencil-square fa-prl5 edit-column'></div><div class='fa fa-trash delete-column'></div></td></tr>";
     $('.columns-create-field').before(html)
     $('#new_column')[0].reset()
 - else

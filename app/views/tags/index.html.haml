@@ -4,7 +4,6 @@
   %thead
     %tr
       %th Name
-      %th Ident
       %th Posts count
       %th
       %th
@@ -14,7 +13,6 @@
     - @tags.each do |tag|
       %tr
         %td= tag.name
-        %td= tag.ident
         %td= tag.posts_count
         %td= link_to 'Show', tag
         %td= link_to 'Edit', edit_tag_path(tag)
