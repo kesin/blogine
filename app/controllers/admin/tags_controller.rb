@@ -20,7 +20,7 @@ class Admin::TagsController < Admin::ApplicationController
   def update_tag
     @tag = Tag.find_by_id(params[:id])
     if @tag.update(tag_params)
-      render json: {status: 1, message: '更新成功!'}
+      render json: {status: 1, message: '更新成功!', data: {path: tag_path(@tag)}}
     else
       render json: {status: 0, message: @tag.errors}
     end

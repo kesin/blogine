@@ -23,8 +23,6 @@
           %tr
             %td
               = link_to p.title, edit_admin_post_path(p)
-              = link_to p, class: 'has-tooltip view-blog', 'data-original-title' => '查看文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip', target: '_blank' do
-                .fa.fa-eye
             %td
               = p.column.name
             %td
@@ -40,3 +38,5 @@
                 .fa.fa-pencil-square
               = link_to admin_post_path(p), method: :delete, class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '删除文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip', 'data-confirm' => '删除文章不可恢复，确定要删除？' do
                 .fa.fa-trash
+              = link_to p, class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '查看文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip', target: '_blank' do
+                .fa.fa-eye

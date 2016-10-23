@@ -1,6 +1,6 @@
 - if @tag.saved?
   :plain
-    html = "<tr><td>#{@tag.id}</td><td>#{@tag.name}</td><td>0</td><td>#{@tag.created_at.strftime('%x %H:%M')}</td><td class='operate-icons'><div class='fa fa-pencil-square fa-prl5 edit-tag'></div><div class='fa fa-trash delete-tag'></div></td></tr>";
+    html = "<tr id='tag-#{@tag.id}'><td>#{@tag.id}</td><td class='name'>#{@tag.name}</td><td>0</td><td>#{@tag.created_at.strftime('%x %H:%M')}</td><td class='operate-icons'><div class='fa fa-pencil-square fa-prl5 has-tooltip' data-original-title='修改此标签' data-placement='top' data-toggle='tooltip' onclick='editTag(#{@tag.id})'></div><a data-confirm='删除后不能恢复，确认删除？' class='has-tooltip' data-original-title='删除此标签' data-placement='top' data-toggle='tooltip' data-remote='true' rel='nofollow' data-method='delete' href='#{admin_tag_path(@tag)}'><div class='fa fa-trash fa-pr5'></div></a><a class='has-tooltip overview' data-original-title='查看' data-placement='top' data-toggle='tooltip' href='#{tag_path(@tag)}' target='_blank'><div class='fa fa-eye'></div></a></div></td></tr>";
     $('.tags-create-field').before(html)
     $('#new_tag')[0].reset()
 - else

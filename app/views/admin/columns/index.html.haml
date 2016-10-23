@@ -34,7 +34,7 @@
               .fa.fa-pencil-square.fa-prl5.has-tooltip{ 'data-original-title' => '修改此分类', 'data-placement' => 'top', 'data-toggle' => 'tooltip', onclick: "editColumn(#{c.id})"}
               = link_to admin_column_path(c), method: :delete, remote: true, data: {confirm: '删除后，此分类下的所有文章将会无分类，确认删除？'}, class: 'has-tooltip', 'data-original-title' => '删除此分类', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
                 .fa.fa-trash.fa-pr5
-              = link_to c, class:'has-tooltip', 'data-original-title' => '查看', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
+              = link_to c, class:'has-tooltip overview', 'data-original-title' => '查看', 'data-placement' => 'top', 'data-toggle' => 'tooltip', target: '_blank' do
                 .fa.fa-eye
         %tr.columns-create-field
           = form_for [:admin, @column], remote: true do |f|
@@ -90,10 +90,15 @@
         edit_column.find('.btn-success').append('<i class="fa fa-spinner fa-pulse fa-fw"></i>')
       },
       success: function(data) {
-        edit_column.remove()
-        column.find('.name').text(name)
-        column.find('.ident').text(ident)
-        column.show()
+        if(data.status == '1'){
+          column.find('.overview').attr('href', data.data.path)
+          edit_column.remove()
+          column.find('.name').text(name)
+          column.find('.ident').text(ident)
+          column.show()
+        }else{
+          alert(data.message)
+        }
       }
     })
   }

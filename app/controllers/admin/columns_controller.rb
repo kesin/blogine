@@ -18,7 +18,7 @@ class Admin::ColumnsController < Admin::ApplicationController
   def update_column
     @column = Column.find_by_id(params[:id])
     if @column.update(column_params)
-      render json: {status: 1, message: '更新成功!'}
+      render json: {status: 1, message: '更新成功!', data: {path: column_path(@column)}}
     else
       render json: {status: 0, message: @column.errors}
     end
