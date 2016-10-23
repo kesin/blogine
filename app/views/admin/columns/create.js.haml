@@ -1,9 +1,7 @@
 - if @column.saved?
   :plain
     html = "<tr><td>#{@column.id}</td><td>#{@column.name}</td><td>#{@column.ident}</td><td>0</td><td>#{@column.created_at.strftime('%x %H:%M')}</td><td><div class='fa fa-pencil-square fa-prl5 edit-column'></div><div class='fa fa-trash delete-column'></div></td></tr>";
-    $('.add-columns-btn').show()
-    $('.columns-create-field').hide()
-    $('.columns-content').append(html)
+    $('.columns-create-field').before(html)
 - else
   :plain
     alert('输入有误,请稍后重试!');
