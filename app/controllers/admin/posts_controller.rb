@@ -9,6 +9,7 @@ class Admin::PostsController < Admin::ApplicationController
   end
 
   def edit
+    @tags_str = @post.tags.pluck(:name).join(',')
   end
 
   def create
@@ -16,6 +17,20 @@ class Admin::PostsController < Admin::ApplicationController
 
     respond_to do |format|
       if @post.save
+        if params[:tags].present?
+          # find out exist tags and create refs
+          tag_names = params[:tags].split(',')
+          tags = Tag.where(name: tag_names)
+          exist_tags_id = tags.map{|t|{tag_id: t.id}}
+          @post.post_tag_refs.create(exist_tags_id)
+
+          # get tags not exist and create with post
+          exist_tags = tags.map{|t|t.name}
+          unexist_tags = tag_names - exist_tags
+          unexist_tags.each do |t|
+            @post.tags.create(name: t)
+          end
+        end
         format.html { redirect_to admin_posts_path, notice: '创建成功！' }
         format.json { render :show, status: :created, location: @post }
       else
@@ -28,6 +43,26 @@ class Admin::PostsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+        if params[:tags].present?
+          tag_names = params[:tags].split(',')
+          tags = Tag.where(name: tag_names)
+          post_tags = @post.tags
+
+          # find out tags already delete from post and delete refs
+          delete_refs_tag_id = (post_tags - tags).pluck(:id)
+          @post.post_tag_refs.where(tag_id: delete_refs_tag_id).destroy_all
+
+          # find out tags not exist and create with post
+          exist_tags_name = tags.map{|t|t.name}
+          unexist_tags_name = (tag_names - exist_tags_name).map{|t|{name: t}}
+          @post.tags.create(unexist_tags_name)
+
+          # find out tags exists but not associate to create assocition
+          ready_ids = (tags - post_tags).map{|t|{tag_id: t.id}}
+          @post.post_tag_refs.create(ready_ids)
+        else
+          @post.post_tag_refs.destroy_all
+        end
         format.html { redirect_to admin_posts_path, notice: '更新成功！' }
         format.json { render :show, status: :ok, location: @post }
       else

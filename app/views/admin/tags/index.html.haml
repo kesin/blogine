@@ -37,7 +37,7 @@
           = form_for [:admin, @tag], remote: true do |f|
             %td
             %td
-              = f.text_field :name, class: 'form-control', placeholder: '输入标签，回车确认'
+              = f.text_field :name, class: 'form-control', placeholder: '请输入标签'
             %td{colspan: 3}
               = f.submit '创建', class: 'btn btn-success margin-right-5'
               .btn.btn-default.cancle-tag-field

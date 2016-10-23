@@ -23,7 +23,7 @@
     = f.hidden_field :html_content
   .field
     %label Tags
-    = text_field_tag :tags
+    = text_field_tag :tags, @tags_str, placeholder: '输入标签，回车确认'
   .field
     = f.label :column_id
     = f.select :column_id, Column.all.collect { |c| [ c.name, c.id ] }
@@ -45,15 +45,12 @@
   function html_content(){
     $('#post_html_content').val(marked($('#post_content').val()))
   }
-  $('form input').keydown(function (e) {
-    if (e.keyCode == 13) {
-      var inputs = $(this).parents("form").eq(0).find(":input");
-      if (inputs[inputs.index(this) + 1] != null) {
-          inputs[inputs.index(this) + 1].focus();
+  $(document).ready(function() {
+    $("form").bind("keypress", function(e) {
+      if (e.keyCode == 13) {
+          return false;
       }
-      e.preventDefault();
-      return false;
-    }
+    });
   });
   var places = #{Tag.all.pluck(:name)} ;
   $('#tags').tagsinput({
