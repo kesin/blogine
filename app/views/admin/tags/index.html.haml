@@ -18,10 +18,10 @@
           %th 操作
       %tbody
         - @tags.each do |t|
-          %tr
-            %td
+          %tr{id: "tag-#{t.id}"}
+            %td.id
               = t.id
-            %td{style:'width: 25%'}
+            %td.name{style:'width: 25%'}
               = t.name
             %td
               = t.posts.count rescue 0
@@ -30,7 +30,9 @@
             %td.operate-icons
               .fa.fa-pencil-square.fa-prl5.has-tooltip{ 'data-original-title' => '修改此标签', 'data-placement' => 'top', 'data-toggle' => 'tooltip', onclick: "editTag(#{t.id})"}
               = link_to admin_tag_path(t), method: :delete, remote: true, data: {confirm: '删除后，有此标签的文章将无此标签，确认删除？'}, class: 'has-tooltip', 'data-original-title' => '删除此标签', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
-                .fa.fa-trash
+                .fa.fa-trash.fa-pr5
+              = link_to t, class:'has-tooltip', 'data-original-title' => '查看', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
+                .fa.fa-eye
         %tr.tags-create-field
           = form_for [:admin, @tag], remote: true do |f|
             %td
@@ -56,3 +58,34 @@
   $('#new_tag').submit ->
     $('input[type=submit]', this).attr 'disabled', 'disabled'
     return
+
+:javascript
+  function editTag(id){
+    tag = $('#tag-'+id)
+    name = tag.find('.name').text()
+    html = "<tr id='edit-tag-" + id + "'><td>" + id + "<input type='hidden' name='tag_id' id='tag_id' value='" + id + "'></td><td style='width: 25%'><input type='text' name='name' id='name' value='" + name + "' class='form-control'></td><td colspan='3'><div class='btn btn-success margin-right-5' onclick='updateTag(" + id + ")'>修改</div><div class='btn btn-default cancle-edit-field' onclick='cancleEdit(" + id + ")'>取消</div></td></tr>"
+    tag.after(html)
+    tag.hide()
+  }
+  function cancleEdit(id){
+    $('#edit-tag-' + id).remove()
+    $('#tag-'+id).show()
+  }
+  function updateTag(id){
+    edit_tag = $('#edit-tag-'+id)
+    tag = $('#tag-'+id)
+    name = edit_tag.find('#name').val()
+    $.ajax({
+      url: '/admin/tags/update_tag',
+      data: {'id': id,'tag[name]': name},
+      type: "PUT",
+      beforeSend: function(data) {
+        edit_tag.find('.btn-success').append('<i class="fa fa-spinner fa-pulse fa-fw"></i>')
+      },
+      success: function(data) {
+        edit_tag.remove()
+        tag.find('.name').text(name)
+        tag.show()
+      }
+    })
+  }

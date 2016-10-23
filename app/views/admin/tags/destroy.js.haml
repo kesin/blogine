@@ -1,0 +1,6 @@
+- if @tag.destroyed?
+  :plain
+    $('#tag-#{@tag.id}').hide()
+- else
+  :plain
+    alert('删除失败,请稍后重试!');

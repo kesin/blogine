@@ -1,5 +1,5 @@
 class Admin::TagsController < Admin::ApplicationController
-  before_action :set_tag, only: [:update, :destroy]
+  before_action :set_tag, only: [:destroy]
 
   def index
     @tags = Tag.all
@@ -17,23 +17,19 @@ class Admin::TagsController < Admin::ApplicationController
     end
   end
 
-  def update
-    respond_to do |format|
-      if @tag.update(tag_params)
-        format.html { redirect_to @tag, notice: 'Tag was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tag }
-      else
-        format.html { render :edit }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
-      end
+  def update_tag
+    @tag = Tag.find_by_id(params[:id])
+    if @tag.update(tag_params)
+      render json: {status: 1, message: '更新成功!'}
+    else
+      render json: {status: 0, message: @tag.errors}
     end
   end
 
   def destroy
-    @tag.destroy
+    @tag = @tag.destroy
     respond_to do |format|
-      format.html { redirect_to tags_url, notice: 'Tag was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js
     end
   end
 

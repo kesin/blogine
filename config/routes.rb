@@ -20,7 +20,11 @@ Rails.application.routes.draw do
         put :update_column
       end
     end
-    resources :tags
+    resources :tags, except: [:update] do
+      collection do
+        put :update_tag
+      end
+    end
     resources :pages
     resource :settings
   end
