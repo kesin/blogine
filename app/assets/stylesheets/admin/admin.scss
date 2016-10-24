@@ -71,6 +71,16 @@
         display: inline;
       }
     }
+    #admin-comment-index{
+      .verfy-button{
+        display: inline;
+      }
+      .operation{
+        a:hover{
+          text-decoration: none;
+        }
+      }
+    }
     .bootstrap-tagsinput{
       width: 100%;
       input{

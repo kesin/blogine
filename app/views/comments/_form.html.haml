@@ -1,15 +1,9 @@
 - @comment = Comment.new
-= form_for [post, @comment] do |f|
-  - if @comment.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@comment.errors.count, "error")} prohibited this comment from being saved:"
-      %ul
-        - @comment.errors.full_messages.each do |msg|
-          %li= msg
-
+= form_for [post, @comment], html: {onsubmit: "html_content();"}  do |f|
   .field
     = f.label :content
     = f.text_area :content
+    = f.hidden_field :html_content
   .field
     = f.label :creator_name
     = f.text_field :creator_name
@@ -21,3 +15,8 @@
     = f.text_field :creator_site
   .actions
     = f.submit 'Save'
+
+:javascript
+  function html_content(){
+    $('#comment_html_content').val($('#comment_content').val())
+  }

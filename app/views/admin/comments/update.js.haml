@@ -1,0 +1,5 @@
+:plain
+  comment = $('#comment-#{@comment.id}')
+  comment.find('.status').text('#{@comment.verified? ? '已通过':'未通过'}')
+  html = "<a data-remote='true' rel='nofollow' data-method='put' href='/admin/comments/#{@comment.id}?status=#{@comment.verified? ? '0':'1'}'><div class='label label-#{@comment.verified? ? 'default':'success'} label-mr5'>#{@comment.verified? ? '撤回':'通过'}</div></a>"
+  comment.find('.verfy-button').html(html)
