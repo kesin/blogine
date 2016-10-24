@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Content:
+  = @comment.content
+%p
+  %b Html content:
+  = @comment.html_content
+%p
+  %b Creator name:
+  = @comment.creator_name
+%p
+  %b Creator email:
+  = @comment.creator_email
+%p
+  %b Creator site:
+  = @comment.creator_site
+%p
+  %b Post:
+  = @comment.post_id
+%p
+  %b Status:
+  = @comment.status
+
+= link_to 'Edit', edit_comment_path(@comment)
+\|
+= link_to 'Back', comments_path

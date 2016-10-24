@@ -1,0 +1,33 @@
+%h1 Listing comments
+
+%table
+  %thead
+    %tr
+      %th Content
+      %th Html content
+      %th Creator name
+      %th Creator email
+      %th Creator site
+      %th Post
+      %th Status
+      %th
+      %th
+      %th
+
+  %tbody
+    - @comments.each do |comment|
+      %tr
+        %td= comment.content
+        %td= comment.html_content
+        %td= comment.creator_name
+        %td= comment.creator_email
+        %td= comment.creator_site
+        %td= comment.post_id
+        %td= comment.status
+        %td= link_to 'Show', comment
+        %td= link_to 'Edit', edit_comment_path(comment)
+        %td= link_to 'Destroy', comment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Comment', new_comment_path
