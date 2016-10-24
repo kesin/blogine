@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   #
   # Blog Area
   #
-  resources :posts, path: :blog, except: [:index]
+  resources :posts, path: :blog, except: [:index] do
+    resources :comments, only: [:create]
+  end
   resources :tags
   resources :columns
 

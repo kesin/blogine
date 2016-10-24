@@ -1,4 +1,5 @@
-= form_for @comment do |f|
+- @comment = Comment.new
+= form_for [post, @comment] do |f|
   - if @comment.errors.any?
     #error_explanation
       %h2= "#{pluralize(@comment.errors.count, "error")} prohibited this comment from being saved:"
@@ -10,9 +11,6 @@
     = f.label :content
     = f.text_area :content
   .field
-    = f.label :html_content
-    = f.text_area :html_content
-  .field
     = f.label :creator_name
     = f.text_field :creator_name
   .field
@@ -21,11 +19,5 @@
   .field
     = f.label :creator_site
     = f.text_field :creator_site
-  .field
-    = f.label :post_id
-    = f.number_field :post_id
-  .field
-    = f.label :status
-    = f.number_field :status
   .actions
     = f.submit 'Save'

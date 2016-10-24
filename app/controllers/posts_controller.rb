@@ -6,5 +6,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by_ident(params[:id])
+    @comments = @post.comments
   end
 end

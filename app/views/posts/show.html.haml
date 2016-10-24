@@ -14,3 +14,17 @@
 = link_to 'Edit', edit_post_path(@post), 'data-turbolinks' => false
 \|
 = link_to 'Back', root_path
+
+%h2 评论
+
+- @comments.each do |c|
+  %p
+    = raw c.content
+    \---
+    = c.creator_name
+    \---
+    = c.creator_email
+    \---
+    = c.creator_site
+
+= render 'comments/form', post: @post
