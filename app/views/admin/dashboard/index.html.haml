@@ -19,7 +19,8 @@
             .col-xs-3
               .fa.fa-book.fa-5x
             .col-xs-9.text-right
-              .huge 26
+              .huge
+                = Post.all.size
               %div 总文章数
     .col-lg-3.col-md-6
       .panel.panel-green
@@ -28,7 +29,8 @@
             .col-xs-3
               .fa.fa-comments.fa-5x
             .col-xs-9.text-right
-              .huge 12
+              .huge
+                = Comment.all.size
               %div 总评论数
     .col-lg-3.col-md-6
       .panel.panel-yellow
@@ -37,7 +39,8 @@
             .col-xs-3
               .fa.fa-columns.fa-5x
             .col-xs-9.text-right
-              .huge 6
+              .huge
+                = Column.all.size
               %div 总分类数
     .col-lg-3.col-md-6
       .panel.panel-red
@@ -46,7 +49,8 @@
             .col-xs-3
               .fa.fa-tags.fa-5x
             .col-xs-9.text-right
-              .huge 45
+              .huge
+                = Tag.all.size
               %div 总标签数
   / /.row
   .row

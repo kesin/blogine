@@ -17,6 +17,7 @@
           %th 邮箱
           %th Target
           %th 创建时间
+          %th 状态
           %th 操作
       %tbody
         - @comments.each do |c|
@@ -24,15 +25,25 @@
             %td
               = c.id
             %td
-              = c.html_content
+              = c.content
             %td
-              = c.author_name
+              = c.creator_name
             %td
-              = c.author_email
+              = c.creator_email
             %td
-              = c.target.name
+              = c.post.title
             %td
               = c.created_at.strftime("%x %H:%M")
             %td
-              .fa.fa-pencil-square.fa-prl5
-              .fa.fa-trash
+              - if c.verified?
+                已通过
+              - else
+                未通过
+            %td
+              - unless c.verified?
+                .label.label-success.label-mr5
+                  通过
+              .label.label-warning.label-mr5
+                回复
+              .label.label-danger.label-mr5
+                删除

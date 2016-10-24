@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "dashboard#index"
     resources :posts
-    resources :comments
+    resources :comments, only: [:index, :create, :update, :destroy]
     resources :columns, except: [:update] do
       collection do
         put :update_column
