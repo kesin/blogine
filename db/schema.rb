@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161219153224) do
+ActiveRecord::Schema.define(version: 20161220045607) do
 
   create_table "columns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -21,15 +21,16 @@ ActiveRecord::Schema.define(version: 20161219153224) do
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "content",       limit: 65535
-    t.text     "html_content",  limit: 65535
+    t.text     "content",          limit: 65535
+    t.text     "html_content",     limit: 65535
     t.string   "creator_name"
     t.string   "creator_email"
     t.string   "creator_site"
-    t.integer  "post_id"
-    t.integer  "status",                      default: 0
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.integer  "commentable_id"
+    t.integer  "status",                         default: 0
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "commentable_type"
   end
 
   create_table "post_tag_refs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -1,14 +1,19 @@
 class CommentsController < ApplicationController
 
   def create
-    @post = Post.find_by_ident(params[:post_id])
-    @comment = @post.comments.new(comment_params)
+    if params[:post_id].present?
+      @target = Post.find_by_ident(params[:post_id])
+    elsif params[:page_id].present?
+      @target = Page.find_by_ident(params[:page_id])
+    end
+      @comment = @target.comments.new(comment_params)
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @post, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @target, notice: 'Comment was successfully created.' }
       else
-        format.html { redirect_to @post, notice: 'Create comment failed.' }
+        Rails.logger.info @comment.errors.full_messages
+        format.html { redirect_to @target, notice: 'Create comment failed.' }
       end
     end
   end

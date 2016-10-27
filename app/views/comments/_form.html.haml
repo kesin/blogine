@@ -1,5 +1,5 @@
 - @comment = Comment.new
-= form_for [post, @comment], html: {onsubmit: "html_content();"}  do |f|
+= form_for [target, @comment], html: {onsubmit: "html_content();"}  do |f|
   .field
     = f.label :content
     = f.text_area :content
