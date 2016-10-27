@@ -40,4 +40,11 @@ Rails.application.routes.draw do
 
   root to: 'posts#index'
 
+  #
+  # Page Area
+  #
+  resources :pages, only: [:show], path: "/" do
+    resources :comments, only: [:create]
+  end
+
 end

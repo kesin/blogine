@@ -24,7 +24,7 @@
             %td
               = link_to p.title, edit_admin_post_path(p)
             %td
-              = p.column.name
+              = p.column.name rescue '无'
             %td.tags-cell
               - p.tags.each do |t|
                 = link_to t do

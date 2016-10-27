@@ -1,18 +1,13 @@
 %p#notice= notice
 
 %h2
-  = @post.title
+  = @page.title
 .markdown-body
-  = raw @post.html_content
-%p
-  %b Column:
-  = @post.column.name rescue '无'
+  = raw @page.html_content
 %p
   %b Created_at
-  = @post.created_at
+  = @page.created_at
 
-= link_to 'Edit', edit_post_path(@post), 'data-turbolinks' => false
-\|
 = link_to 'Back', root_path
 
 %h2#comments 评论
@@ -27,4 +22,4 @@
     \---
     = c.creator_site
 
-= render 'comments/form', post: @post
+= render 'comments/form', post: @page
