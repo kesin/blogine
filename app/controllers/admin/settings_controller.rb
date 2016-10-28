@@ -3,7 +3,7 @@ class Admin::SettingsController < Admin::ApplicationController
   end
 
   def create
-    file = "#{Rails.root}/config/config.yml"
+    file = "#{Rails.root}/config/blogine.yml"
     config = YAML.load_file(file)
     config['production']['blogine']['site_name'] = params[:site_name] if params[:site_name].present?
     File.open(file,'w') do |h|

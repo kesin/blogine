@@ -22,7 +22,7 @@ nohup.out
 Vagrantfile
 .vagrant
 config/database.yml
-config/config.yml
+config/blogine.yml
 config/unicorn.rb
 config/puma.rb
 db/data.yml

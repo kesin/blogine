@@ -1,12 +1,9 @@
 production: &base
   blogine:
     site_name: 'Blogine'
-
 development:
   <<: *base
-
 test:
   <<: *base
-
 staging:
   <<: *base
