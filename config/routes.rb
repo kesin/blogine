@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       end
     end
     resources :pages
-    resource :settings
+    resource :settings, only: [:show, :create]
   end
 
   #

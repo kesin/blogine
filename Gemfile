@@ -30,6 +30,9 @@ gem 'html2haml'
 # annotate model
 gem 'annotate'
 
+# settings
+gem 'settingslogic'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 
