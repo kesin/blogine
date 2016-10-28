@@ -6,8 +6,14 @@
   %li.active
     %i.fa.fa-cogs.fa-prl5
     博客设置
-
-= form_for admin_settings_path do
-  = label_tag :site_name, '博客名'
-  = text_field_tag :site_name, Settings.blogine.site_name
-  = button_tag 'submit'
+#admin-setting-index
+  .alert.alert-info
+    设置是操作
+    %code
+      config/blogine.yml
+    配置文件进行改动，你也可以自行修改这个文件进行配置，但手动更改配置文件记得重启应用哦。
+  = form_for admin_settings_path do
+    .form-group
+      = label_tag :site_name, '博客名'
+      = text_field_tag :site_name, Settings.blogine.site_name, class: 'form-control'
+    = button_tag '保存设置', class: 'btn btn-success'

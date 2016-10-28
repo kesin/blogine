@@ -9,7 +9,7 @@ class Admin::SettingsController < Admin::ApplicationController
     File.open(file,'w') do |h|
       h.write config.to_yaml
     end
-    Settings.reload!
+    Settings.reload! # reload config without restart app
     redirect_to admin_settings_path, notice: 'update settings success'
   end
 end

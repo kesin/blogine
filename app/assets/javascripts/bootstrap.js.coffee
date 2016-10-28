@@ -3,11 +3,19 @@ jQuery ->
   $("a[rel~=tooltip], .has-tooltip").tooltip()
 
 # Flash
-$(document).ready ->
-  if (flash = $("#blogine_alert")).length > 0
-    flash.click -> $(@).fadeOut()
-    flash.show()
-    if flash_time?
-      setTimeout (-> flash.fadeOut()), flash_time
-    else
-      setTimeout (-> flash.fadeOut()), 3000
+window.notifyTop = (message, type) ->
+  $.notify { message: message },
+    element: 'body'
+    type: type
+    placement:
+      from: 'top'
+      align: 'center'
+    offset: 8
+    spacing: 10
+    z_index: 1031
+    delay: 2500
+    timer: 200
+    animate:
+      enter: 'animated fadeInDown'
+      exit: 'animated fadeOutUp'
+  return

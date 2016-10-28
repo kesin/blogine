@@ -50,8 +50,8 @@
                   = link_to admin_comment_path(c, {status: 1}), method: :put, remote: true do
                     .label.label-success.label-mr5
                       通过
-              .label.label-warning.label-mr5
-                回复
+              -#.label.label-warning.label-mr5
+              -#  回复
               = link_to admin_comment_path(c), method: :delete, remote: true, data: {confirm: '确认删除此评论?'} do
                 .label.label-danger.label-mr5
                   删除
