@@ -35,6 +35,8 @@
                 .fa.fa-pencil-square
               = link_to admin_page_path(p), method: :delete, class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '删除文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip', 'data-confirm' => '删除文章不可恢复，确定要删除？' do
                 .fa.fa-trash
+              = link_to p, class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '查看页面', 'data-placement' => 'top', 'data-toggle' => 'tooltip', target: '_blank' do
+                .fa.fa-eye
   = link_to new_admin_page_path , class: 'btn btn-sm btn-success' do
     .fa.fa-plus.fa-pr5
     添加页面

@@ -22,13 +22,14 @@
     = f.text_area :content
     = f.hidden_field :html_content
   .field
-    %label Tags
-    = text_field_tag :tags, @tags_str, placeholder: '输入标签，回车确认'
-  .field
     = f.label :column_id
     = f.select :column_id, Column.all.collect { |c| [ c.name, c.id ] }
-  .actions
-    = f.submit 'Save'
+    = hidden_field_tag :post_tags
+.field
+  %label Tags
+  = text_field_tag :tags, @tags_str, placeholder: '输入标签，回车确认'
+= button_tag 'save', id: :submit_form
+
 = javascript_include_tag 'admin/bootstrap-tagsinput.min'
 = javascript_include_tag 'admin/bootstrap3-typeahead.min'
 
@@ -45,8 +46,12 @@
   function html_content(){
     $('#post_html_content').val(marked($('#post_content').val()))
   }
+  $('#submit_form').click(function(){
+    $('#post_tags').val($('#tags').val())
+    $('form').submit()
+  })
   $(document).ready(function() {
-    $("form").bind("keypress", function(e) {
+    $("form input[name*='post']").bind("keypress", function(e) {
       if (e.keyCode == 13) {
           return false;
       }

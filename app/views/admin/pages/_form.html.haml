@@ -36,10 +36,3 @@
   function html_content(){
     $('#page_html_content').val(marked($('#page_content').val()))
   }
-  $(document).ready(function() {
-    $("form").bind("keypress", function(e) {
-      if (e.keyCode == 13) {
-          return false;
-      }
-    });
-  });

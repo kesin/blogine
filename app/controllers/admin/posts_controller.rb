@@ -17,9 +17,9 @@ class Admin::PostsController < Admin::ApplicationController
 
     respond_to do |format|
       if @post.save
-        if params[:tags].present?
+        if params[:post_tags].present?
           # find out exist tags and create refs
-          tag_names = params[:tags].split(',')
+          tag_names = params[:post_tags].split(',')
           tags = Tag.where(name: tag_names)
           exist_tags_id = tags.map{|t|{tag_id: t.id}}
           @post.post_tag_refs.create(exist_tags_id)
@@ -43,8 +43,8 @@ class Admin::PostsController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        if params[:tags].present?
-          tag_names = params[:tags].split(',')
+        if params[:post_tags].present?
+          tag_names = params[:post_tags].split(',')
           tags = Tag.where(name: tag_names)
           post_tags = @post.tags
 
