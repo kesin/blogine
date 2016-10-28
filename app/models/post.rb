@@ -8,7 +8,6 @@ class Post < ApplicationRecord
   validates :ident, uniqueness: true, presence: true, length: {within: 0..255},
             format: {with: IDENT_REGEX,
                      message: "只允许字母、数字或者下划线(_)、中划线(-)、必须以字母开头"}
-  default_scope { where(type: nil) }
 
   def to_param
     ident

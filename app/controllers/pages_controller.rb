@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   def show
-    @page = Page.find_by_ident(params[:id])
-    @comments = @page.comments.verified
+    @page = Page.find_by_path(params[:id])
   end
 end

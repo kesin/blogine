@@ -31,8 +31,8 @@
             %td
               = c.creator_email
             %td
-              = link_to "#{post_path(c.post)}#comments" , target: '_blank' do
-                = c.post.title
+              = link_to "#{post_path(c.commentable)}#comments" , target: '_blank' do
+                = c.commentable.title
             %td
               = c.created_at.strftime("%x %H:%M")
             %td.status
