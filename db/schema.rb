@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220121158) do
+ActiveRecord::Schema.define(version: 20161220132434) do
 
   create_table "columns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -34,13 +34,14 @@ ActiveRecord::Schema.define(version: 20161220121158) do
   end
 
   create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "title",                      null: false
-    t.string   "path",                       null: false
-    t.text     "content",      limit: 65535
-    t.text     "html_content", limit: 65535
-    t.integer  "status"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "title",                                    null: false
+    t.string   "path",                                     null: false
+    t.text     "content",        limit: 65535
+    t.text     "html_content",   limit: 65535
+    t.integer  "status",                       default: 0
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "comments_count",               default: 0
   end
 
   create_table "post_tag_refs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

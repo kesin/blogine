@@ -1,0 +1,16 @@
+%ol.breadcrumb
+  %li
+    %i.fa.fa-dashboard.fa-prl5
+    = link_to admin_root_path do
+      管理首页
+  %li
+    %i.fa.fa-list-alt.fa-prl5
+    = link_to admin_pages_path do
+      页面管理
+  %li.active
+    %i.fa.fa-pencil.fa-prl5
+    修改页面
+
+= render 'form'
+
+= link_to 'Back', admin_pages_path

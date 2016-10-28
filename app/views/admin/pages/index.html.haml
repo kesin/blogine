@@ -15,6 +15,7 @@
           %th 路径
           %th 评论数
           %th 创建时间
+          %th 状态
           %th 操作
       %tbody
         - @pages.each do |p|
@@ -22,16 +23,18 @@
             %td
               = link_to p.title, edit_admin_page_path(p)
             %td
-              = p.ident
+              = p.path
             %td
-              = p.comments.count rescue 0
+              = p.comments_count
             %td
               = p.created_at.strftime("%x %H:%M")
+            %td
+              已发布
             %td
               = link_to edit_admin_page_path(p), class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '编辑文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
                 .fa.fa-pencil-square
               = link_to admin_page_path(p), method: :delete, class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '删除文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip', 'data-confirm' => '删除文章不可恢复，确定要删除？' do
                 .fa.fa-trash
-  %button.btn.btn-sm.btn-success
+  = link_to new_admin_page_path , class: 'btn btn-sm btn-success' do
     .fa.fa-plus.fa-pr5
     添加页面

@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
     return redirect_to login_path, alert: '请登录后进行操作。' unless current_user
   end
 
+  def render_404
+    render file: Rails.root.join("public", "404.html"), layout: false, status: "404"
+  end
+
 end

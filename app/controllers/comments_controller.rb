@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     if params[:post_id].present?
       @target = Post.find_by_ident(params[:post_id])
     elsif params[:page_id].present?
-      @target = Page.find_by_ident(params[:page_id])
+      @target = Page.find_by_path(params[:page_id])
     end
       @comment = @target.comments.new(comment_params)
 
