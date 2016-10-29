@@ -7,7 +7,9 @@ class Admin::SettingsController < Admin::ApplicationController
     config = YAML.load_file(file)
     blogine = config['production']['blogine']
     blogine['site_name'] = params[:site_name] if params[:site_name].present?
-    blogine['domain'] = params[:domain] if params[:domain].present?
+    blogine['host'] = params[:host] if params[:host].present?
+    blogine['description'] = params[:description] if params[:description].present?
+    blogine['keywords'] = params[:keywords] if params[:keywords].present?
     config['production']['blogine'] = blogine
     File.open(file,'w') do |h|
       h.write config.to_yaml

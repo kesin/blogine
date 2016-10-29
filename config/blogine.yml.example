@@ -1,10 +1,13 @@
-production: &base
-  blogine:
+---
+production:
+  blogine: &1
     site_name: Blogine
     host: zoker.io
+    description: Zoker 的个人博客，积累、提升、沉淀。
+    keywords: ruby,rails,linux,git,javascript,css,nginx,zabbix,gitlab,drbd,heartbeat
 development:
-  <<: *base
+  blogine: *1
 test:
-  <<: *base
+  blogine: *1
 staging:
-  <<: *base
+  blogine: *1
