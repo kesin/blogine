@@ -1,6 +1,7 @@
 production: &base
   blogine:
-    site_name: 'Blogine'
+    site_name: Blogine
+    host: zoker.io
 development:
   <<: *base
 test:

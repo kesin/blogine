@@ -7,28 +7,28 @@
         - @post.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :ident
-    = f.text_field :ident
-  .field
-    = f.label :intro
-    = f.text_field :intro
-  .field
-    = f.label :content
+  .form-group
+    = f.label :title, '博客标题'
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :ident, '博客路径'
+    = f.text_field :ident, class: 'form-control'
+  .form-group
+    = f.label :intro, '博客摘要'
+    = f.text_area :intro, class: 'form-control', placeholder: '对博客内容的简要概述，用于显示在博客列表'
+  .form-group
+    = f.label :content, '博客内容'
     -# a bug around haml whitespace, I have find some solutions: https://github.com/haml/haml/issues/643#issuecomment-255546050
     = f.text_area :content
     = f.hidden_field :html_content
-  .field
-    = f.label :column_id
-    = f.select :column_id, Column.all.collect { |c| [ c.name, c.id ] }
+  .form-group
+    = f.label :column_id, '选择分类'
+    = f.select :column_id, Column.all.collect { |c| [ c.name, c.id ] }, {}, class: 'form-control'
     = hidden_field_tag :post_tags
-.field
-  %label Tags
+.form-group
+  %label 选择标签
   = text_field_tag :tags, @tags_str, placeholder: '输入标签，回车确认'
-= button_tag 'save', id: :submit_form
+= button_tag 'save', id: :submit_form, class: 'btn btn-success'
 
 = javascript_include_tag 'admin/bootstrap-tagsinput.min'
 = javascript_include_tag 'admin/bootstrap3-typeahead.min'

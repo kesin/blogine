@@ -7,19 +7,21 @@
         - @page.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :path
-    = f.text_field :path
-  .field
-    = f.label :content
+  .form-group
+    = f.label :title, '页面标题'
+    = f.text_field :title, class: 'form-control'
+  .form-group
+    = f.label :path, '页面路径'
+    .input-group
+      %span.input-group-addon
+        https://#{Settings.blogine.host}/
+      = f.text_field :path, class: 'form-control'
+  .form-group
+    = f.label :content, '页面内容'
     -# a bug around haml whitespace, I have find some solutions: https://github.com/haml/haml/issues/643#issuecomment-255546050
-    = f.text_area :content
+    = f.text_area :content, class: 'form-control'
     = f.hidden_field :html_content
-  .actions
-    = f.submit 'Save'
+  = f.submit '提交', class: 'btn btn-success'
 = javascript_include_tag 'admin/bootstrap-tagsinput.min'
 = javascript_include_tag 'admin/bootstrap3-typeahead.min'
 

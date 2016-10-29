@@ -10,4 +10,8 @@ module ApplicationHelper
   def meta_description(description)
     content_for(:meta_description) { description }
   end
+
+  def current_controller?(*args)
+    args.any? { |v| v.to_s.downcase == controller.controller_name }
+  end
 end

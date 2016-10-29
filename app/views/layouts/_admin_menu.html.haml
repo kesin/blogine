@@ -19,31 +19,31 @@
           .fa.fa-arrow-right.fa-p5
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav.side-nav
-      %li.active
+      %li{class: "#{nav_controller_active(:dashboard)}"}
         = link_to admin_root_path do
           .fa.fa-dashboard.fa-p5
           管理首页
-      %li
+      %li{class: "#{nav_controller_active(:posts)}"}
         = link_to admin_posts_path do
           .fa.fa-book.fa-p5
           文章管理
-      %li
+      %li{class: "#{nav_controller_active(:comments)}"}
         = link_to admin_comments_path do
           .fa.fa-comments.fa-p5
           评论管理
-      %li
+      %li{class: "#{nav_controller_active(:columns)}"}
         = link_to admin_columns_path do
           .fa.fa-columns.fa-p5
           分类管理
-      %li
+      %li{class: "#{nav_controller_active(:tags)}"}
         = link_to admin_tags_path do
           .fa.fa-tags.fa-p5
           标签管理
-      %li
+      %li{class: "#{nav_controller_active(:pages)}"}
         = link_to admin_pages_path do
           .fa.fa-list-alt.fa-p5
           页面管理
-      %li
+      %li{class: "#{nav_controller_active(:settings)}"}
         = link_to admin_settings_path do
           .fa.fa-cogs.fa-p5
           博客设置

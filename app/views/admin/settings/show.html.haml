@@ -16,4 +16,10 @@
     .form-group
       = label_tag :site_name, '博客名'
       = text_field_tag :site_name, Settings.blogine.site_name, class: 'form-control'
+    .form-group
+      = label_tag :domain, '博客域名'
+      .input-group
+        .input-group-addon
+          http://
+        = text_field_tag :domain, Settings.blogine.host, class: 'form-control'
     = button_tag '保存设置', class: 'btn btn-success'
