@@ -83,9 +83,9 @@
       width: calc(100% - 60px);
       float: right;
       position: relative;
-      -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
-      -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
-      box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+      -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+      -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
       &:before, &:after {
         content: '';
         height: 0;
@@ -95,12 +95,12 @@
         border-width: 10px 12px 10px 0;
         border-style: solid;
         border-color: transparent #FCFCFC;
-        top: 8px;
+        top: 4px;
         left: -11px;
       }
       &:before {
-        border-width: 11px 13px 11px 0;
-        border-color: transparent rgba(0,0,0,0.05);
+        border-width: 10px 12px 11px 0;
+        border-color: transparent rgba(0,0,0,0.08);
         left: -12px;
       }
     }
@@ -129,13 +129,7 @@
     }
     .comment-box {
       width: calc(100% - 45px);
-      &:before, &:after{
-        border-width: 5px 11px 10px 0;
-        top: 7px;
-      }
-      &:before{
-        border-width: 6px 11px 10px 0;
-      }
+
     }
   }
 
@@ -150,7 +144,7 @@
   .comment-box {
     .comment-head {
       background: #FCFCFC;
-      padding: 10px 12px;
+      padding: 5px 12px;
       border-bottom: 1px solid #E5E5E5;
       overflow: hidden;
       -webkit-border-radius: 4px 4px 0 0;
@@ -167,11 +161,11 @@
         -o-transition: color 0.3s ease;
         transition: color 0.3s ease;
         &:hover {
-          color: #03658c;
+          color: #25a1a2;
         }
       }
     }
-    .comment-box .comment-name {
+    .comment-name {
       color: #283035;
       font-size: 14px;
       font-weight: 700;
@@ -181,14 +175,15 @@
 
     .comment-name {
       a{
+        font-size: 13px;
         color: #283035;
       }
       &.by-author, &.by-author a {
-        color: #03658c;
+        color: #25a1a2;
       }
       &.by-author:after {
         content: '博主';
-        background: #03658c;
+        background: #238687;
         color: #FFF;
         font-size: 12px;
         padding: 1px 3px;
@@ -207,6 +202,9 @@
         font-size: 13px;
         position: relative;
         top: 1px;
+      }
+      .comment-others{
+        display: inline;
       }
     }
 

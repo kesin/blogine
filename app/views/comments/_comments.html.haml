@@ -3,76 +3,34 @@
 
   .comments-container
     %ul#comments-list.comments-list
-      %li
-        .comment-main-level
-          / Avatar
-          .comment-avatar
-            %img{:alt => "", :src => "http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg"}/
-          / Contenedor del Comentario
-          .comment-box
-            .comment-head
-              %h6.comment-name.by-author
-                %a{:href => "http://creaticode.com/blog"} Agustin Ortiz
-              %span hace 20 minutos
-              %i.fa.fa-reply
-              %i.fa.fa-heart
-            .comment-content
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-        / Respuestas de los comentarios
-        %ul.comments-list.reply-list
-          %li
-            / Avatar
+      - comments.each do |c|
+        %li
+          .comment-main-level
             .comment-avatar
-              %img{:alt => "", :src => "http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg"}/
-            / Contenedor del Comentario
+              = image_tag 'http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg'
             .comment-box
               .comment-head
-                %h6.comment-name
-                  %a{:href => "http://creaticode.com/blog"} Lorena Rojero
-                %span hace 10 minutos
-                %i.fa.fa-reply
-                %i.fa.fa-heart
+                .comment-name{class: author_class(c.status)}
+                  = link_to c.creator_name, c.creator_site, target: '_blank'
+                .comment-others
+                  %span
+                    = c.created_at.to_formatted_s(:long)
+                  %i.fa.fa-reply
               .comment-content
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-          %li
-            / Avatar
-            .comment-avatar
-              %img{:alt => "", :src => "http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg"}/
-            / Contenedor del Comentario
-            .comment-box
-              .comment-head
-                %h6.comment-name.by-author
-                  %a{:href => "http://creaticode.com/blog"} Agustin Ortiz
-                %span hace 10 minutos
-                %i.fa.fa-reply
-                %i.fa.fa-heart
-              .comment-content
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-      %li
-        .comment-main-level
-          / Avatar
-          .comment-avatar
-            %img{:alt => "", :src => "http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg"}/
-          / Contenedor del Comentario
-          .comment-box
-            .comment-head
-              %h6.comment-name
-                %a{:href => "http://creaticode.com/blog"} Lorena Rojero
-              %span hace 10 minutos
-              %i.fa.fa-reply
-              %i.fa.fa-heart
-            .comment-content
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                = raw c.html_content
+          %ul.comments-list.reply-list
+            %li
+              .comment-avatar
+                %img{:alt => "", :src => "http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg"}/
+              .comment-box
+                .comment-head
+                  .comment-name
+                    %a{:href => "http://creaticode.com/blog"} Lorena Rojero
+                  .comment-others
+                    %span October 22, 2016 05:34
+                    %i.fa.fa-reply
+                .comment-content
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
 
-
-  -#%ul.media-list
-  -#  - comments.each do |c|
-  -#    %li.media
-  -#      .media-left
-  -#        = link_to c.creator_site do
-  -#          %img{:alt => c.creator_name, :src => 'http://p1.bpimg.com/567571/d9b21a15556b8b89.jpg', :style => "width: 36px; height: 36px;"}/
-  -#      .media-body
-  -#        %p
-  -#          = raw c.content
 
   = render 'comments/form', target: target

@@ -36,10 +36,10 @@
           padding-right: 12px;
           .label{
             padding: .1em .3em;
-            text-shadow: 0 -1px 0 #aaa;
+            text-shadow: 0 -1px 0 #2d2d2d;
           }
           .label-default{
-            background-color: #bbb;
+            background-color: #7d7d7d;
           }
           a:hover{
             text-decoration: none;
@@ -61,7 +61,7 @@
         color: #333;
         &:hover{
           text-decoration: none;
-          color: #666;
+          color: #25a1a2;
         }
       }
     }
@@ -74,10 +74,10 @@
         padding-right: 12px;
         .label{
           padding: .1em .3em;
-          text-shadow: 0 -1px 0 #aaa;
+          text-shadow: 0 -1px 0 #2d2d2d;
         }
         .label-default{
-          background-color: #bbb;
+          background-color: #7d7d7d;
         }
         a{
           color: #999;
