@@ -1,4 +1,4 @@
-- title @post.title
+- title @page.title
 
 %h2
   = @page.title
@@ -10,16 +10,4 @@
 
 = link_to 'Back', root_path
 
-%h2#comments 评论
-
-- @comments.each do |c|
-  %p
-    = raw c.content
-    \---
-    = c.creator_name
-    \---
-    = c.creator_email
-    \---
-    = c.creator_site
-
-= render 'comments/form', target: @page
+= render 'comments/comments', target: @page, comments: @comments
