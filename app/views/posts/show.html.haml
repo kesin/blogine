@@ -1,7 +1,11 @@
 - title @post.title
+- meta_description(@post.intro)
+- meta_keywords(@post.tags.pluck(:name).join(','))
+
 #post-show
-  %h2
-    = @post.title
+  %h2.post-title
+    = link_to @post do
+      = @post.title
   .post-detail
     .detail-item
       .fa.fa-clock-o.fa-pr5

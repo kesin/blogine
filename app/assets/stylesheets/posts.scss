@@ -39,7 +39,7 @@
             text-shadow: 0 -1px 0 #aaa;
           }
           .label-default{
-            background-color: #ccc;
+            background-color: #bbb;
           }
           a:hover{
             text-decoration: none;
@@ -55,11 +55,18 @@
     }
   }
   #post-show{
-    h2{
-      margin: 0px;
+    .post-title{
+      margin: 10px 0 0px 0;
+      a{
+        color: #333;
+        &:hover{
+          text-decoration: none;
+          color: #666;
+        }
+      }
     }
     .post-detail{
-      margin-top: 5px;
+      margin-top: 10px;
       color: #999999;
       .detail-item{
         font-size: 14px;
@@ -70,7 +77,7 @@
           text-shadow: 0 -1px 0 #aaa;
         }
         .label-default{
-          background-color: #ccc;
+          background-color: #bbb;
         }
         a{
           color: #999;
@@ -85,10 +92,10 @@
       }
     }
     .post-intro{
-      font-size: 14px;
+      font-size: 15px;
       color: #777;
       padding: 10px;
-      margin: 10px 0;
+      margin: 15px 0;
       border: 1px solid #eee;
       border-left-width: 5px;
       border-radius: 3px;
