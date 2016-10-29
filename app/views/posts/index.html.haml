@@ -11,15 +11,16 @@
           .fa.fa-clock-o.fa-pr5
           = post.created_at.to_formatted_s(:long)
         .detail-item
+          .fa.fa-comments-o.fa-pr5
+          = post.comments_count
+        .detail-item
           - if post.column.present?
             .fa.fa-columns.fa-pr5
             = post.column.name
         .detail-item
           - if post.tags.present?
             .fa.fa-tags.fa-pr5
-            = post.tags.pluck(:name).join(',')
-        - if current_user
-          .edit-post
-            = link_to edit_admin_post_path(post) do
-              .fa.fa-edit.fa-pr5
-              编辑
+            - post.tags.each do |t|
+              = link_to t, target: '_blank' do
+                .label.label-default.label-mr5
+                  = t.name
