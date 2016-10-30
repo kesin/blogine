@@ -223,5 +223,18 @@
   }
   .comment-form{
     margin-top: 20px;
+    .input-group{
+      margin-bottom: 10px;
+    }
+    .row{
+      .col-lg-4{
+        &:first-child{
+          padding-right: 0;
+        }
+        &:last-child{
+          padding-left: 0;
+        }
+      }
+    }
   }
 }

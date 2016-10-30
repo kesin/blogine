@@ -10,10 +10,10 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @target, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @target, notice: '评论成功，将在审核通过后显示 :p' }
       else
         Rails.logger.info @comment.errors.full_messages
-        format.html { redirect_to @target, notice: 'Create comment failed.' }
+        format.html { redirect_to @target, notice: '评论失败，请稍后再试 :(' }
       end
     end
   end
