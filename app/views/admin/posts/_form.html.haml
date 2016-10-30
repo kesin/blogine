@@ -1,18 +1,20 @@
 = javascript_include_tag 'mdeditor'
 = form_for [:admin, @post], html: {onsubmit: "html_content();"} do |f|
-  - if @post.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
-      %ul
-        - @post.errors.full_messages.each do |msg|
-          %li= msg
-
   .form-group
     = f.label :title, '博客标题'
-    = f.text_field :title, class: 'form-control'
-  .form-group
-    = f.label :ident, '博客路径'
-    = f.text_field :ident, class: 'form-control'
+    = f.text_field :title, class: 'form-control', autofocus: true
+  .row
+    .col-lg-8
+      .form-group
+        = f.label :ident, '博客路径'
+        .input-group
+          .input-group-addon
+            = "http://#{Settings.blogine.host}/"
+          = f.text_field :ident, class: 'form-control'
+    .col-lg-4
+      .form-group
+        = f.label :column_id, '选择分类'
+        = f.select :column_id, Column.all.collect { |c| [ c.name, c.id ] }, {}, class: 'form-control selectpicker', 'data-live-search' => 'true'
   .form-group
     = f.label :intro, '博客摘要'
     = f.text_area :intro, class: 'form-control', placeholder: '对博客内容的简要概述，用于显示在博客列表'
@@ -21,9 +23,6 @@
     -# a bug around haml whitespace, I have find some solutions: https://github.com/haml/haml/issues/643#issuecomment-255546050
     = f.text_area :content
     = f.hidden_field :html_content
-  .form-group
-    = f.label :column_id, '选择分类'
-    = f.select :column_id, Column.all.collect { |c| [ c.name, c.id ] }, {}, class: 'form-control'
     = hidden_field_tag :post_tags
 .form-group
   %label 选择标签
@@ -39,6 +38,7 @@
     fullscreen: {
         enable: true
     },
+    autofocus: false,
     resize: 'vertical',
     hiddenButtons: ['cmdEmoji'],
     iconlibrary: 'fa'

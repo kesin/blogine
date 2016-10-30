@@ -15,3 +15,4 @@
 //= require bootstrap.min
 //= require bootstrap.js
 //= require bootstrap-notify.min
+//= require bootstrap-select.min

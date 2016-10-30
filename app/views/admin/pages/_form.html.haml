@@ -9,7 +9,7 @@
 
   .form-group
     = f.label :title, '页面标题'
-    = f.text_field :title, class: 'form-control'
+    = f.text_field :title, class: 'form-control', autofocus: true
   .form-group
     = f.label :path, '页面路径'
     .input-group
@@ -31,6 +31,7 @@
     fullscreen: {
         enable: true
     },
+    autofocus: false,
     resize: 'vertical',
     hiddenButtons: ['cmdEmoji'],
     iconlibrary: 'fa'
