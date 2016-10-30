@@ -1,36 +1,41 @@
 #comments
   %h3.comment-master 评论
-
-  .comments-container
-    %ul#comments-list.comments-list
-      - comments.each do |c|
-        %li
-          .comment-main-level
-            .comment-avatar
-              = image_tag 'http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg'
-            .comment-box
-              .comment-head
-                .comment-name{class: author_class(c.status)}
-                  = link_to c.creator_name, c.creator_site, target: '_blank'
-                .comment-others
-                  %span
-                    = c.created_at.to_formatted_s(:long)
-                  %i.fa.fa-reply
-              .comment-content
-                = raw c.html_content
-          %ul.comments-list.reply-list
-            %li
+  - if comments.present?
+    .comments-container
+      %ul#comments-list.comments-list
+        - comments.each do |c|
+          %li
+            .comment-main-level
               .comment-avatar
-                %img{:alt => "", :src => "http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg"}/
+                = image_tag 'http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg'
               .comment-box
                 .comment-head
-                  .comment-name
-                    %a{:href => "http://creaticode.com/blog"} Lorena Rojero
+                  .comment-name{class: author_class(c.status)}
+                    = link_to c.creator_name, c.creator_site, target: '_blank'
                   .comment-others
-                    %span October 22, 2016 05:34
+                    %span
+                      = c.created_at.to_formatted_s(:long)
                     %i.fa.fa-reply
                 .comment-content
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-
+                  = raw c.html_content
+            - if c.children.present?
+              %ul.comments-list.reply-list
+                - c.children.each do |child|
+                  %li
+                    .comment-avatar
+                      %img{:alt => "", :src => "http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg"}/
+                    .comment-box
+                      .comment-head
+                        .comment-name{class: author_class(child.status)}
+                          = link_to child.creator_name, child.creator_site, target: '_blank'
+                        .comment-others
+                          %span
+                            = child.created_at.to_formatted_s(:long)
+                          %i.fa.fa-reply
+                      .comment-content
+                        = raw child.html_content
+  - else
+    .no-comments
+      暂无相关评论，快来抢占沙发吧！
 
   = render 'comments/form', target: target

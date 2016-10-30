@@ -8,6 +8,10 @@
     padding-bottom: 10px;
   }
 
+  .no-comments{
+    font-size: 14px;
+    font-style: italic;
+  }
   .comments-container {
     width: 100%;
     h1 {
@@ -85,7 +89,7 @@
       position: relative;
       -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
       -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.16);
+      box-shadow: 0 0px 3px rgba(0, 0, 0, 0.16);
       &:before, &:after {
         content: '';
         height: 0;
@@ -145,7 +149,7 @@
     .comment-head {
       background: #FCFCFC;
       padding: 5px 12px;
-      border-bottom: 1px solid #E5E5E5;
+      border-bottom: 1px solid #f1f1f1;
       overflow: hidden;
       -webkit-border-radius: 4px 4px 0 0;
       -moz-border-radius: 4px 4px 0 0;

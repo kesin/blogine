@@ -6,6 +6,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by_ident(params[:id])
-    @comments = @post.comments.unconcealed
+    @comments = @post.comments.unconcealed.includes(:children)
   end
 end
