@@ -15,7 +15,7 @@
                   .comment-others
                     %span
                       = c.created_at.to_formatted_s(:long)
-                    %i.fa.fa-reply
+                    %i.fa.fa-reply.has-tooltip{'data-original-title' => '回复', 'data-placement' => 'left', 'data-toggle' => 'tooltip'}
                 .comment-content
                   = raw c.html_content
             - if c.children.present?
@@ -31,11 +31,11 @@
                         .comment-others
                           %span
                             = child.created_at.to_formatted_s(:long)
-                          %i.fa.fa-reply
+                          %i.fa.fa-reply.has-tooltip{'data-original-title' => '回复', 'data-placement' => 'left', 'data-toggle' => 'tooltip'}
                       .comment-content
                         = raw child.html_content
   - else
     .no-comments
       暂无相关评论，快来抢占沙发吧！
-
-  = render 'comments/form', target: target
+  .comment-form
+    = render 'comments/form', target: target

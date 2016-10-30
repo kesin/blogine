@@ -4,8 +4,7 @@
 
 #comments{
   .comment-master{
-    border-bottom: 1px solid #dedede;
-    padding-bottom: 10px;
+    //border-bottom: 1px solid #dedede;
   }
 
   .no-comments{
@@ -221,5 +220,8 @@
       -moz-border-radius: 0 0 4px 4px;
       border-radius: 0 0 4px 4px;
     }
+  }
+  .comment-form{
+    margin-top: 20px;
   }
 }

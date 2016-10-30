@@ -1,13 +1,7 @@
 - title @page.title
 
-%h2
-  = @page.title
 .markdown-body
   = raw @page.html_content
-%p
-  %b Created_at
-  = @page.created_at
 
-= link_to 'Back', root_path
-
+= render 'layouts/copyright', target: @page
 = render 'comments/comments', target: @page, comments: @comments

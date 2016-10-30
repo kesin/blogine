@@ -1,0 +1,13 @@
+#copyright
+  .content
+    %p
+      %span
+        本文标题：
+      = target.title
+    %p
+      %span
+        本文链接：
+      - if target.is_a?(Post)
+        = link_to post_url(target), target
+      - else
+        = link_to page_url(target), target

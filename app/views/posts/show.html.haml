@@ -38,5 +38,6 @@
   .markdown-body
     = raw @post.html_content
 
+= render 'layouts/copyright', target: @post
 = render 'comments/comments', target: @post, comments: @comments
 
