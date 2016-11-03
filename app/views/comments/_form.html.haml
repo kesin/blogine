@@ -1,26 +1,32 @@
 - @comment = Comment.new
 = form_for [target, @comment], html: {onsubmit: "html_content();"}  do |f|
   .row
-    .col-lg-4
-      .input-group
-        .input-group-addon
-          昵称
-        = f.text_field :creator_name, class: 'form-control', placeholder: '来者何人'
-    .col-lg-4
-      .input-group
-        .input-group-addon
-          邮箱
-        = f.text_field :creator_email, class: 'form-control', placeholder: '怎么联系'
-    .col-lg-4
-      .input-group
-        .input-group-addon
-          网站
-        = f.text_field :creator_site, class: 'form-control', placeholder: '网站链接'
-  .form-group
-    = f.text_area :content, class: 'form-control', placeholder: '说点什么吧'
-    = f.hidden_field :html_content
-  .actions
-    = f.submit '评论', class: 'btn btn-default'
+    .col-md-4.col-sm-5
+      .form-group
+        .input-group
+          .input-group-addon
+            昵称
+          = f.text_field :creator_name, class: 'form-control', placeholder: '怎么称呼'
+      .form-group
+        .input-group
+          .input-group-addon
+            邮箱
+          = f.text_field :creator_email, class: 'form-control', placeholder: '怎么联系'
+      .form-group
+        .input-group
+          .input-group-addon
+            网站
+          = f.text_field :creator_site, class: 'form-control', placeholder: '家在何方'
+      .checkbox
+        %label
+          = check_box_tag :receiveEmail
+          当评论有回复时邮件通知我
+    .col-md-8.col-sm-7
+      .form-group
+        = f.text_area :content, class: 'form-control', placeholder: '说点什么吧，支持MarkDown哦！', rows: 6
+        = f.hidden_field :html_content
+      .actions
+        = f.submit '发表我的评论 ->', class: 'add-comment'
 
 :javascript
   function html_content(){

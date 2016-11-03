@@ -13,6 +13,8 @@
   }
   .comments-container {
     width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 5px solid #dddddd;
     h1 {
       font-size: 36px;
       color: #283035;
@@ -222,18 +224,24 @@
     }
   }
   .comment-form{
-    margin-top: 20px;
+    margin: 20px 0 50px 0;
     .input-group{
       margin-bottom: 10px;
     }
-    .row{
-      .col-lg-4{
-        &:first-child{
-          padding-right: 0;
-        }
-        &:last-child{
-          padding-left: 0;
-        }
+    .checkbox{
+      label{
+        font-size: 14px;
+      }
+    }
+    .add-comment{
+      background: none;
+      border: none;
+      border-left: 10px solid #25a1a2;
+      padding: 0 0 0 10px;
+      font-size: 18px;
+      letter-spacing: 5px;
+      &:hover{
+        color: #25a1a2;
       }
     }
   }
