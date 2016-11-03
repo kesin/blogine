@@ -4,14 +4,14 @@
     = f.label :title, '博客标题'
     = f.text_field :title, class: 'form-control', autofocus: true
   .row
-    .col-lg-8
+    .col-sm-8
       .form-group
         = f.label :ident, '博客路径'
         .input-group
           .input-group-addon
-            = "http://#{Settings.blogine.host}/"
+            = "http://#{Settings.blogine.host}/blog/"
           = f.text_field :ident, class: 'form-control'
-    .col-lg-4
+    .col-sm-4
       .form-group
         = f.label :column_id, '选择分类'
         = f.select :column_id, Column.all.collect { |c| [ c.name, c.id ] }, {}, class: 'form-control selectpicker', 'data-live-search' => 'true'
@@ -63,6 +63,21 @@
       source: places.map(function(item) { return item }),
       afterSelect: function() {
           this.$element[0].value = '';
-      }
+      },
+      matcher: function(){
+        console.log(this.query)
+      },
+      showHintOnFocus: true,
+      scrollHeight: function () {
+        var $input = $('.bootstrap-tagsinput > input');
+        var $result = $('.typeahead')
+        if(!!!$result.outerHeight()){
+          resultHeight = 220
+        }else{
+          resultHeight = $result.outerHeight()
+        }
+        prefix = $input.outerHeight() + resultHeight + 10;
+        return -prefix
+      },
     }
   })
