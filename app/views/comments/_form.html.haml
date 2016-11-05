@@ -1,37 +1,37 @@
 - @comment = Comment.new
-= form_for [target, @comment], html: {onsubmit: "html_content();"}  do |f|
+= form_for [target, @comment], remote: true, html: {onsubmit: "html_content();"}  do |f|
   .row
     .col-md-4.col-sm-5
       .form-group
         .input-group
           .input-group-addon
             昵称
-          = f.text_field :creator_name, class: 'form-control', placeholder: '怎么称呼'
+          = f.text_field :creator_name, class: 'form-control', placeholder: '怎么称呼', required: true
       .form-group
         .input-group
           .input-group-addon
             邮箱
-          = f.text_field :creator_email, class: 'form-control', placeholder: '怎么联系'
+          = f.text_field :creator_email, class: 'form-control', placeholder: '怎么联系', required: true
       .form-group
         .input-group
           .input-group-addon
             网站
-          = f.text_field :creator_site, class: 'form-control', placeholder: '家在何方'
+          = f.text_field :creator_site, class: 'form-control', placeholder: '家在何方', required: true
       .form-group
         .input-group
           .input-group-addon
             验证
-          = rucaptcha_input_tag(class: 'form-control')
+          = rucaptcha_input_tag(class: 'form-control', required: true)
           .input-group-addon.captcha
             = rucaptcha_image_tag(alt: 'Captcha')
     .col-md-8.col-sm-7
       .form-group
-        = f.text_area :content, class: 'form-control', placeholder: '说点什么吧，支持MarkDown哦！', rows: 6
+        = f.text_area :content, class: 'form-control', placeholder: '说点什么吧，支持MarkDown哦！', rows: 6, required: true
         = f.hidden_field :html_content
-      .checkbox
-        %label
-          = check_box_tag :receiveEmail
-          当评论有回复时邮件通知我
+      -#.checkbox
+      -#  %label
+      -#    = check_box_tag :receiveEmail
+      -#    当评论有回复时邮件通知我
       .actions
         = f.submit '发表我的评论 ->', class: 'add-comment'
 
@@ -39,3 +39,6 @@
   function html_content(){
     $('#comment_html_content').val($('#comment_content').val())
   }
+  $('.rucaptcha-image').click(function(){
+    $('.rucaptcha-image').attr('src', '/rucaptcha' + '?' + (new Date()).getTime())
+  })

@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
 
   def create
-    unless verify_rucaptcha?
-      return redirect_to :back, notice: '验证码填写错误，请确认后再提交 :)'
+    unless verify_rucaptcha?(nil, keep_session: true)
+      return @wrong_captcha = true
     end
     if params[:post_id].present?
       @target = Post.find_by_ident(params[:post_id])
@@ -12,12 +12,8 @@ class CommentsController < ApplicationController
       @comment = @target.comments.new(comment_params)
 
     respond_to do |format|
-      if @comment.save
-        format.html { redirect_to @target, notice: '评论成功，将在审核通过后显示 :p' }
-      else
-        Rails.logger.info @comment.errors.full_messages
-        format.html { redirect_to @target, notice: '评论失败，请稍后再试 :(' }
-      end
+      @comment.save
+      format.js
     end
   end
 

@@ -1,0 +1,12 @@
+- if @wrong_captcha
+  :plain
+    notifyTop('验证码错误，请确认后重试', 'warning');
+    $('.rucaptcha-image').attr('src', '/rucaptcha' + '?' + (new Date()).getTime())
+- elsif @comment.saved?
+  :plain
+    notifyTop('提交评论成功，将在审核通过后显示', 'success');
+    $('#new_comment')[0].reset()
+- else
+  :plain
+    notifyTop('提交评论失败，请稍后重试', 'warning');
+    $('.rucaptcha-image').attr('src', '/rucaptcha' + '?' + (new Date()).getTime())

@@ -255,6 +255,11 @@
     .input-group-addon{
       background-color: #fff;
     }
+    .rucaptcha-image{
+      cursor: pointer;
+      height: 28px;
+      width: 82px;
+    }
     @media screen and (max-width: 408px) {
       .checkbox{
         display: block;

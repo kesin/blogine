@@ -12,4 +12,8 @@ class Comment < ApplicationRecord
   def verified?
     status == 1
   end
+
+  def saved?
+    id && persisted?
+  end
 end
