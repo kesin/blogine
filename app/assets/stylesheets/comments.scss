@@ -244,5 +244,26 @@
         color: #25a1a2;
       }
     }
+    .checkbox{
+      float: right;
+      margin: 0;
+    }
+    .captcha{
+      padding: 2px;
+      background-color: #fff;
+    }
+    .input-group-addon{
+      background-color: #fff;
+    }
+    @media screen and (max-width: 408px) {
+      .checkbox{
+        display: block;
+        float: left;
+        margin: 0 0 10px 0;
+      }
+      .actions{
+        display: block;
+      }
+    }
   }
 }

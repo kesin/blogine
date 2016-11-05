@@ -15,6 +15,9 @@ gem 'uglifier'
 gem 'coffee-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer'
+# captcha gem
+gem 'rucaptcha'
+gem 'redis-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

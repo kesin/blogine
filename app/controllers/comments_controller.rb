@@ -1,6 +1,9 @@
 class CommentsController < ApplicationController
 
   def create
+    unless verify_rucaptcha?
+      return redirect_to :back, notice: '验证码填写错误，请确认后再提交 :)'
+    end
     if params[:post_id].present?
       @target = Post.find_by_ident(params[:post_id])
     elsif params[:page_id].present?
