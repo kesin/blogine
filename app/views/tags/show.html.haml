@@ -1,10 +1,7 @@
-%p
-  %b Name:
+.filter-title
+  标签
   = @tag.name
-%p
-  %b Posts count:
+  下共有
   = @tag.posts_count
-
-= link_to 'Edit', edit_tag_path(@tag)
-\|
-= link_to 'Back', tags_path
+  篇博客
+= render 'posts/posts'

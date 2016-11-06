@@ -10,5 +10,6 @@ class ColumnsController < ApplicationController
   # GET /columns/1.json
   def show
     @column = Column.find_by_ident(params[:id])
+    @posts = @column.posts.includes(:tags)
   end
 end

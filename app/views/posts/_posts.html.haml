@@ -1,0 +1,29 @@
+.blog-list
+  - @posts.each do |post|
+    .post-item
+      .post-title
+        = link_to post do
+          = post.title
+      .post-intro
+        = post.intro
+      .post-detail
+        .detail-item
+          .fa.fa-clock-o.fa-pr5
+          = post.created_at.to_formatted_s(:long)
+        .detail-item
+          = link_to "#{post_path(post)}#comments" , target: '_blank' do
+            .fa.fa-comments-o.fa-pr5
+            = post.comments_count
+        .detail-item
+          - column = @column.present? ? @column : post.column
+          - if column.present?
+            = link_to column, target: '_blank' do
+              .fa.fa-columns.fa-pr5
+              = column.name
+        .detail-item
+          - if post.tags.present?
+            .fa.fa-tags.fa-pr5
+            - post.tags.each do |t|
+              = link_to t, target: '_blank' do
+                .label.label-default.label-mr5{class: highlight_class(t.name == @tag.try(:name) ? t.name : nil)}
+                  = t.name

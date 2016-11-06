@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   resources :posts, path: :blog, except: [:index] do
     resources :comments, only: [:create]
   end
-  resources :tags
-  resources :columns
+  resources :tags, only: [:index, :show]
+  resources :columns, only: [:index, :show]
 
   #
   # Admin Area

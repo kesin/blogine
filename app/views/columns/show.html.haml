@@ -1,13 +1,7 @@
-%p
-  %b Name:
+.filter-title
+  分类
   = @column.name
-%p
-  %b Ident:
-  = @column.ident
-%p
-  %b Posts count:
+  下共有
   = @column.posts_count
-
-= link_to 'Edit', edit_column_path(@column)
-\|
-= link_to 'Back', columns_path
+  篇博客
+= render 'posts/posts'
