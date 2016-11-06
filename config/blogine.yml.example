@@ -5,6 +5,14 @@ production:
     host: zoker.io
     description: Zoker 的个人博客，积累、提升、沉淀。
     keywords: ruby,rails,linux,git,javascript,css,nginx,zabbix,gitlab,drbd,heartbeat
+    left_bar:
+      menu:
+        # Global left menu - Index / Colomns / Tags / Obligate_1 / Obligate_2
+        # set value to false to disable menu item
+        obligate_1_name: 作品
+        obligate_1_link: /projects
+        obligate_2_name: 关于我
+        obligate_2_link: /aboutme
 development:
   blogine: *1
 test:

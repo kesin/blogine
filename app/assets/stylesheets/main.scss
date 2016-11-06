@@ -91,6 +91,15 @@ a {
         }
       }
     }
+    .left-menu{
+      a{
+        color: #fff;
+        padding: 0px 5px;
+        &:hover{
+          color: #25a1a2;
+        }
+      }
+    }
   }
   .right-bar{
     padding: 1% 3%;

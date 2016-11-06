@@ -4,8 +4,20 @@
     %a{:href => "/"}
       %img.panel-profile-img{:src => "http://p1.bpimg.com/567571/d9b21a15556b8b89.jpg"}/
     %h5.panel-title Zoker
-    %p
-      首页 / 分类 / 标签 / 作品 / 关于我
+    %p.left-menu
+      = link_to '首页', root_path
+      \/
+      = link_to '分类', columns_path
+      \/
+      = link_to '标签', tags_path
+      // obligate two item for manual config
+      - left_bar_menu = Settings.blogine.left_bar.menu
+      - if obligate_exists?(1)
+        \/
+        = link_to left_bar_menu.obligate_1_name, left_bar_menu.obligate_1_link
+      - if obligate_exists?(2)
+        \/
+        = link_to left_bar_menu.obligate_2_name, left_bar_menu.obligate_2_link
     %p
       - unless current_user
         = link_to '登录', login_path

@@ -14,4 +14,10 @@ module ApplicationHelper
   def current_controller?(*args)
     args.any? { |v| v.to_s.downcase == controller.controller_name }
   end
+
+  def obligate_exists?(number)
+    left_bar_menu = Settings.blogine.left_bar.menu
+    return left_bar_menu.obligate_1_name.present? && left_bar_menu.obligate_1_link.present? if number == 1
+    left_bar_menu.obligate_2_name.present? && left_bar_menu.obligate_2_link.present? if number == 2
+  end
 end

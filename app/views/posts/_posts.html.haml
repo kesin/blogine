@@ -15,11 +15,10 @@
             .fa.fa-comments-o.fa-pr5
             = post.comments_count
         .detail-item
-          - column = @column.present? ? @column : post.column
-          - if column.present?
-            = link_to column, target: '_blank' do
+          - if post.column.present?
+            = link_to post.column, target: '_blank' do
               .fa.fa-columns.fa-pr5
-              = column.name
+              = post.column.name
         .detail-item
           - if post.tags.present?
             .fa.fa-tags.fa-pr5
