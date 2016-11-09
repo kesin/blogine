@@ -1,15 +1,9 @@
-%h1 Listing columns
+%h2 所有分类
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Ident
-      %th Posts count
-
-  %tbody
-    - @columns.each do |column|
-      %tr
-        %td= column.name
-        %td= column.ident
-        %td= column.posts_count
+.row
+  - @columns.each do |column|
+    .col-md-3
+      = link_to column.name, column
+      (
+      = column.posts_count
+      )

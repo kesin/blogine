@@ -228,11 +228,6 @@
     .input-group{
       margin-bottom: 10px;
     }
-    .checkbox{
-      label{
-        font-size: 14px;
-      }
-    }
     .add-comment{
       background: none;
       border: none;
@@ -244,7 +239,7 @@
         color: #25a1a2;
       }
     }
-    .checkbox{
+    .cancel-reply{
       float: right;
       margin: 0;
     }
@@ -269,6 +264,21 @@
       .actions{
         display: block;
       }
+      .reply-form{
+        .cancel-reply{
+          float: right;
+          margin: 0 0 0px 0;
+        }
+      }
+    }
+  }
+  .reply-form{
+    display: none;
+    margin: 0;
+    .cancel-reply{
+      font-size: 14px;
+      color: #888;
+      float: right;
     }
   }
 }

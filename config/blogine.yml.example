@@ -3,11 +3,11 @@ production:
   blogine: &1
     site_name: Blogine
     host: zoker.io
-    description: Zoker 的个人博客，积累、提升、沉淀。
+    description: Blogine is a blog base on Rails。
     keywords: ruby,rails,linux,git,javascript,css,nginx,zabbix,gitlab,drbd,heartbeat
     left_bar:
       menu:
-        # Global left menu - Index / Colomns / Tags / Obligate_1 / Obligate_2
+        # Global left menu [ Index / Colomns / Tags / 作品 / 关于我 ]
         # set value to false to disable menu item
         obligate_1_name: 作品
         obligate_1_link: /projects

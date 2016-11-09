@@ -37,5 +37,7 @@
   - else
     .no-comments
       暂无相关评论，快来抢占沙发吧！
-  .comment-form
-    = render 'comments/form', target: target
+  .comment-form#comment-form-field
+    = render 'comments/form', target: target, type: 'comment'
+  .comment-form.reply-form#reply-form-field
+    = render 'comments/form', target: target, type: 'reply'

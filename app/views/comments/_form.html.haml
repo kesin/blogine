@@ -28,12 +28,11 @@
       .form-group
         = f.text_area :content, class: 'form-control', placeholder: '说点什么吧，支持MarkDown哦！', rows: 6, required: true
         = f.hidden_field :html_content
-      -#.checkbox
-      -#  %label
-      -#    = check_box_tag :receiveEmail
-      -#    当评论有回复时邮件通知我
+      - if type == 'reply'
+        .cancel-reply
+          取消回复
       .actions
-        = f.submit '发表我的评论 ->', class: 'add-comment'
+        = f.submit "发表#{type == 'comment' ? '我的评论' : '回复'} ->", class: 'add-comment'
 
 :javascript
   function html_content(){
