@@ -1,13 +1,14 @@
+- target_is_post = target.is_a?(Post)
 #copyright
   .content
     %p
       %span
-        本文标题：
+        = target_is_post ? '本文标题：' : '页面标题：'
       = target.title
     %p
       %span
-        本文链接：
-      - if target.is_a?(Post)
+        = target_is_post ? '本文链接：' : '页面地址：'
+      - if target_is_post
         = link_to post_url(target), target
       - else
         = link_to page_url(target), target

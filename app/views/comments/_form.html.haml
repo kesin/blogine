@@ -1,5 +1,5 @@
 - @comment = Comment.new
-= form_for [target, @comment], remote: true, html: {onsubmit: "html_content();"}  do |f|
+= form_for [target, @comment], remote: true, html: {onsubmit: "html_content();", id: (type == 'comment' ? 'new_comment' : 'new_reply')}  do |f|
   .row
     .col-md-4.col-sm-5
       .form-group

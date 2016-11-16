@@ -19,9 +19,6 @@
         \/
         = link_to left_bar_menu.obligate_2_name, left_bar_menu.obligate_2_link
     %p
-      - unless current_user
-        = link_to '登录', login_path
-    %p
       %span.fa.fa-wechat.fa-2x.fa-pr10{style: 'font-size: 1.7em;'}
       %span.fa.fa-twitter.fa-2x.fa-pr10
       %span.fa.fa-github.fa-2x.fa-pr10
@@ -38,4 +35,5 @@
         %span.fa.fa-sign-out{'aria-hidden' => 'true'}
   - else
     .panel-footer
-      Powered By Blogine
+
+      = link_to 'Powered By Blogine', '//zoker.io/blogine', target: '_blank'

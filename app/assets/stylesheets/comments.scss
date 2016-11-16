@@ -118,6 +118,9 @@
     &:before, &:after {
       display: none;
     }
+    .reply-form-area{
+      width: calc(100% - 45px) !important;
+    }
     li:before {
       content: '';
       width: 45px;
@@ -279,6 +282,25 @@
       font-size: 14px;
       color: #888;
       float: right;
+      cursor: pointer;
     }
+  }
+  .reply-field{
+    .reply-form-area{
+      width: calc(100% - 60px);
+      float: right;
+      position: relative;
+    }
+    #reply-form-field{
+      margin-top: 20px;
+    }
+  }
+  .callback-form{
+    padding-top: 20px;
+    display: none;
+    cursor: pointer;
+    color: #25a1a2;
+    font-size: 15px;
+    font-style: italic;
   }
 }
