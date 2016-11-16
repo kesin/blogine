@@ -28,6 +28,8 @@
       .form-group
         = f.text_area :content, class: 'form-control', placeholder: '说点什么吧，支持MarkDown哦！', rows: 6, required: true
         = f.hidden_field :html_content
+        - if type == 'reply'
+          = f.hidden_field :parent_id
       - if type == 'reply'
         .cancel-reply
           取消回复

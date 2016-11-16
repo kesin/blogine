@@ -34,7 +34,7 @@
                         .comment-others
                           %span
                             = child.created_at.to_formatted_s(:long)
-                          %i.fa.fa-reply.has-tooltip{onclick: "addReply(#{child.id})", 'data-original-title' => '回复', 'data-placement' => 'left', 'data-toggle' => 'tooltip'}
+                          %i.fa.fa-reply.has-tooltip{onclick: "addReply(#{c.id})", 'data-original-title' => '回复', 'data-placement' => 'left', 'data-toggle' => 'tooltip'}
                       .comment-content
                         = raw child.html_content
                     .reply-field{id: "reply-form-field-#{child.id}"}
@@ -51,6 +51,7 @@
 
 :javascript
   function addReply(id){
+    $('#comment_parent_id').val(id)
     $('#reply-form-field-' + id).find('.reply-form-area').append($('#reply-form-field'));
     $('#reply-form-field').show();
     $('#new_comment').hide();
