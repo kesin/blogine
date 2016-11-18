@@ -20,4 +20,9 @@ module ApplicationHelper
     return left_bar_menu.obligate_1_name.present? && left_bar_menu.obligate_1_link.present? if number == 1
     left_bar_menu.obligate_2_name.present? && left_bar_menu.obligate_2_link.present? if number == 2
   end
+
+  def gravatar_image(email)
+    hash = Digest::MD5.hexdigest(email)
+    "//www.gravatar.com/avatar/#{hash}?s=40&d=mm"
+  end
 end

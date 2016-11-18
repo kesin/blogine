@@ -7,7 +7,7 @@
           %li
             .comment-main-level
               .comment-avatar
-                = image_tag 'http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg'
+                = image_tag gravatar_image(c.creator_email)
               .comment-box
                 .comment-head
                   .comment-name{class: author_class(c.status)}
@@ -15,7 +15,7 @@
                   .comment-others
                     %span
                       = c.created_at.to_formatted_s(:long)
-                    %i.fa.fa-reply.has-tooltip{onclick: "addReply(#{c.id})" , 'data-original-title' => '回复', 'data-placement' => 'left', 'data-toggle' => 'tooltip'}
+                    %i.fa.fa-reply.has-tooltip{onclick: "addReply(#{c.id}, #{c.id})" , 'data-original-title' => '回复', 'data-placement' => 'left', 'data-toggle' => 'tooltip'}
                 .comment-content
                   = raw c.html_content
             .reply-field{id: "reply-form-field-#{c.id}"}
@@ -26,7 +26,7 @@
                 - c.children.each do |child|
                   %li
                     .comment-avatar
-                      %img{:alt => "", :src => "http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg"}/
+                      = image_tag gravatar_image(c.creator_email)
                     .comment-box
                       .comment-head
                         .comment-name{class: author_class(child.status)}
@@ -34,7 +34,7 @@
                         .comment-others
                           %span
                             = child.created_at.to_formatted_s(:long)
-                          %i.fa.fa-reply.has-tooltip{onclick: "addReply(#{c.id})", 'data-original-title' => '回复', 'data-placement' => 'left', 'data-toggle' => 'tooltip'}
+                          %i.fa.fa-reply.has-tooltip{onclick: "addReply(#{c.id}, #{child.id})", 'data-original-title' => '回复', 'data-placement' => 'left', 'data-toggle' => 'tooltip'}
                       .comment-content
                         = raw child.html_content
                     .reply-field{id: "reply-form-field-#{child.id}"}
@@ -50,9 +50,9 @@
     = render 'comments/form', target: target, type: 'reply'
 
 :javascript
-  function addReply(id){
+  function addReply(id, pos_id){
     $('#comment_parent_id').val(id)
-    $('#reply-form-field-' + id).find('.reply-form-area').append($('#reply-form-field'));
+    $('#reply-form-field-' + pos_id).find('.reply-form-area').append($('#reply-form-field'));
     $('#reply-form-field').show();
     $('#new_comment').hide();
     $('.callback-form').show()
