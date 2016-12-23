@@ -9,7 +9,8 @@ class CommentsController < ApplicationController
     elsif params[:page_id].present?
       @target = Page.find_by_path(params[:page_id])
     end
-      @comment = @target.comments.new(comment_params)
+    @comment = @target.comments.new(comment_params)
+    @comment.status = 2 if current_user
 
     respond_to do |format|
       @comment.save

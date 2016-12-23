@@ -42,7 +42,10 @@
                 未通过
             %td.operation
               .verfy-button
-                - if c.verified?
+                - if c.status == 2
+                  .label.label-default.label-mr5
+                    自己
+                - elsif c.verified?
                   = link_to admin_comment_path(c, {status: 0}), method: :put, remote: true do
                     .label.label-default.label-mr5
                       撤回

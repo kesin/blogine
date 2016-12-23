@@ -11,12 +11,17 @@
         .input-group
           .input-group-addon
             邮箱
-          = f.text_field :creator_email, class: 'form-control', placeholder: '怎么联系', required: true
+          = f.text_field :creator_email, class: 'form-control has-tooltip', placeholder: '怎么联系',
+            required: true, onkeyup: "checkValid(this, 'email')", 'data-html' => 'true',
+            'data-original-title' => "<div class='email-notice'>请输入邮箱</div>",
+            'data-placement' => 'top', 'data-toggle' => 'tooltip'
       .form-group
         .input-group
           .input-group-addon
             网站
-          = f.text_field :creator_site, class: 'form-control', placeholder: '家在何方', required: true
+          = f.text_field :creator_site, class: 'form-control has-tooltip', placeholder: '家在何方(选填)',
+            'data-original-title' => "<div class='url-notice'>请输入网站地址</div>", 'data-placement' => 'top',
+            'data-toggle' => 'tooltip', 'data-html' => 'true', onkeyup: "checkValid(this, 'url')"
       .form-group
         .input-group
           .input-group-addon
@@ -26,7 +31,7 @@
             = rucaptcha_image_tag(alt: 'Captcha')
     .col-md-8.col-sm-7
       .form-group
-        = f.text_area :content, class: 'form-control', placeholder: '说点什么吧，支持MarkDown哦！', rows: 6, required: true
+        = f.text_area :content, class: 'form-control', placeholder: '说点什么吧！', rows: 6, required: true
         = f.hidden_field :html_content
         - if type == 'reply'
           = f.hidden_field :parent_id
@@ -43,3 +48,20 @@
   $('.rucaptcha-image').click(function(){
     $('.rucaptcha-image').attr('src', '/rucaptcha' + '?' + (new Date()).getTime())
   })
+  function checkValid(element, type){
+    emailReg = /\w@\w*\.\w/
+    urlReg = /^([hH][tT]{2}[pP]:\/\/|[hH][tT]{2}[pP][sS]:\/\/)(([A-Za-z0-9-~]+)\.)+([A-Za-z0-9-~\/])+$/;
+    if(type == 'email'){
+      if(emailReg.test(element.value)){
+        $(element).closest('.input-group').find('.email-notice').text('邮箱格式正确')
+      }else{
+        $(element).closest('.input-group').find('.email-notice').text('请输入正确的邮箱')
+      }
+    }else if(type == 'url'){
+      if(urlReg.test(element.value)){
+        $(element).closest('.input-group').find('.url-notice').text('网站地址正确')
+      }else{
+        $(element).closest('.input-group').find('.url-notice').text('请输入正确的网站地址')
+      }
+    }
+  }

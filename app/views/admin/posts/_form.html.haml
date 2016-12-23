@@ -71,11 +71,7 @@
       scrollHeight: function () {
         var $input = $('.bootstrap-tagsinput > input');
         var $result = $('.typeahead')
-        if(!!!$result.outerHeight()){
-          resultHeight = 220
-        }else{
-          resultHeight = $result.outerHeight()
-        }
+        resultHeight = $result.outerHeight() || 220
         prefix = $input.outerHeight() + resultHeight + 10;
         return -prefix
       },
