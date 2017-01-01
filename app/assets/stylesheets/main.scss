@@ -113,13 +113,11 @@ a {
         }
       }
     }
-    .left-menu{
-      a{
-        color: #fff;
-        margin: 0 3px 0 0;
-        &:hover{
-          color: #25a1a2;
-        }
+    a{
+      color: #fff;
+      margin: 0 3px 0 0;
+      &:hover{
+        color: #25a1a2;
       }
     }
   }

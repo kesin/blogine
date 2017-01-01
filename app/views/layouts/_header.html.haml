@@ -18,10 +18,18 @@
       - if obligate_exists?(2)
         \/
         = link_to left_bar_menu.obligate_2_name, left_bar_menu.obligate_2_link
-    %p
-      %span.fa.fa-wechat.fa-2x.fa-pr10{style: 'font-size: 1.7em;'}
-      %span.fa.fa-twitter.fa-2x.fa-pr10
-      %span.fa.fa-github.fa-2x.fa-pr10
+    %p.social-account
+      -#%span.fa.fa-wechat.fa-2x.fa-pr10{style: 'font-size: 1.7em;'}
+      = link_to 'https://my.oschina.net/zoker' do
+        %span.iconfont.icon-oschina.fa-pr10.has-tooltip{style: 'font-size: 1.9em;', title: '开源中国'}
+      = link_to 'https://git.oschina.net/silentboy' do
+        %span.iconfont.icon-oscgit.fa-pr10.has-tooltip{style: 'font-size: 1.8em;', title: '码云'}
+      = link_to 'https://github.com/kesin' do
+        %span.fa.fa-github.fa-2x.fa-pr10.has-tooltip{ title: 'Github' }
+      = link_to 'https://twitter.com/zoooker' do
+        %span.fa.fa-twitter.fa-2x.fa-pr10.has-tooltip{ title: '推特' }
+      = link_to 'https://ruby-china.org/Zoker' do
+        %span.iconfont.icon-rubychina.fa-pr10.has-tooltip{style: 'font-size: 2em;', title: 'RubyChina'}
 
   - if current_user
     .sidebar-footer
