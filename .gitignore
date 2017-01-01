@@ -21,6 +21,7 @@ public/uploads/
 nohup.out
 Vagrantfile
 .vagrant
+app/views/layouts/_social_account.html.haml
 config/database.yml
 config/blogine.yml
 config/unicorn.rb
