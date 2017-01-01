@@ -23,6 +23,25 @@ a {
   }
 }
 
+// button
+
+.btn-primary{
+  background-color: #25a1a2;
+  border-color: #47b0a9;
+  &:hover{
+    background-color: #44ada6;
+    border-color: #43aaa3;
+  }
+  &:active, &:focus, &:active:focus{
+    background-color: #439d96;
+    border-color: #43aaa3;
+  }
+}
+.btn-primary[disabled]:hover {
+  background-color: #4bbeb7;
+  border-color: #4dc7c0;
+}
+
 #container-area{
   position: relative;
   height: 100%;

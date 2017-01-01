@@ -874,7 +874,6 @@ emoji[data-emoji~=emoji] {
 }
 
 .btn-primary {
-    margin-left: 15px;
     background-color: #11A782;
     color: #ffffff;
 }
