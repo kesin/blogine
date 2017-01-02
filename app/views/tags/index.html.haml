@@ -1,16 +1,12 @@
-%h1 所有标签
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Posts count
-      %th
-      %th
-      %th
-
-  %tbody
+.tags-field
+  %h3
+    所有标签
+    %span.tags-count
+      （共 #{@tags.size} 个）
+  .list
     - @tags.each do |tag|
-      %tr
-        %td= tag.name
-        %td= tag.posts_count
+      .item
+        = link_to tag do
+          = tag.name
+          .badge
+            = tag.posts_count
