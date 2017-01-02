@@ -1,5 +1,11 @@
 = javascript_include_tag 'mdeditor'
 = form_for [:admin, @post], html: {onsubmit: "html_content();"} do |f|
+  - if @post.errors.any?
+    #error_explanation
+      %h3= "#{@post.errors.count} 个错误导致保存失败："
+      %ul
+        - @post.errors.full_messages.each do |msg|
+          %li= msg
   .form-group
     = f.label :title, '博客标题'
     = f.text_field :title, class: 'form-control', autofocus: true

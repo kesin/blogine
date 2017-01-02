@@ -42,6 +42,15 @@ a {
   border-color: #4dc7c0;
 }
 
+#error_explanation{
+  font-style: italic;
+  ul{
+    li{
+      color: #a71800;
+    }
+  }
+}
+
 #container-area{
   position: relative;
   height: 100%;
