@@ -69,6 +69,13 @@ a {
         .panel-title{
           padding: 5px 0 10px 0;
         }
+        a{
+          color: #fff;
+          margin: 0 3px 0 0;
+          &:hover{
+            color: #25a1a2;
+          }
+        }
         .panel-profile-img {
           max-width: 100px;
           margin-top: -70px;
@@ -111,13 +118,6 @@ a {
             text-decoration: none;
           }
         }
-      }
-    }
-    a{
-      color: #fff;
-      margin: 0 3px 0 0;
-      &:hover{
-        color: #25a1a2;
       }
     }
   }

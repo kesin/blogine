@@ -23,11 +23,16 @@
     -# a bug around haml whitespace, I have find some solutions: https://github.com/haml/haml/issues/643#issuecomment-255546050
     = f.text_area :content
     = f.hidden_field :html_content
+    = f.hidden_field :status
     = hidden_field_tag :post_tags
 .form-group
   %label 选择标签
   = text_field_tag :tags, @tags_str, placeholder: '输入标签，回车确认'
-= button_tag 'save', id: :submit_form, class: 'btn btn-success'
+.fixed-area
+  .content
+    = button_tag '保存草稿', id: :submit_draft, class: 'btn btn-default btn-sm'
+    = button_tag '发布', id: :submit_form, class: 'btn btn-success btn-sm'
+
 
 = javascript_include_tag 'admin/bootstrap-tagsinput.min'
 = javascript_include_tag 'admin/bootstrap3-typeahead.min'
@@ -48,6 +53,11 @@
   }
   $('#submit_form').click(function(){
     $('#post_tags').val($('#tags').val())
+    $('form').submit()
+  })
+  $('#submit_draft').click(function(){
+    $('#post_tags').val($('#tags').val())
+    $('#post_status').val(1)
     $('form').submit()
   })
   $(document).ready(function() {

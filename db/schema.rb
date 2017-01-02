@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161225101840) do
+ActiveRecord::Schema.define(version: 20170103031525) do
 
   create_table "columns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20161225101840) do
     t.text     "content",        limit: 65535
     t.text     "html_content",   limit: 65535
     t.integer  "column_id"
-    t.integer  "status"
+    t.integer  "status",                       default: 0
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.text     "intro",          limit: 65535

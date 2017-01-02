@@ -93,3 +93,26 @@
     }
   }
 }
+
+.new-article{
+  padding-bottom: 30px;
+  .fixed-area {
+    position: fixed;
+    bottom: 0;
+    height: 34px;
+    left: 225px;
+    z-index: 9999;
+    background: #141414;
+    border-bottom: none;
+    width: calc(100vw - 225px);
+    box-shadow: 6px 0px 10px #4a4a4a;
+    .content{
+      position: absolute;
+      left: 40%;
+      top: 2px;
+      .btn:first-child{
+        margin-right: 10px;
+      }
+    }
+  }
+}
