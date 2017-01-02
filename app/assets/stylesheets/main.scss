@@ -23,6 +23,40 @@ a {
   }
 }
 
+// callout
+.bs-callout {
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+  h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  p {
+    padding-top: 5px;
+    margin-bottom: 0;
+    font-size: 14px;
+    word-wrap: break-word;
+  }
+}
+
+.bs-callout+.bs-callout {
+  margin-top: -5px;
+}
+
+$callout-lists: (-gray: #777, -green: #5cb85c, -blue: #428bca, -red: #d9534f, -yellow: #f0ad4e, -qing: #5bc0de );
+@each $color-key, $Color in $callout-lists {
+  // bs-callout field
+  .bs-callout#{$color-key} {
+    border-left-color: $Color;
+  }
+  .bs-callout#{$color-key} h4 {
+    color: $Color;
+  }
+}
+
 // button
 
 .btn-primary{

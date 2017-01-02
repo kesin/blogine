@@ -8,3 +8,21 @@
   color: #25a1a2;
   padding: 10px 0;
 }
+
+.columns-field{
+  h3{
+    .columns-count{
+      font-size: 16px;
+      font-style: italic;
+    }
+  }
+  a:hover{
+    color: #666;
+    text-decoration: none;
+  }
+  .bs-callout{
+    &:hover{
+      background-color: #f9f9f9;
+    }
+  }
+}
