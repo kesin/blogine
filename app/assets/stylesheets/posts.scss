@@ -109,10 +109,19 @@
     .content{
       position: absolute;
       left: 40%;
-      top: 2px;
+      top: 3px;
       .btn:first-child{
         margin-right: 10px;
       }
+      .btn-sm{
+        padding: 2px 7px;
+      }
+    }
+  }
+  @media screen and (max-width: 980px) {
+    .fixed-area{
+      width: calc(100vw);
+      left: 0;
     }
   }
 }
