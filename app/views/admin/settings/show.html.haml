@@ -28,4 +28,7 @@
     .form-group
       = label_tag :description, '博客描述'
       = text_area_tag :description, Settings.blogine.description, class: 'form-control'
+    .form-group
+      = label_tag :enable_captcha, '开启评论验证码'
+      = check_box_tag :enable_captcha, true, Settings.blogine.enable_captcha
     = button_tag '保存设置', class: 'btn btn-success'

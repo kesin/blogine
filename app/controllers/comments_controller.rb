@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def create
-    unless verify_rucaptcha?(nil, keep_session: true)
+    if Settings.blogine.enable_captcha && !verify_rucaptcha?(nil, keep_session: true)
       return @wrong_captcha = true
     end
     if params[:post_id].present?

@@ -22,13 +22,14 @@
           = f.text_field :creator_site, class: 'form-control has-tooltip', placeholder: '家在何方(选填)',
             'data-original-title' => "<div class='url-notice'>请输入网站地址</div>", 'data-placement' => 'top',
             'data-toggle' => 'tooltip', 'data-html' => 'true', onkeyup: "checkValid(this, 'url')"
-      .form-group
-        .input-group
-          .input-group-addon
-            验证
-          = rucaptcha_input_tag(class: 'form-control', required: true)
-          .input-group-addon.captcha
-            = rucaptcha_image_tag(alt: 'Captcha')
+      - if Settings.blogine.enable_captcha
+        .form-group
+          .input-group
+            .input-group-addon
+              验证
+            = rucaptcha_input_tag(class: 'form-control', required: true)
+            .input-group-addon.captcha
+              = rucaptcha_image_tag(alt: 'Captcha')
     .col-md-8.col-sm-7
       .form-group
         = f.text_area :content, class: 'form-control', placeholder: '说点什么吧！', rows: 6, required: true
