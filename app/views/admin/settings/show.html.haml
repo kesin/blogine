@@ -16,12 +16,18 @@
     .form-group
       = label_tag :site_name, '博客名'
       = text_field_tag :site_name, Settings.blogine.site_name, class: 'form-control'
-    .form-group
-      = label_tag :host, '博客域名'
-      .input-group
-        .input-group-addon
-          http://
-        = text_field_tag :host, Settings.blogine.host, class: 'form-control'
+    .row
+      .col-md-6
+        .form-group
+          = label_tag :host, '博客域名'
+          .input-group
+            .input-group-addon
+              http://
+            = text_field_tag :host, Settings.blogine.host, class: 'form-control'
+      .col-md-6
+        .form-group
+          = label_tag :author_name, '博主名'
+          = text_field_tag :author_name, Settings.blogine.author_name, class: 'form-control'
     .form-group
       = label_tag :keywords, '博客关键字'
       = text_field_tag :keywords, Settings.blogine.keywords, class: 'form-control'

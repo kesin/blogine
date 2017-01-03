@@ -2,6 +2,7 @@
 production:
   blogine: &1
     site_name: Blogine
+    author_name: Zoker
     host: zoker.io
     description: Blogine is a blog base on Rails。
     keywords: ruby,rails,linux,git,javascript,css,nginx,zabbix,gitlab,drbd,heartbeat

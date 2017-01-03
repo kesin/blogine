@@ -13,44 +13,24 @@
       font-style: italic;
     }
   }
-  .list {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
-  }
-
-  .item {
-    -webkit-flex: 1 auto;
-    flex: 1 auto;
-    padding: 0.5rem;
-    text-align: center;
-    a {
-      display: block;
-      background-color: #6d6d6f;
-      text-decoration: none;
-      font-weight: 700;
-      padding: 0.5rem 1rem;
-      border-radius: 3px;
-      color: #fff;
-      font-size: 14px;
-      .badge{
-        margin: 0 7px 2px;
-        padding: 2px 5px;
-        color: #e6e6e6;
-        font-weight: normal;
-        border: 1px solid #9a9a9a;
-        background-color: #6d6d6f;
-        border-radius: 6px;
-        font-size: 12px;
-      }
-      &:hover{
+  .btn-group{
+    .tag-name{
+      font-weight: 500;
+    }
+    margin: 8px;
+    &:hover{
+      border-radius: 5px;
+      .btn-default{
         background-color: #25a1a2;
-        .badge{
-          border: 1px solid #2cbabb;
-          background-color: #25a1a2;
-        }
+        color: #fff;
+        border: 1px solid #fff;
       }
     }
   }
+
+  .btn:hover{
+    background: none;
+    border-color: #ccc;
+  }
+
 }

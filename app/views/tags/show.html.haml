@@ -1,6 +1,7 @@
 .filter-title
   标签
-  = @tag.name
+  %span.filter-name
+    = @tag.name
   下共有
   = @tag.posts_count
   篇博客

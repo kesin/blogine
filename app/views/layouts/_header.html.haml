@@ -2,8 +2,9 @@
   .panel-heading
   .panel-body.text-center
     %a{:href => "/"}
-      %img.panel-profile-img{:src => "http://p1.bpimg.com/567571/d9b21a15556b8b89.jpg"}/
-    %h5.panel-title Zoker
+      %img.panel-profile-img{:src => "//p1.bpimg.com/567571/d9b21a15556b8b89.jpg"}/
+    %h5.panel-title
+      = Settings.blogine.author_name
     %p.left-menu
       = link_to '首页', root_path
       \/
