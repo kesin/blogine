@@ -1,7 +1,7 @@
 class Admin::PostsController < Admin::ApplicationController
   before_filter :set_post, only: [:edit, :update, :destroy]
   def index
-    @posts = Post.all.includes(:tags, :column)
+    @posts = Post.includes(:tags, :column)
   end
 
   def new
