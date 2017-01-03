@@ -26,6 +26,7 @@ config/database.yml
 config/blogine.yml
 config/unicorn.rb
 config/puma.rb
+config/environments/*.rb
 db/data.yml
 .idea
 *.iml
