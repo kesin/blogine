@@ -31,7 +31,7 @@
                   %span.label.label-default.label-mr5
                     = t.name
             %td
-              已发布
+              = p.status == 0 ? '已发布' : '草稿'
             %td
               = p.comments.count rescue 0
             %td
