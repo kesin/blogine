@@ -35,7 +35,7 @@
             %td
               = p.comments.count rescue 0
             %td
-              = p.created_at.strftime("%x %H:%M")
+              = p.created_at.localtime.strftime("%x %H:%M")
             %td
               = link_to edit_admin_post_path(p), class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '编辑文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
                 .fa.fa-pencil-square

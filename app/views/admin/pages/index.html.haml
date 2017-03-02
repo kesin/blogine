@@ -27,7 +27,7 @@
             %td
               = p.comments_count
             %td
-              = p.created_at.strftime("%x %H:%M")
+              = p.created_at.localtime.strftime("%x %H:%M")
             %td
               已发布
             %td

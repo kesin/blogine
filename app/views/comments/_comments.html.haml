@@ -14,7 +14,7 @@
                     = link_to c.creator_name, c.creator_site, target: '_blank'
                   .comment-others
                     %span
-                      = c.created_at.to_formatted_s(:long)
+                      = c.created_at.localtime.to_formatted_s(:long)
                     %i.fa.fa-reply.has-tooltip{onclick: "addReply(#{c.id}, #{c.id})" , 'data-original-title' => '回复', 'data-placement' => 'left', 'data-toggle' => 'tooltip'}
                 .comment-content
                   = raw c.html_content
@@ -33,7 +33,7 @@
                           = link_to child.creator_name, child.creator_site, target: '_blank'
                         .comment-others
                           %span
-                            = child.created_at.to_formatted_s(:long)
+                            = child.created_at.localtime.to_formatted_s(:long)
                           %i.fa.fa-reply.has-tooltip{onclick: "addReply(#{c.id}, #{child.id})", 'data-original-title' => '回复', 'data-placement' => 'left', 'data-toggle' => 'tooltip'}
                       .comment-content
                         = raw child.html_content

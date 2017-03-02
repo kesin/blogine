@@ -9,7 +9,7 @@
   .post-detail
     .detail-item
       .fa.fa-clock-o.fa-pr5
-      = @post.created_at.to_formatted_s(:long)
+      = @post.created_at.localtime.to_formatted_s(:long)
     .detail-item
       = link_to '#comments' do
         .fa.fa-comments-o.fa-pr5
@@ -40,4 +40,3 @@
 
 = render 'layouts/copyright', target: @post
 = render 'comments/comments', target: @post, comments: @comments
-

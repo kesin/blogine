@@ -34,7 +34,7 @@
               = link_to "#{c.commentable_type == 'Post'? post_path(c.commentable) : page_path(c.commentable)}#comments" , target: '_blank' do
                 = c.commentable.title
             %td
-              = c.created_at.strftime("%x %H:%M")
+              = c.created_at.localtime.strftime("%x %H:%M")
             %td.status
               - if c.verified?
                 已通过
