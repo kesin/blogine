@@ -9,6 +9,8 @@ class Post < ApplicationRecord
             format: {with: IDENT_REGEX,
                      message: "只允许字母、数字或者下划线(_)、中划线(-)、必须以字母开头"}
   scope :unconcealed , -> { where(status: 0) }
+  scope :sorted_by_created, -> { order("created_at DESC") }
+  scope :sorted_by_updated, -> { order("updated_at DESC") }
 
   def to_param
     ident
