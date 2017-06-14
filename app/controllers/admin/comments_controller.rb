@@ -1,6 +1,6 @@
 class Admin::CommentsController < Admin::ApplicationController
   def index
-    @comments = Comment.all.order('created_at DESC')
+    @comments = Comment.all.order('created_at DESC').page(params[:page])
   end
 
   # reply comment for admin

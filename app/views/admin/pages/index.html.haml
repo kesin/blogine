@@ -37,6 +37,9 @@
                 .fa.fa-trash
               = link_to p, class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '查看页面', 'data-placement' => 'top', 'data-toggle' => 'tooltip', target: '_blank' do
                 .fa.fa-eye
-  = link_to new_admin_page_path , class: 'btn btn-sm btn-success' do
-    .fa.fa-plus.fa-pr5
-    添加页面
+          %tr.add-tags-btn
+            %td.td-button{colspan: 6}
+              = link_to new_admin_page_path  do
+                .fa.fa-plus.fa-pr5.table-bottom-btn
+                  添加页面
+= paginate @pages

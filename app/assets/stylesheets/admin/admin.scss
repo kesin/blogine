@@ -71,7 +71,7 @@
         display: none;
       }
       .add-columns-btn{
-        display: inline;
+        cursor: pointer;
       }
     }
     #admin-tag-index{
@@ -79,7 +79,7 @@
         display: none;
       }
       .add-tags-btn{
-        display: inline;
+        cursor: pointer;
       }
     }
     #admin-comment-index{
@@ -101,6 +101,14 @@
       width: 100%;
       input{
         width: 150px;
+      }
+    }
+    .td-button{
+      padding: 0 10px;
+      .table-bottom-btn{
+        line-height: 35px;
+        width: 100%;
+        text-align: center;
       }
     }
   }

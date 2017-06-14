@@ -58,3 +58,4 @@
               = link_to admin_comment_path(c), method: :delete, remote: true, data: {confirm: '确认删除此评论?'} do
                 .label.label-danger.label-mr5
                   删除
+= paginate @comments

@@ -2,7 +2,7 @@ class Admin::PagesController < Admin::ApplicationController
   before_filter :set_page, only: [:edit, :update, :destroy]
 
   def index
-    @pages = Page.all.includes(:comments)
+    @pages = Page.all.includes(:comments).page(params[:page]).per(1)
   end
 
   def new

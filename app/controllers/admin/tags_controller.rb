@@ -2,7 +2,7 @@ class Admin::TagsController < Admin::ApplicationController
   before_action :set_tag, only: [:destroy]
 
   def index
-    @tags = Tag.all
+    @tags = Tag.all.page(params[:page]).per(10)
     @tag = Tag.new
   end
 

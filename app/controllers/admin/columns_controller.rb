@@ -2,7 +2,7 @@ class Admin::ColumnsController < Admin::ApplicationController
   before_action :set_column, only: [:destroy]
 
   def index
-    @columns = Column.all
+    @columns = Column.all.page(params[:page])
     @column = Column.new
   end
 

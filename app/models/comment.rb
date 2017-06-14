@@ -1,6 +1,7 @@
 class Comment < ApplicationRecord
   belongs_to :commentable, counter_cache: true, polymorphic: true
   has_many :children, foreign_key: 'parent_id', class_name: 'Comment'
+  paginates_per 20
 
   AUTHOR_COMMENT = 2
   VERIFIED = 1

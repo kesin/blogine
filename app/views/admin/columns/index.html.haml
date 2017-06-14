@@ -47,9 +47,11 @@
               = f.submit '创建', class: 'btn btn-success margin-right-5'
               .btn.btn-default.cancle-create-field
                 取消
-  %button.btn.btn-sm.btn-success.add-columns-btn
-    .fa.fa-plus.fa-pr5
-    添加分类
+        %tr.add-columns-btn
+          %td.td-button{colspan: 6}
+            .fa.fa-plus.fa-pr5.table-bottom-btn
+              添加分类
+= paginate @columns
 
 :coffee
   $('.add-columns-btn').click ->

@@ -18,6 +18,8 @@ gem 'therubyracer'
 # captcha gem
 gem 'rucaptcha'
 gem 'redis-rails'
+# paginator
+gem 'kaminari'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

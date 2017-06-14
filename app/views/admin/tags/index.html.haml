@@ -42,13 +42,15 @@
               = f.submit '创建', class: 'btn btn-success margin-right-5'
               .btn.btn-default.cancle-tag-field
                 取消
-  %button.btn.btn-sm.btn-success.add-tags-btn
-    .fa.fa-plus.fa-pr5
-    添加标签
+        %tr.add-tags-btn
+          %td.td-button{colspan: 6}
+            .fa.fa-plus.fa-pr5.table-bottom-btn
+              添加标签
+= paginate @tags
 
 :coffee
   $('.add-tags-btn').click ->
-    $('.add-columns-btn').hide()
+    $('.add-tags-btn').hide()
     $('.tags-create-field').show()
     return
   $('.cancle-tag-field').click ->

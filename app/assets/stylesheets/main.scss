@@ -23,6 +23,30 @@ a {
   }
 }
 
+// pagination
+
+.pagination{
+  margin: 10px 0;
+  &>.active{
+    &>a{
+      background-color: #25a1a2;
+      border-color: #25a1a2;
+    }
+    &>a:hover{
+      background-color: #25a1a2;
+      border-color: #25a1a2;
+    }
+  }
+  &>li{
+    &>a{
+      color: #555;
+    }
+    &>a:hover{
+      color: #25a1a2;
+    }
+  }
+}
+
 // callout
 .bs-callout {
   padding: 15px;
