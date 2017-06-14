@@ -1,6 +1,7 @@
 - if @column.destroyed?
   :plain
     $('#column-#{@column.id}').hide()
+    notifyTop("删除成功！");
 - else
   :plain
-    alert('删除失败,请稍后重试!');
+    notifyTop('删除失败,请稍后重试!');

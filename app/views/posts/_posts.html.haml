@@ -26,3 +26,8 @@
               = link_to t, target: '_blank' do
                 .label.label-default.label-mr5{class: highlight_class(t.name == @tag.try(:name) ? t.name : nil)}
                   = t.name
+.blog-paginator
+  .newer
+    = link_to_previous_page @posts, '<< Newer', remote: true
+  .older
+    = link_to_next_page @posts, 'Older >>', remote: true

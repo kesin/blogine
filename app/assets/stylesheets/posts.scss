@@ -50,6 +50,23 @@
       }
     }
   }
+  .blog-paginator{
+    a{
+      color: #9c9c9c;
+      font-size: 15px;
+      &:hover{
+        color: #25a1a2;
+      }
+    }
+    .newer{
+      float: left;
+      padding-bottom: 20px;
+    }
+    .older{
+      float: right;
+      padding-bottom: 20px;
+    }
+  }
   #post-show{
     .post-title{
       margin: 10px 0 0px 0;

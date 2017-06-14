@@ -10,7 +10,7 @@
   .hidden-area
     .nav.navbar-right.top-nav
       %li
-        = link_to new_admin_post_path, class: 'create-blog' do
+        = link_to new_admin_post_path, class: 'create-blog', remote: true do
           .fa.fa-pencil.fa-p5
           发表博客
       %li
@@ -19,32 +19,32 @@
           .fa.fa-arrow-right.fa-p5
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav.side-nav
-      %li{class: "#{nav_controller_active(:dashboard)}"}
-        = link_to admin_root_path do
+      %li{class: "#{nav_controller_active(:dashboard)} admin-index"}
+        = link_to admin_root_path, remote: true do
           .fa.fa-dashboard.fa-p5
           管理首页
-      %li{class: "#{nav_controller_active(:posts)}"}
-        = link_to admin_posts_path do
+      %li{class: "#{nav_controller_active(:posts)} admin-post"}
+        = link_to admin_posts_path, remote: true do
           .fa.fa-book.fa-p5
           文章管理
-      %li{class: "#{nav_controller_active(:comments)}"}
-        = link_to admin_comments_path do
+      %li{class: "#{nav_controller_active(:comments)} admin-comment"}
+        = link_to admin_comments_path, remote: true do
           .fa.fa-comments.fa-p5
           评论管理
-      %li{class: "#{nav_controller_active(:columns)}"}
-        = link_to admin_columns_path do
+      %li{class: "#{nav_controller_active(:columns)} admin-column"}
+        = link_to admin_columns_path, remote: true do
           .fa.fa-columns.fa-p5
           分类管理
-      %li{class: "#{nav_controller_active(:tags)}"}
-        = link_to admin_tags_path do
+      %li{class: "#{nav_controller_active(:tags)} admin-tag"}
+        = link_to admin_tags_path, remote: true do
           .fa.fa-tags.fa-p5
           标签管理
-      %li{class: "#{nav_controller_active(:pages)}"}
-        = link_to admin_pages_path do
+      %li{class: "#{nav_controller_active(:pages)} admin-page"}
+        = link_to admin_pages_path, remote: true do
           .fa.fa-list-alt.fa-p5
           页面管理
-      %li{class: "#{nav_controller_active(:settings)}"}
-        = link_to admin_settings_path do
+      %li{class: "#{nav_controller_active(:settings)} admin-setting"}
+        = link_to admin_settings_path, remote: true do
           .fa.fa-cogs.fa-p5
           博客设置
     .sidebar-footer.hidden-small

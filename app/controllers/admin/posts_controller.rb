@@ -1,7 +1,7 @@
 class Admin::PostsController < Admin::ApplicationController
   before_filter :set_post, only: [:edit, :update, :destroy]
   def index
-    @posts = Post.includes(:tags, :column)
+    @posts = Post.includes(:tags, :column).page(params[:page])
   end
 
   def new
@@ -77,6 +77,7 @@ class Admin::PostsController < Admin::ApplicationController
     respond_to do |format|
       format.html { redirect_to admin_posts_path, notice: '删除成功！' }
       format.json { head :no_content }
+      format.js
     end
   end
 

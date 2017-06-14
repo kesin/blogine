@@ -1,0 +1,80 @@
+/ Page Heading
+.row#welcome-intro
+  .col-lg-12
+    %ol.breadcrumb
+      %li.active
+        %span.username
+          = current_user.name
+        您好，欢迎来到 Blogine 管理后台！ 当前时间是：
+        %span#showTime
+
+/ /.row
+.row
+  .col-lg-3.col-md-3.col-xs-6
+    .panel.panel-primary
+      .panel-heading
+        .row
+          .col-xs-3
+            .fa.fa-book.fa-5x
+          .col-xs-9.text-right
+            .huge
+              = Post.all.size
+            %div 总文章数
+  .col-lg-3.col-md-3.col-xs-6
+    .panel.panel-green
+      .panel-heading
+        .row
+          .col-xs-3
+            .fa.fa-comments.fa-5x
+          .col-xs-9.text-right
+            .huge
+              = Comment.all.size
+            %div 总评论数
+  .col-lg-3.col-md-3.col-xs-6
+    .panel.panel-yellow
+      .panel-heading
+        .row
+          .col-xs-3
+            .fa.fa-columns.fa-5x
+          .col-xs-9.text-right
+            .huge
+              = Column.all.size
+            %div 总分类数
+  .col-lg-3.col-md-3.col-xs-6
+    .panel.panel-red
+      .panel-heading
+        .row
+          .col-xs-3
+            .fa.fa-tags.fa-5x
+          .col-xs-9.text-right
+            .huge
+              = Tag.all.size
+            %div 总标签数
+.row
+  .col-lg-12
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          .fa.fa-line-chart.fa-p5
+          访问统计
+      .panel-body
+        #morris-area-chart
+
+= javascript_include_tag 'admin/application'
+
+:coffee
+  window.onload = ->
+    show = document.getElementById('showTime')
+    calDate = (h) ->
+      if h >= 0 and h <= 9
+        h = '0' + h
+      else
+        h
+    setInterval (->
+      time = new Date
+      m = time.getMonth() + 1
+      t = time.getFullYear() + '-' + calDate(m) + '-' + time.getDate() + ' ' + calDate(time.getHours()) + ':' + calDate(time.getMinutes()) + ':' + calDate(time.getSeconds())
+      show.innerHTML = t
+      return
+    ), 500
+    return

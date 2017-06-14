@@ -1,0 +1,14 @@
+%ol.breadcrumb
+  %li
+    %i.fa.fa-dashboard.fa-prl5
+    = link_to admin_root_path do
+      管理首页
+  %li
+    %i.fa.fa-book.fa-prl5
+    = link_to admin_posts_path do
+      文章管理
+  %li.active
+    %i.fa.fa-pencil.fa-prl5
+    发表文章
+.new-article
+  = render 'form'

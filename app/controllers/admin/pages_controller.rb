@@ -2,7 +2,7 @@ class Admin::PagesController < Admin::ApplicationController
   before_filter :set_page, only: [:edit, :update, :destroy]
 
   def index
-    @pages = Page.all.includes(:comments).page(params[:page]).per(1)
+    @pages = Page.all.includes(:comments).page(params[:page])
   end
 
   def new
@@ -44,6 +44,7 @@ class Admin::PagesController < Admin::ApplicationController
     respond_to do |format|
       format.html { redirect_to admin_pages_path, notice: '删除成功！' }
       format.json { head :no_content }
+      format.js
     end
   end
 

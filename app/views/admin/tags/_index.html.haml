@@ -1,0 +1,102 @@
+%ol.breadcrumb
+  %li
+    %i.fa.fa-dashboard.fa-prl5
+    = link_to admin_root_path do
+      管理首页
+  %li.active
+    %i.fa.fa-tags.fa-prl5
+    标签管理
+#admin-tag-index
+  .table-responsive
+    = form_for [:admin, @tag], remote: true do |f|
+      %table.table.table-bordered.table-hover.table-striped
+        %thead
+          %tr
+            %th ID
+            %th 名称
+            %th 文章数
+            %th 创建时间
+            %th 操作
+        %tbody
+          - @tags.each do |t|
+            %tr{id: "tag-#{t.id}"}
+              %td.id
+                = t.id
+              %td.name{style:'width: 25%'}
+                = t.name
+              %td
+                = t.posts_count || 0
+              %td
+                = t.created_at.localtime.strftime("%x %H:%M")
+              %td.operate-icons
+                .fa.fa-pencil-square.fa-prl5.has-tooltip{ 'data-original-title' => '修改此标签', 'data-placement' => 'top', 'data-toggle' => 'tooltip', onclick: "editTag(#{t.id})"}
+                = link_to admin_tag_path(t), method: :delete, remote: true, data: {confirm: '删除后，有此标签的文章将无此标签，确认删除？'}, class: 'has-tooltip', 'data-original-title' => '删除此标签', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
+                  .fa.fa-trash.fa-pr5
+                = link_to t, class:'has-tooltip overview', 'data-original-title' => '查看', 'data-placement' => 'top', 'data-toggle' => 'tooltip', target: '_blank' do
+                  .fa.fa-eye
+          %tr.tags-create-field
+            %td
+            %td
+              = f.text_field :name, class: 'form-control', placeholder: '请输入标签'
+            %td{colspan: 3}
+              = f.submit '创建', class: 'btn btn-success margin-right-5'
+              .btn.btn-default.cancle-tag-field
+                取消
+          %tr.add-tags-btn
+            %td.td-button{colspan: 6}
+              .fa.fa-plus.fa-pr5.table-bottom-btn
+                添加标签
+= paginate @tags, remote: true
+
+:coffee
+  $('.add-tags-btn').click ->
+    $('.add-tags-btn').hide()
+    $('.tags-create-field').show()
+    return
+  $('.cancle-tag-field').click ->
+    $('.add-tags-btn').show()
+    $('.tags-create-field').hide()
+    return
+  $('#new_tag').submit ->
+    $('input[type=submit]', this).attr 'disabled', 'disabled'
+    return
+
+:javascript
+  function editTag(id){
+    tag = $('#tag-'+id)
+    name = tag.find('.name').text()
+    html = "<tr id='edit-tag-" + id + "'><td>" + id + "<input type='hidden' name='tag_id' id='tag_id' value='" + id + "'></td><td style='width: 25%'><input type='text' name='name' id='name' value='" + name + "' class='form-control'></td><td colspan='3'><div class='btn btn-success margin-right-5' onclick='updateTag(" + id + ")'>修改</div><div class='btn btn-default cancle-edit-field' onclick='cancleEdit(" + id + ")'>取消</div></td></tr>"
+    tag.after(html)
+    tag.hide()
+  }
+  function cancleEdit(id){
+    $('#edit-tag-' + id).remove()
+    $('#tag-'+id).show()
+  }
+  function updateTag(id){
+    edit_tag = $('#edit-tag-'+id)
+    tag = $('#tag-'+id)
+    name = edit_tag.find('#name').val()
+    if(name == ''){
+      alert('标签不能为空')
+      return
+    }
+    $.ajax({
+      url: '/admin/tags/update_tag',
+      data: {'id': id,'tag[name]': name},
+      type: "PUT",
+      beforeSend: function(data) {
+        edit_tag.find('.btn-success').append('<i class="fa fa-spinner fa-pulse fa-fw"></i>')
+      },
+      success: function(data) {
+        if(data.status == '1'){
+          tag.find('.overview').attr('href', data.data.path)
+          edit_tag.remove()
+          tag.find('.name').text(name)
+          tag.show()
+        }else{
+          alert(data.message)
+        }
+      }
+    })
+  }

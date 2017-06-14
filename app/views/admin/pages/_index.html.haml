@@ -1,0 +1,45 @@
+%ol.breadcrumb
+  %li
+    %i.fa.fa-dashboard.fa-prl5
+    = link_to admin_root_path do
+      管理首页
+  %li.active
+    %i.fa.fa-list-alt.fa-prl5
+    页面管理
+#admin-page-index
+  .table-responsive
+    %table.table.table-bordered.table-hover.table-striped
+      %thead
+        %tr
+          %th 页面Title
+          %th 路径
+          %th 评论数
+          %th 创建时间
+          %th 状态
+          %th 操作
+      %tbody
+        - @pages.each do |p|
+          %tr{class: "page-#{p.id}"}
+            %td
+              = link_to p.title, edit_admin_page_path(p)
+            %td
+              = p.path
+            %td
+              = p.comments_count
+            %td
+              = p.created_at.localtime.strftime("%x %H:%M")
+            %td
+              已发布
+            %td
+              = link_to edit_admin_page_path(p), class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '编辑文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip', remote: true do
+                .fa.fa-pencil-square
+              = link_to admin_page_path(p), method: :delete, class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '删除文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip', 'data-confirm' => '删除文章不可恢复，确定要删除？', remote: true do
+                .fa.fa-trash
+              = link_to p, class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '查看页面', 'data-placement' => 'top', 'data-toggle' => 'tooltip', target: '_blank' do
+                .fa.fa-eye
+        %tr.add-tags-btn
+          %td.td-button{colspan: 6}
+            = link_to new_admin_page_path, remote: true do
+              .fa.fa-plus.fa-pr5.table-bottom-btn
+                添加页面
+= paginate @pages, remote: true

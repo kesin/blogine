@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.unconcealed.sorted_by_created.includes(:tags, :column)
+    @posts = Post.unconcealed.sorted_by_created.includes(:tags, :column).page(params[:page]).per(8)
   end
 
   def show
