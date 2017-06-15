@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   mount RuCaptcha::Engine => "/rucaptcha"
 
   #
+  # Upload Area
+  #
+
+  post 'image' => 'upload#upload_image'
+  post 'image_base64' => 'upload#upload_base64_image'
+
+  #
   # Blog Area
   #
   resources :posts, path: :blog, except: [:index] do
