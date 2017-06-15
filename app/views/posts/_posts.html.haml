@@ -2,7 +2,7 @@
   - @posts.each do |post|
     .post-item
       .post-title
-        = link_to post do
+        = link_to post, remote: true do
           = post.title
       .post-intro
         = post.intro

@@ -1,0 +1,17 @@
+.tags-field
+  - if @tags.present?
+    %h3
+      所有标签
+      %span.tags-count
+        （共 #{@tags.size} 个）
+    - @tags.each do |tag|
+      = link_to tag, remote: true do
+        .btn-group.btn-group-sm
+          .btn.btn-default.tag-name
+            = tag.name
+          .btn.btn-default
+            = tag.posts_count
+
+  - else
+    %h3
+      暂无标签

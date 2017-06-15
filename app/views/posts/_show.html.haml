@@ -1,0 +1,38 @@
+#post-show
+  %h2.post-title
+    = link_to @post do
+      = @post.title
+  .post-detail
+    .detail-item
+      .fa.fa-clock-o.fa-pr5
+      = @post.created_at.localtime.to_formatted_s(:long)
+    .detail-item
+      = link_to '#comments' do
+        .fa.fa-comments-o.fa-pr5
+        = @post.comments_count
+    .detail-item
+      - if @post.column.present?
+        = link_to @post.column do
+          .fa.fa-columns.fa-pr5
+          = @post.column.name
+    .detail-item
+      - if @post.tags.present?
+        .fa.fa-tags.fa-pr5
+        - @post.tags.each do |t|
+          = link_to t, target: '_blank' do
+            .label.label-default.label-mr5
+              = t.name
+    .detail-item
+      - if current_user
+        = link_to edit_admin_post_path(@post) do
+          .fa.fa-edit.fa-pr5
+          编辑
+  - if @post.intro.present?
+    .post-intro
+      摘要：
+      = @post.intro
+  .markdown-body
+    = raw @post.html_content
+
+= render 'layouts/copyright', target: @post
+= render 'comments/comments', target: @post, comments: @comments

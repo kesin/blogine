@@ -1,7 +1,2 @@
 - title @page.title
-
-.markdown-body
-  = raw @page.html_content
-
-= render 'layouts/copyright', target: @page
-= render 'comments/comments', target: @page, comments: @comments
+= render 'show'
