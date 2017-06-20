@@ -7,3 +7,4 @@
 //= require mdeditor/tab.js
 //= require mdeditor/config.js
 //= require mdeditor/bootstrap-markdown.js
+//= require mdeditor/locale/bootstrap-markdown.zh.js

@@ -16,14 +16,14 @@
             = post.comments_count
         .detail-item
           - if post.column.present?
-            = link_to post.column, target: '_blank' do
+            = link_to post.column, target: '_blank', remote: true do
               .fa.fa-columns.fa-pr5
               = post.column.name
         .detail-item
           - if post.tags.present?
             .fa.fa-tags.fa-pr5
             - post.tags.each do |t|
-              = link_to t, target: '_blank' do
+              = link_to t, target: '_blank', remote: true do
                 .label.label-default.label-mr5{class: highlight_class(t.name == @tag.try(:name) ? t.name : nil)}
                   = t.name
 .blog-paginator

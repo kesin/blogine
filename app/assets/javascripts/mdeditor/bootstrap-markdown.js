@@ -83,7 +83,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         this.$progress = null;
         this.$percent = null;
         //上传文件限制512kb
-        this.$fileSize = 524288;
+        this.$fileSize = 1048576;
         //registe
         this.$registPaste = false;
         //end
@@ -258,10 +258,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             e.preventDefault();
         },
 
-        __localize: function __localize(string) {
+        __localize: function (string) {
             var messages = $.fn.markdown.messages,
                 language = this.$options.language;
-            if (typeof messages !== 'undefined' && typeof messages[language] !== 'undefined' && typeof messages[language][string] !== 'undefined') {
+            if (
+                typeof messages !== 'undefined' &&
+                typeof messages[language] !== 'undefined' &&
+                typeof messages[language][string] !== 'undefined'
+            ) {
                 return messages[language][string];
             }
             return string;
@@ -699,7 +703,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                 });
 
                 localUpload = $('<span />', {
-                    class: 'md-input-group-addon gly gly-picture'
+                    class: 'md-input-group-addon fa fa-file-image-o'
                 });
                 localUploadField = $('<input>', {
                     type: 'file',
@@ -768,6 +772,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
                     }
                     _this.setImageLink(link.split('\n'));
                     _this.setPercent(0);
+                    _this.hideUpload();
                     return false;
                 });
 
@@ -905,7 +910,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             if (null === base64Url || '' === base64Url) return;
             if (base64.indexOf("data:image/png;base64") !== -1) {
                 var imageFormData = new FormData();
-                imageFormData.append("base64Date", base64); // typo
+                imageFormData.append("base64Data", base64); // typo
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4 && xhr.status === 200) {

@@ -4,8 +4,7 @@ class UploadController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def upload_image
-    file = params[:files]
-    file_list = Array.new
+    file = params[:img]
     if !file.content_type.match(/^image\/(gif|png|jpg|jpeg){1}$/)
       success = false
       msg = "#{file.original_filename}: 只支持上传JPG、JPEG、PNG、GIF格式图片"
@@ -16,16 +15,12 @@ class UploadController < ApplicationController
       success = true
       msg = "上传成功！"
     end
-    file_list << save_file(file) if success
-    render json: { success: success , msg: msg, files: file_list }
+    render text: save_file(file)
   end
 
   def upload_base64_image
-    base64 = params[:base64Date]
-    success = true
-    msg = "上传成功！"
-    data = save_base64_file(base64)
-    render json: { success: success , msg: msg, file: data }
+    base64 = params[:base64Data]
+    render text: save_base64_file(base64)
   end
 
   private
@@ -42,7 +37,7 @@ class UploadController < ApplicationController
       f.write(Base64.decode64(base_64_encoded_data.split(",")[1]))
     end
 
-    { filename: "#{filename}.#{extname}", title: filename, url: "https://#{Settings.blogine.host}/#{uri}" }
+    "https://#{Settings.blogine.host}/#{uri}"
   end
 
   def save_file(file)
@@ -57,6 +52,6 @@ class UploadController < ApplicationController
       f.write(file.read)
     end
 
-    { filename: "#{filename}.#{extname}", title: filename, url: "https://#{Settings.blogine.host}/#{uri}" }
+    "https://#{Settings.blogine.host}/#{uri}"
   end
 end
