@@ -7,7 +7,7 @@
           %li
             .comment-main-level
               .comment-avatar
-                = image_tag gravatar_image(c.creator_email)
+                = image_tag comment_avatar(c.status, c.creator_email)
               .comment-box
                 .comment-head
                   .comment-name{class: author_class(c.status)}
@@ -26,7 +26,7 @@
                 - c.children.each do |child|
                   %li
                     .comment-avatar
-                      = image_tag gravatar_image(c.creator_email)
+                      = image_tag comment_avatar(c.status, c.creator_email)
                     .comment-box
                       .comment-head
                         .comment-name{class: author_class(child.status)}
