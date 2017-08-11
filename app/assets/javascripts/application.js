@@ -16,3 +16,4 @@
 //= require bootstrap.js
 //= require bootstrap-notify.min
 //= require bootstrap-select.min
+//= require cropper.min

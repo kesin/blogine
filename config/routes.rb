@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   post 'image' => 'upload#upload_image'
   post 'image_base64' => 'upload#upload_base64_image'
+  post 'upload_avatar' => 'upload#upload_avatar'
 
   #
   # Blog Area

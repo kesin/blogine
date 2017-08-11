@@ -1,0 +1,56 @@
+.avatar-setting.modal.fade{'aria-hidden' => 'true', :role => 'dialog', :tabindex => '-1'}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{'data-dismiss' => 'modal', :type => 'button'}
+          %i.fa.fa-remove
+        %span{'aria-hidden' => 'true'}
+          %h4.modal-title
+          更换头像
+      .modal-body.avatar-area
+      .modal-footer
+        %input{id: 'upload', name: 'files[]', multiple: 'multiple', type: 'file', accept: 'image/*'}
+        %label.btn.btn-default{id: 'upload-label', for: 'upload'}
+          选择文件
+        %button.btn.btn-primary.upload-avatar 更新
+:coffeescript
+  readFile = (input) ->
+    if input.files and input.files[0]
+      reader = new FileReader
+      reader.onload = (e) ->
+        $uploadCrop.croppie 'bind', url: e.target.result
+      reader.readAsDataURL input.files[0]
+    else
+      alert 'Sorry - you\'re browser doesn\'t support the FileReader API'
+
+  $uploadCrop = $('.avatar-area').croppie(
+    viewport:
+      width: 200
+      height: 200
+      type: 'circle'
+    enableExif: true
+    boundary:
+      width: 300
+      height: 300)
+
+  $('#upload').on 'change', ->
+    readFile this
+
+  $('.upload-avatar').on 'click', (ev) ->
+    $uploadCrop.croppie('result',
+      type: 'base64'
+      size: 'viewport').then (result) ->
+      $.ajax
+        url: '#{upload_avatar_path}'
+        data: 'avatar': result
+        type: 'POST'
+        beforSend: (data) ->
+          $('.upload-avatar').attr 'disabled', 'true'
+        success: (data) ->
+          if data['status'] == 1
+            $('.panel-profile-img').attr 'src', data['message']
+            $('.upload-avatar').removeAttr 'disabled'
+            $('.avatar-setting').modal 'hide'
+            notifyTop '头像更新成功！'
+          else
+            notifyTop data['message']

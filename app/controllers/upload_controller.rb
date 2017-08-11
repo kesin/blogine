@@ -23,6 +23,21 @@ class UploadController < ApplicationController
     render text: save_base64_file(base64)
   end
 
+  def upload_avatar
+    base64 = params[:avatar]
+    avatar_url = save_base64_file(base64)
+    file = "#{Rails.root}/config/blogine.yml"
+    config = YAML.load_file(file)
+    config['production']['blogine']['avatar'] = avatar_url
+    File.open(file, 'w') do |h|
+      h.write config.to_yaml
+    end
+    Settings.reload! # reload config without restart app
+    render json: {status: 1, message: avatar_url}
+  rescue => x
+    render json: {status: 0, message: '更新头像失败，请稍后重试！'}
+  end
+
   private
 
   def save_base64_file(base_64_encoded_data)
@@ -37,7 +52,8 @@ class UploadController < ApplicationController
       f.write(Base64.decode64(base_64_encoded_data.split(",")[1]))
     end
 
-    "https://#{Settings.blogine.host}/#{uri}"
+    prot = Rails.env.production? ? 'https' : 'http'
+    "#{prot}://#{Settings.blogine.host}/#{uri}"
   end
 
   def save_file(file)
@@ -51,7 +67,7 @@ class UploadController < ApplicationController
     File.open save_path, 'wb' do |f|
       f.write(file.read)
     end
-
-    "https://#{Settings.blogine.host}/#{uri}"
+    prot = Rails.env.production? ? 'https' : 'http'
+    "#{prot}://#{Settings.blogine.host}/#{uri}"
   end
 end

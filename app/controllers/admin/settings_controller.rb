@@ -13,7 +13,7 @@ class Admin::SettingsController < Admin::ApplicationController
     blogine['keywords'] = params[:keywords] if params[:keywords].present?
     blogine['enable_captcha'] = params[:enable_captcha].present? ? !!params[:enable_captcha] : false
     config['production']['blogine'] = blogine
-    File.open(file,'w') do |h|
+    File.open(file, 'w') do |h|
       h.write config.to_yaml
     end
     Settings.reload! # reload config without restart app
