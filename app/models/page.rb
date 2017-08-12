@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: pages
+#
+#  id             :integer          not null, primary key
+#  title          :string(255)      not null
+#  path           :string(255)      not null
+#  content        :text(65535)
+#  html_content   :text(65535)
+#  status         :integer          default(0)
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  comments_count :integer          default(0)
+#
+
 class Page < ApplicationRecord
 
   has_many :comments, dependent: :destroy, as: :commentable
