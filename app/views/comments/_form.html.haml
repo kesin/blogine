@@ -38,7 +38,7 @@
           = f.hidden_field :parent_id
       - if type == 'reply'
         .cancel-reply
-          取消回复
+          取消
       .actions
         = f.submit "发表#{type == 'comment' ? '我的评论' : '回复'} ->", class: 'add-comment'
 
