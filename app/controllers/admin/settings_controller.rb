@@ -12,6 +12,7 @@ class Admin::SettingsController < Admin::ApplicationController
     blogine['description'] = params[:description] if params[:description].present?
     blogine['keywords'] = params[:keywords] if params[:keywords].present?
     blogine['enable_captcha'] = params[:enable_captcha].present? ? !!params[:enable_captcha] : false
+    blogine['enable_search'] = params[:enable_search].present? ? !!params[:enable_search] : false
     config['production']['blogine'] = blogine
     File.open(file, 'w') do |h|
       h.write config.to_yaml

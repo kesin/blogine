@@ -36,13 +36,15 @@ class Post < ApplicationRecord
       1 => '草稿'
   }
 
-  searchable do
-    text :title, stored: true
-    text :content, stored: true
-    string :ident
-    integer :status
+  if Settings.blogine.enable_search
+    searchable do
+      text :title, stored: true
+      text :content, stored: true
+      string :ident
+      integer :status
 
-    time :created_at
+      time :created_at
+    end
   end
 
   def to_param

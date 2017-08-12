@@ -25,6 +25,7 @@ Vagrantfile
 app/views/layouts/_social_account.html.haml
 config/database.yml
 config/blogine.yml
+config/sunspot.yml
 config/unicorn.rb
 config/puma.rb
 config/environments/*.rb

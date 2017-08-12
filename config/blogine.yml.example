@@ -16,6 +16,7 @@ production:
         obligate_2_name: 关于我
         obligate_2_link: /aboutme
     enable_captcha: true
+    enable_search: false
 development:
   blogine: *1
 test:

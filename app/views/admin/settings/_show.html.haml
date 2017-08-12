@@ -35,11 +35,17 @@
       = label_tag :description, '博客描述'
       = text_area_tag :description, Settings.blogine.description, class: 'form-control'
     .form-group.btn-group{'data-toggle' => 'buttons'}
-      %label.btn
+      %label.btn{class: Settings.blogine.enable_captcha ? 'active' : ''}
         = check_box_tag :enable_captcha, true, Settings.blogine.enable_captcha
         %i.fa.fa-square-o
         %i.fa.fa-check-square-o
         %span
           开启评论验证码
+      %label.btn.has-tooltip{class: Settings.blogine.enable_search ? 'active' : '', title: '关闭后不会进行索引的构建，如需重开，请执行 rails sunspot:reindex 重新构建索引。'}
+        = check_box_tag :enable_search, true, Settings.blogine.enable_search
+        %i.fa.fa-square-o
+        %i.fa.fa-check-square-o
+        %span
+          开启搜索功能
     .form-group
       = button_tag '保存设置', class: 'btn btn-success'
