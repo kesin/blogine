@@ -1,1 +1,4 @@
+- title '所有分类'
+- meta_keywords(@columns.limit(20).pluck(:name).join(','))
+- meta_description('博客文章的所有分类')
 = render 'index'

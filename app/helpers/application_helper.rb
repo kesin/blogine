@@ -11,6 +11,10 @@ module ApplicationHelper
     content_for(:meta_description) { description }
   end
 
+  def md_to_plaintext(str)
+    truncate(str.gsub(/[\\\`\*\(\)\[\]\#\+\-\!\>\;\&\r\n]/, ''), :length => 120) if str.present?
+  end
+
   def current_controller?(*args)
     args.any? { |v| v.to_s.downcase == controller.controller_name }
   end
