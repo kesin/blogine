@@ -36,8 +36,15 @@
   = text_field_tag :tags, @tags_str, placeholder: '输入标签，回车确认'
 .fixed-area
   .content
-    = button_tag '保存为草稿', id: :submit_draft, class: 'btn btn-default btn-sm'
-    = button_tag '发布', id: :submit_form, class: 'btn btn-success btn-sm'
+    .btn-group{'data-toggle': 'buttons'}
+      - ::Post::POST_TYPE.each_key do |i|
+        %label.btn{class: active_status(i) ? 'active' : ''}
+          = radio_button_tag :status, i, active_status(i)
+          %i.fa.fa-circle-o
+          %i.fa.fa-dot-circle-o
+          %span
+            = ::Post::POST_TYPE[i]
+    = button_tag '保存', id: :submit_form, class: 'btn btn-primary btn-sm'
 
 
 = javascript_include_tag 'admin/bootstrap-tagsinput.min'
@@ -60,13 +67,9 @@
     $('#post_html_content').val(marked($('#post_content').val()))
   }
   $('#submit_form').click(function(){
+    post_status = $('input[name=status]:checked').val()
     $('#post_tags').val($('#tags').val())
-    $('#post_status').val(0)
-    $('form').submit()
-  })
-  $('#submit_draft').click(function(){
-    $('#post_tags').val($('#tags').val())
-    $('#post_status').val(1)
+    $('#post_status').val(post_status)
     $('form').submit()
   })
   $(document).ready(function() {

@@ -34,7 +34,12 @@
     .form-group
       = label_tag :description, '博客描述'
       = text_area_tag :description, Settings.blogine.description, class: 'form-control'
+    .form-group.btn-group{'data-toggle' => 'buttons'}
+      %label.btn
+        = check_box_tag :enable_captcha, true, Settings.blogine.enable_captcha
+        %i.fa.fa-square-o
+        %i.fa.fa-check-square-o
+        %span
+          开启评论验证码
     .form-group
-      = check_box_tag :enable_captcha, true, Settings.blogine.enable_captcha
-      = label_tag :enable_captcha, '开启评论验证码'
-    = button_tag '保存设置', class: 'btn btn-success'
+      = button_tag '保存设置', class: 'btn btn-success'

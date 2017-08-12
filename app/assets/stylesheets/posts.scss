@@ -124,14 +124,18 @@
     box-shadow: 6px 0px 10px #4a4a4a;
     .content{
       position: absolute;
-      left: 40%;
+      left: 20%;
       top: 3px;
-      .btn:first-child{
-        margin-right: 10px;
-      }
       .btn-sm{
-        padding: 2px 7px;
+        padding: 2px 16px;
+        margin-left: 10px;
       }
+      div[data-toggle="buttons"] label{
+        padding: 0px 10px;
+      }
+    }
+    #pages_content{
+      left: 40%;
     }
   }
   @media screen and (max-width: 980px) {

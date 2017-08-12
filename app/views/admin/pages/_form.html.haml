@@ -23,9 +23,9 @@
     = f.hidden_field :html_content
     = f.hidden_field :status
   .fixed-area
-    .content
-      = button_tag '保存为草稿', id: :submit_draft, class: 'btn btn-default btn-sm'
-      = button_tag '提交', id: :submit_form, class: 'btn btn-success btn-sm'
+    .content#pages_content
+      = button_tag '存为草稿', id: :submit_draft, class: 'btn btn-default btn-sm'
+      = button_tag '提交', id: :submit_form, class: 'btn btn-primary btn-sm'
 = javascript_include_tag 'admin/bootstrap-tagsinput.min'
 = javascript_include_tag 'admin/bootstrap3-typeahead.min'
 

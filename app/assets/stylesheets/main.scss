@@ -23,6 +23,77 @@ a {
   }
 }
 
+label {
+  &> span{
+    padding-left: 5px;
+  }
+  input[type="radio"] ~ i.fa.fa-circle-o{
+    color: #808080;    display: inline;
+  }
+  input[type="radio"] ~ i.fa.fa-dot-circle-o{
+    display: none;
+  }
+  input[type="radio"]:checked ~ i.fa.fa-circle-o{
+    display: none;
+  }
+  input[type="radio"]:checked ~ i.fa.fa-dot-circle-o{
+    color: #25a1a2;    display: inline;
+  }
+  &:hover input[type="radio"] ~ i.fa {
+    color: #25a1a2;
+  }
+  input[type="checkbox"] ~ i.fa.fa-square-o{
+    color: #808080;    display: inline;
+  }
+  input[type="checkbox"] ~ i.fa.fa-check-square-o{
+    display: none;
+  }
+  input[type="checkbox"]:checked ~ i.fa.fa-square-o{
+    display: none;
+  }
+  input[type="checkbox"]:checked ~ i.fa.fa-check-square-o{
+    color: #25a1a2;    display: inline;
+  }
+  &:hover input[type="checkbox"] ~ i.fa {
+    color: #25a1a2;
+  }
+}
+
+div[data-toggle="buttons"] label.active{
+  color: #25a1a2;
+}
+
+div[data-toggle="buttons"] label {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 2em;
+  text-align: left;
+  white-space: nowrap;
+  vertical-align: top;
+  cursor: pointer;
+  background-color: none;
+  border: 0px solid #808080;
+  border-radius: 3px;
+  color: #808080;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+div[data-toggle="buttons"] label:hover {
+  color: #25a1a2;
+}
+
+div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 // pagination
 
 .pagination{

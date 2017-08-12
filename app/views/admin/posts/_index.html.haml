@@ -31,7 +31,7 @@
                   %span.label.label-default.label-mr5
                     = t.name
             %td
-              = p.status == 0 ? '已发布' : '草稿'
+              = ::Post::POST_TYPE[p.status]
             %td
               = p.comments.count rescue 0
             %td

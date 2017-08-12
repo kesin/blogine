@@ -8,9 +8,16 @@ class Post < ApplicationRecord
   validates :ident, uniqueness: true, presence: true, length: {within: 0..255},
             format: {with: IDENT_REGEX,
                      message: "只允许字母、数字或者下划线(_)、中划线(-)、必须以字母开头"}
-  scope :unconcealed , -> { where(status: 0) }
+  scope :releases, -> { where(status: [0, 2]) }
+  scope :unconcealed, -> { where(status: 0) }
   scope :sorted_by_created, -> { order("created_at DESC") }
   scope :sorted_by_updated, -> { order("updated_at DESC") }
+
+  POST_TYPE = {
+      0 => '所有人可见',
+      2 => '仅自己可见',
+      1 => '草稿'
+  }
 
   def to_param
     ident
@@ -18,6 +25,14 @@ class Post < ApplicationRecord
 
   def public?
     status == 0
+  end
+
+  def draft?
+    status == 1
+  end
+
+  def private?
+    status == 2
   end
 
 end

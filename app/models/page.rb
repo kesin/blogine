@@ -5,7 +5,7 @@ class Page < ApplicationRecord
   validates :path, uniqueness: true, presence: true, length: {within: 0..255},
             format: {with: IDENT_REGEX,
                      message: "只允许字母、数字或者下划线(_)、中划线(-)、必须以字母开头"}
-  scope :unconcealed , -> { where(status: 0) }
+  scope :unconcealed, -> { where(status: 0) }
 
   def to_param
     path
