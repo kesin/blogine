@@ -27,3 +27,14 @@
     width: 70%;
   }
 }
+
+@media screen and (max-width: 980px){
+  .search-box{
+    .search-form, .no-results{
+      width: 100%;
+    }
+    .no-results{
+      margin-top: 5vh;
+    }
+  }
+}
