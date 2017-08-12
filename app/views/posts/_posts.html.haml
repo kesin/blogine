@@ -2,7 +2,7 @@
   - @posts.each do |post|
     .post-item
       .post-title
-        = link_to post, remote: true do
+        = link_to post do
           = post.title
       .post-intro
         = post.intro
@@ -16,18 +16,18 @@
             = post.comments_count
         .detail-item
           - if post.column.present?
-            = link_to post.column, target: '_blank', remote: true do
+            = link_to post.column, target: '_blank' do
               .fa.fa-columns.fa-pr5
               = post.column.name
         .detail-item
           - if post.tags.present?
             .fa.fa-tags.fa-pr5
             - post.tags.each do |t|
-              = link_to t, target: '_blank', remote: true do
+              = link_to t, target: '_blank' do
                 .label.label-default.label-mr5{class: highlight_class(t.name == @tag.try(:name) ? t.name : nil)}
                   = t.name
 .blog-paginator
   .newer
-    = link_to_previous_page @posts, '<< Newer', remote: true
+    = link_to_previous_page @posts, '<< Newer'
   .older
-    = link_to_next_page @posts, 'Older >>', remote: true
+    = link_to_next_page @posts, 'Older >>'

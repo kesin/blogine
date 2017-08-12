@@ -31,7 +31,7 @@
             %td
               已发布
             %td
-              = link_to edit_admin_page_path(p), class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '编辑文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip', remote: true do
+              = link_to edit_admin_page_path(p), class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '编辑文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
                 .fa.fa-pencil-square
               = link_to admin_page_path(p), method: :delete, class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '删除文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip', 'data-confirm' => '删除文章不可恢复，确定要删除？', remote: true do
                 .fa.fa-trash
@@ -39,7 +39,7 @@
                 .fa.fa-eye
         %tr.add-tags-btn
           %td.td-button{colspan: 6}
-            = link_to new_admin_page_path, remote: true do
+            = link_to new_admin_page_path do
               .fa.fa-plus.fa-pr5.table-bottom-btn
                 添加页面
-= paginate @pages, remote: true
+= paginate @pages

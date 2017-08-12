@@ -8,7 +8,7 @@
       - color_array = ['gray','blue','green','red','yellow','qing']
       - @columns.each do |column|
         .col-md-4.col-sm-4
-          = link_to column, remote: true do
+          = link_to column do
             .bs-callout{class: "bs-callout-#{color_array[column.id % 6]}"}
               %h4
                 = column.name

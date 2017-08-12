@@ -22,7 +22,7 @@
         - @posts.each do |p|
           %tr{class: "post-#{p.id}"}
             %td
-              = link_to p.title, edit_admin_post_path(p), remote: true
+              = link_to p.title, edit_admin_post_path(p)
             %td
               = p.column.name rescue '无'
             %td.tags-cell
@@ -37,10 +37,10 @@
             %td
               = p.created_at.localtime.strftime("%x %H:%M")
             %td
-              = link_to edit_admin_post_path(p), class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '编辑文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip', remote: true do
+              = link_to edit_admin_post_path(p), class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '编辑文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
                 .fa.fa-pencil-square
               = link_to admin_post_path(p), method: :delete, class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '删除文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip', 'data-confirm' => '删除文章不可恢复，确定要删除？', remote: true do
                 .fa.fa-trash
               = link_to p, class: 'has-tooltip operation-fa-pr3', 'data-original-title' => '查看文章', 'data-placement' => 'top', 'data-toggle' => 'tooltip', target: '_blank' do
                 .fa.fa-eye
-= paginate @posts, remote: true
+= paginate @posts

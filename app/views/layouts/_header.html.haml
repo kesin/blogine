@@ -5,7 +5,7 @@
     .panel-heading
     .panel-body.text-center
       .avatar-content
-        = link_to root_path, class: 'blog-avatar', remote: true do
+        = link_to root_path, class: 'blog-avatar' do
           %img.panel-profile-img{:src => Settings.blogine.avatar}/
         - if current_user
           .avatar-layer{'data-toggle' => 'modal', 'data-target' => '.avatar-setting'}
@@ -13,19 +13,19 @@
       %h5.panel-title
         = Settings.blogine.author_name
       %p.left-menu
-        = link_to '首页', root_path, remote: true
+        = link_to '首页', root_path
         \/
-        = link_to '分类', columns_path, remote: true
+        = link_to '分类', columns_path
         \/
-        = link_to '标签', tags_path, remote: true
+        = link_to '标签', tags_path
         // obligate two item for manual config
         - left_bar_menu = Settings.blogine.left_bar.menu
         - if obligate_exists?(1)
           \/
-          = link_to left_bar_menu.obligate_1_name, left_bar_menu.obligate_1_link, remote: true
+          = link_to left_bar_menu.obligate_1_name, left_bar_menu.obligate_1_link
         - if obligate_exists?(2)
           \/
-          = link_to left_bar_menu.obligate_2_name, left_bar_menu.obligate_2_link, remote: true
+          = link_to left_bar_menu.obligate_2_name, left_bar_menu.obligate_2_link
       %p.social-account
         -# cp layouts/_social_account.html.haml.example to _social_account.html.haml to add your own social accounts and style
         = render 'layouts/social_account' if File.exists?("#{Dir.pwd}/app/views/layouts/_social_account.html.haml")

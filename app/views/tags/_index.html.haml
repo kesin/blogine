@@ -5,7 +5,7 @@
       %span.tags-count
         （共 #{@tags.size} 个）
     - @tags.each do |tag|
-      = link_to tag, remote: true do
+      = link_to tag do
         .btn-group.btn-group-sm
           .btn.btn-default.tag-name
             = tag.name
