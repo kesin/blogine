@@ -1,0 +1,43 @@
+.search-box
+  = form_tag search_path, method: :get, class: 'search-form' do
+    .input-group
+      = text_field_tag :query, params[:query], placeholder: '请输入关键词搜索文章', class: 'form-control'
+      %span.input-group-btn
+        = button_tag '搜索', class: 'btn btn-primary'
+
+  - if @search && @search.total != 0
+    .result-count
+      搜出相关结果
+      = @search.total
+      条
+    .blog-list
+      - @search.each_hit_with_result do |hit, post|
+        .post-item
+          .post-title
+            = link_to post, target: '_blank' do
+              = raw highlight_result(hit, post, :title)
+          .post-intro
+            = raw highlight_result(hit, post, :content)
+          .post-detail
+            .detail-item
+              .fa.fa-clock-o.fa-pr5
+              = post.created_at.localtime.to_formatted_s(:long)
+            .detail-item
+              = link_to "#{post_path(post)}#comments" , target: '_blank' do
+                .fa.fa-comments-o.fa-pr5
+                = post.comments_count
+            .detail-item
+              - if post.column.present?
+                = link_to post.column, target: '_blank' do
+                  .fa.fa-columns.fa-pr5
+                  = post.column.name
+            .detail-item
+              - if post.tags.present?
+                .fa.fa-tags.fa-pr5
+                - post.tags.each do |t|
+                  = link_to t, target: '_blank' do
+                    .label.label-default.label-mr5{class: highlight_class(t.name == @tag.try(:name) ? t.name : nil)}
+                      = t.name
+  - else
+    %p.no-results
+      = params[:query].present? ? '暂无搜索结果' : '这里什么都没有呢，搜一下看看～～～'

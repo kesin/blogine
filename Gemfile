@@ -35,6 +35,10 @@ gem 'html2haml'
 # annotate model
 gem 'annotate'
 
+# search
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+
 # settings
 gem 'settingslogic'
 

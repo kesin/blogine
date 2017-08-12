@@ -1,0 +1,29 @@
+.search-box {
+  .search-form{
+    width: 70%;
+    margin-top: 2%;
+  }
+  .keywords {
+    color: #de0000;
+    display: inline;
+  }
+  .result-count{
+    font-size: 14px;
+    color: #a9a9a9;
+    font-style: italic;
+    padding-top: 16px;
+  }
+  .post-title{
+    a:hover > .keywords{
+      color: #25a1a2;
+    }
+  }
+  .no-results{
+    font-size: 14px;
+    color: #a9a9a9;
+    font-style: italic;
+    margin-top: 20vh;
+    text-align: center;
+    width: 70%;
+  }
+}
