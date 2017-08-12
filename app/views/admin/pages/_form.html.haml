@@ -30,6 +30,9 @@
 = javascript_include_tag 'admin/bootstrap3-typeahead.min'
 
 :javascript
+  window.onbeforeunload = function() {
+    return "确认离开当前页面吗？未保存的数据将会丢失";
+  }
   $("#page_content").markdown({
     language: 'zh',
     imgurl: '/image',
@@ -47,10 +50,12 @@
   }
   $('#submit_form').click(function(){
     $('#post_tags').val($('#tags').val())
+    window.onbeforeunload = null
     $('form').submit()
   })
   $('#submit_draft').click(function(){
     $('#post_tags').val($('#tags').val())
     $('#post_status').val(1)
+    window.onbeforeunload = null
     $('form').submit()
   })

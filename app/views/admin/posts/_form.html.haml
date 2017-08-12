@@ -44,13 +44,16 @@
           %i.fa.fa-dot-circle-o
           %span
             = ::Post::POST_TYPE[i]
-    = button_tag '保存', id: :submit_form, class: 'btn btn-primary btn-sm'
+    = button_tag '提交', id: :submit_form, class: 'btn btn-primary btn-sm'
 
 
 = javascript_include_tag 'admin/bootstrap-tagsinput.min'
 = javascript_include_tag 'admin/bootstrap3-typeahead.min'
 
 :javascript
+  window.onbeforeunload = function() {
+    return "确认离开当前页面吗？未保存的数据将会丢失";
+  }
   $("#post_content").markdown({
     language: 'zh',
     imgurl: '/image',
@@ -70,6 +73,7 @@
     post_status = $('input[name=status]:checked').val()
     $('#post_tags').val($('#tags').val())
     $('#post_status').val(post_status)
+    window.onbeforeunload = null;
     $('form').submit()
   })
   $(document).ready(function() {
