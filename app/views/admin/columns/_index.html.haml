@@ -7,8 +7,8 @@
     %i.fa.fa-columns.fa-prl5
     分类管理
 #admin-column-index
-  .table-responsive
-    = form_for [:admin, @column], remote: true do |f|
+  = form_for [:admin, @column], remote: true do |f|
+    .table-responsive
       %table.table.table-bordered.table-hover.table-striped
         %thead
           %tr

@@ -36,11 +36,10 @@
         = f.hidden_field :html_content
         - if type == 'reply'
           = f.hidden_field :parent_id
-      - if type == 'reply'
-        .cancel-reply
-          取消
       .actions
-        = f.submit "发表#{type == 'comment' ? '评论' : '回复'}", class: ' btn btn-default'
+        = f.submit "发表#{type == 'comment' ? '评论' : '回复'}", class: ' btn btn-primary'
+        - if type == 'reply'
+          = button_tag '取消', class: 'cancel-reply btn btn-default'
 
 :javascript
   function html_content(){

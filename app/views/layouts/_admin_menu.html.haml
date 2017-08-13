@@ -8,16 +8,15 @@
     = link_to admin_root_path, class: 'navbar-brand' do
       = image_tag '/logo.svg'
       后台管理
-  .hidden-area
-    .nav.navbar-right.top-nav
-      %li
-        = link_to new_admin_post_path, class: 'create-blog' do
-          .fa.fa-pencil.fa-p5
-          发表文章
-      %li
-        = link_to root_path do
-          返回博客首页
-          .fa.fa-arrow-right.fa-p5
+  .nav.navbar-right.top-nav#admin-right-menu
+    %li
+      = link_to new_admin_post_path, class: 'create-blog' do
+        .fa.fa-pencil.fa-p5
+        发表文章
+    %li
+      = link_to root_path do
+        返回博客首页
+        .fa.fa-arrow-right.fa-p5
   .collapse.navbar-collapse.navbar-ex1-collapse
     %ul.nav.navbar-nav.side-nav
       %li{class: "#{nav_controller_active(:dashboard)} admin-index"}

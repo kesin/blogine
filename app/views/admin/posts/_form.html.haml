@@ -38,7 +38,7 @@
   %label 选择标签
   = text_field_tag :tags, @tags_str, placeholder: '输入标签，回车确认'
 .fixed-area
-  .content
+  .content#posts_content
     .btn-group{'data-toggle': 'buttons'}
       - ::Post::POST_TYPE.each_key do |i|
         %label.btn{class: active_status(i) ? 'active' : ''}

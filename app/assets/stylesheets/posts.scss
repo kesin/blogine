@@ -124,7 +124,6 @@
     box-shadow: 6px 0px 10px #4a4a4a;
     .content{
       position: absolute;
-      left: 20%;
       top: 3px;
       .btn-sm{
         padding: 2px 16px;
@@ -134,14 +133,25 @@
         padding: 0px 10px;
       }
     }
-    #pages_content{
-      left: 40%;
+    #pages_content {
+      left:  calc((100vw - 150px - 225px)/2);
+    }
+    #posts_content {
+      left:  calc((100vw - 345px - 225px)/2);
     }
   }
-  @media screen and (max-width: 980px) {
-    .fixed-area{
+}
+@media screen and (max-width: 768px) {
+  #wrapper {
+    .fixed-area {
       width: calc(100vw);
       left: 0;
+      #pages_content {
+        left:  calc((100vw - 150px)/2);
+      }
+      #posts_content {
+        left:  calc((100vw - 345px)/2);
+      }
     }
   }
 }

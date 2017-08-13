@@ -7,8 +7,8 @@
     %i.fa.fa-tags.fa-prl5
     标签管理
 #admin-tag-index
-  .table-responsive
-    = form_for [:admin, @tag], remote: true do |f|
+  = form_for [:admin, @tag], remote: true do |f|
+    .table-responsive
       %table.table.table-bordered.table-hover.table-striped
         %thead
           %tr
@@ -30,7 +30,8 @@
                 = t.created_at.localtime.strftime("%x %H:%M")
               %td.operate-icons
                 .fa.fa-pencil-square.fa-prl5.has-tooltip{ 'data-original-title' => '修改此标签', 'data-placement' => 'top', 'data-toggle' => 'tooltip', onclick: "editTag(#{t.id})"}
-                = link_to admin_tag_path(t), method: :delete, remote: true, data: {confirm: '删除后，有此标签的文章将无此标签，确认删除？'}, class: 'has-tooltip', 'data-original-title' => '删除此标签', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
+                = link_to admin_tag_path(t), method: :delete, remote: true, data: {confirm: '删除后，有此标签的文章将无此标签，确认删除？'},
+                  class: 'has-tooltip', 'data-original-title' => '删除此标签', 'data-placement' => 'top', 'data-toggle' => 'tooltip' do
                   .fa.fa-trash.fa-pr5
                 = link_to t, class:'has-tooltip overview', 'data-original-title' => '查看', 'data-placement' => 'top', 'data-toggle' => 'tooltip', target: '_blank' do
                   .fa.fa-eye

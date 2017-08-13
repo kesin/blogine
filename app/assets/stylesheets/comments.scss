@@ -231,10 +231,6 @@
     .input-group{
       margin-bottom: 10px;
     }
-    .cancel-reply {
-      float: right;
-      margin: 0;
-    }
     .captcha {
       padding: 2px;
       background-color: #fff;
@@ -256,22 +252,13 @@
       .actions{
         display: block;
       }
-      .reply-form{
-        .cancel-reply{
-          float: right;
-          margin: 0 0 0px 0;
-        }
-      }
     }
   }
   .reply-form{
     display: none;
     margin: 0;
     .cancel-reply{
-      font-size: 14px;
-      color: #888;
-      float: right;
-      cursor: pointer;
+      margin-left: 10px;
     }
   }
   .reply-field{

@@ -7,7 +7,7 @@
 /* Global Styles */
 
 body {
-    margin-top: 100px;
+    margin-top: 60px;
     /* background-color: #222; */
 }
 
@@ -54,8 +54,8 @@ body {
 }
 
 .top-nav>li>a {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 13px;
+    padding-bottom: 13px;
     line-height: 20px;
     color: #999;
 }
@@ -110,12 +110,18 @@ ul.alert-dropdown {
     width: 200px;
 }
 
+@media screen and (max-width: 768px) {
+    #admin-right-menu {
+        display: none;
+    }
+}
+
 /* Side Navigation */
 
 @media(min-width:768px) {
     .side-nav {
         position: fixed;
-        top: 55px;
+        top: 51px;
         left: 225px;
         width: 225px;
         margin-left: -225px;
