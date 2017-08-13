@@ -36,13 +36,12 @@ class Post < ApplicationRecord
       1 => '草稿'
   }
 
-  if Settings.blogine.enable_search
+  if Settings.blogine.enable_search # enable search if settings enable_search is true
     searchable do
       text :title, stored: true
       text :content, stored: true
       string :ident
       integer :status
-
       time :created_at
     end
   end

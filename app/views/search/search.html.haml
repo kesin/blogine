@@ -40,4 +40,4 @@
                       = t.name
   - else
     %p.no-results
-      = params[:query].present? ? '暂无搜索结果' : '这里什么都没有呢，搜一下看看～～～'
+      = params[:query].present? ? "暂无 #{params[:query]} 相关的搜索结果" : '这里什么都没有呢，搜一下看看～～～'

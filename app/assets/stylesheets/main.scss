@@ -248,6 +248,35 @@ $callout-lists: (-gray: #777, -green: #5cb85c, -blue: #428bca, -red: #d9534f, -y
           }
         }
       }
+      .search-entry{
+        width: 210px;
+        margin: 10px auto;
+        .input-group{
+          border: 1px solid #666666;
+          border-radius: 20px;
+          .form-control{
+            border-radius: 20px;
+            font-size: 12px;
+            height: 25px;
+            border: none;
+            background: transparent;
+            &:focus{
+              box-shadow: none;
+              color: #555;
+            }
+          }
+          .input-group-addon{
+            border: none;
+            border-radius: 20px;
+            padding: 0 5px;
+            background-color: transparent;
+            button{
+              background-color: transparent;
+              border: none;
+            }
+          }
+        }
+      }
       .panel-footer{
         position: absolute;
         bottom: 0;

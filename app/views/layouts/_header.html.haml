@@ -29,6 +29,13 @@
       %p.social-account
         -# cp layouts/_social_account.html.haml.example to _social_account.html.haml to add your own social accounts and style
         = render 'layouts/social_account' if File.exists?("#{Dir.pwd}/app/views/layouts/_social_account.html.haml")
+      - if Settings.blogine.enable_search
+        = form_tag search_path, method: :get, class: 'search-entry' do
+          .input-group
+            = text_field_tag :query, params[:query], placeholder: '请输入关键词搜索', class: 'form-control'
+            %span.input-group-addon
+              %button
+                .fa.fa-search
 
     - if current_user
       .sidebar-footer
@@ -42,5 +49,4 @@
           %span.fa.fa-sign-out{'aria-hidden' => 'true'}
     - else
       .panel-footer
-
         = link_to 'Powered By Blogine', '//zoker.io/blogine', target: '_blank'
