@@ -226,31 +226,20 @@
       border-radius: 0 0 4px 4px;
     }
   }
-  .comment-form{
+  .comment-form {
     margin: 20px 0 50px 0;
     .input-group{
       margin-bottom: 10px;
     }
-    .add-comment{
-      background: none;
-      border: none;
-      border-left: 10px solid #25a1a2;
-      padding: 0 0 0 10px;
-      font-size: 18px;
-      letter-spacing: 5px;
-      &:hover{
-        color: #25a1a2;
-      }
-    }
-    .cancel-reply{
+    .cancel-reply {
       float: right;
       margin: 0;
     }
-    .captcha{
+    .captcha {
       padding: 2px;
       background-color: #fff;
     }
-    .input-group-addon{
+    .input-group-addon {
       background-color: #fff;
     }
     .rucaptcha-image{

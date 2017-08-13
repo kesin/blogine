@@ -171,10 +171,17 @@ $callout-lists: (-gray: #777, -green: #5cb85c, -blue: #428bca, -red: #d9534f, -y
   border-color: #4dc7c0;
 }
 
-#error_explanation{
+#error_explanation {
   font-style: italic;
-  ul{
-    li{
+  .close {
+    margin-right: 22px;
+  }
+  h4 {
+    margin: 10px 0 5px 10px;
+  }
+  ul {
+    margin-bottom: 5px;
+    li {
       color: #a71800;
     }
   }

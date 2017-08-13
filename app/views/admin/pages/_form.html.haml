@@ -1,21 +1,24 @@
 = javascript_include_tag 'mdeditor'
 = form_for [:admin, @page], html: {onsubmit: "html_content();"} do |f|
   - if @page.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@page.errors.count, "error")} prohibited this post from being saved:"
+    #error_explanation.alert.alert-danger.alert-dismissible.fade.in
+      = button_tag class: 'close', 'data-dismiss' => 'alert', 'aria-label' => 'Close' do
+        %span{ 'aria-hidden' => 'true' }
+          x
+      %h4= "#{@page.errors.count} 个错误导致保存失败："
       %ul
         - @page.errors.full_messages.each do |msg|
           %li= msg
 
   .form-group
     = f.label :title, '页面标题'
-    = f.text_field :title, class: 'form-control', autofocus: true
+    = f.text_field :title, class: 'form-control', autofocus: true, required: true
   .form-group
     = f.label :path, '页面路径'
     .input-group
       %span.input-group-addon
         https://#{Settings.blogine.host}/
-      = f.text_field :path, class: 'form-control'
+      = f.text_field :path, class: 'form-control', required: true
   .form-group
     = f.label :content, '页面内容'
     -# a bug around haml whitespace, I have find some solutions: https://github.com/haml/haml/issues/643#issuecomment-255546050
@@ -44,6 +47,13 @@
     resize: 'vertical',
     hiddenButtons: ['cmdEmoji'],
     iconlibrary: 'fa'
+  });
+  $(document).ready(function() {
+    $("form input[name*='page']").bind("keypress", function(e) {
+      if (e.keyCode == 13) {
+          return false;
+      }
+    });
   });
   function html_content(){
     $('#page_html_content').val(marked($('#page_content').val()))

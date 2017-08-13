@@ -37,7 +37,7 @@
           %tr.tags-create-field
             %td
             %td
-              = f.text_field :name, class: 'form-control', placeholder: '请输入标签'
+              = f.text_field :name, class: 'form-control', placeholder: '请输入标签', required: true
             %td{colspan: 3}
               = f.submit '创建', class: 'btn btn-success margin-right-5'
               .btn.btn-default.cancle-tag-field

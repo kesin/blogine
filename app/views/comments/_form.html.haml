@@ -40,7 +40,7 @@
         .cancel-reply
           取消
       .actions
-        = f.submit "发表#{type == 'comment' ? '我的评论' : '回复'} ->", class: 'add-comment'
+        = f.submit "发表#{type == 'comment' ? '评论' : '回复'}", class: ' btn btn-default'
 
 :javascript
   function html_content(){

@@ -1,7 +1,7 @@
 .search-box
   = form_tag search_path, method: :get, class: 'search-form' do
     .input-group
-      = text_field_tag :query, params[:query], placeholder: '请输入关键词搜索文章', class: 'form-control'
+      = text_field_tag :query, params[:query], placeholder: '请输入关键词搜索文章', class: 'form-control', autofocus: true
       %span.input-group-btn
         = button_tag '搜索', class: 'btn btn-primary'
 
