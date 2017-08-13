@@ -1,4 +1,11 @@
 #wrapper{
+  .navbar-brand{
+    img{
+      height: 30px;
+      display: inline;
+      margin-right: 5px;
+    }
+  }
   .sidebar-footer {
     bottom: 0px;
     clear: both;

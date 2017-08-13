@@ -45,4 +45,6 @@
           %span.fa.fa-sign-out{'aria-hidden' => 'true'}
     - else
       .panel-footer
-        = link_to 'Powered By Blogine ', '//zoker.io/blogine', target: '_blank'
+        = link_to '//zoker.io/blogine', target: '_blank' do
+          Powered By
+          = image_tag '/logo.png'
