@@ -2,7 +2,7 @@
   .wrapper
     = form_for :session, url: login_url, html: {class: 'form-signin'}, method: :post do |f|
       %h3.form-signin-heading
-        = image_tag '/logo.png'
+        = image_tag '/logo.svg'
         后台管理
       %hr.colorgraph
       = f.text_field :login, class: "form-control", placeholder: "请输入邮箱或用户名"
