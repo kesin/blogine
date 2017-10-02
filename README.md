@@ -3,7 +3,7 @@
 项目是基于`Rails`的一款开源的个人单博客系统。
 
 
-![输入图片说明](https://zoker.io/logo.svg "在这里输入图片标题")
+![输入图片说明](https://zoker.io/logo-425.svg "在这里输入图片标题")
 
 > 在线演示 https://zoker.io/ 
 
