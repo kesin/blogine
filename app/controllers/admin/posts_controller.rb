@@ -1,5 +1,5 @@
 class Admin::PostsController < Admin::ApplicationController
-  before_filter :set_post, only: [:edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy]
   def index
     @posts = Post.sorted_by_created.includes(:tags, :column).page(params[:page])
   end

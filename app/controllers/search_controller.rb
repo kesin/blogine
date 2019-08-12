@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
 
-  before_filter :enable_search, only: [:search]
+  before_action :enable_search, only: [:search]
 
   def search
     # TODO: add paginate

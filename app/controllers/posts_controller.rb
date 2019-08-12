@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
-  before_filter :post, only: [:show]
-  before_filter :authenticate_read_post, only: [:show]
+  before_action :post, only: [:show]
+  before_action :authenticate_read_post, only: [:show]
 
   def index
     @posts = Post.releases

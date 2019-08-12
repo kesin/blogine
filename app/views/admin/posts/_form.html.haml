@@ -89,7 +89,7 @@
       }
     });
   });
-  var places = #{Tag.all.pluck(:name)} ;
+  var places = #{raw Tag.all.pluck(:name).to_json} ;
   $('#tags').tagsinput({
     typeahead: {
       source: places.map(function(item) { return item }),
