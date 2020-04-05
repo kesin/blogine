@@ -20,19 +20,19 @@
 #### 功能截图
 ##### 首页
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0405/131057_033152b7_62561.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0405/151458_70ba044d_62561.png "屏幕截图.png")
 
 ##### 文章界面
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0405/131157_4e613208_62561.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0405/151713_bd08fd96_62561.png "屏幕截图.png")
 
 ##### 搜索功能
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0405/131227_b2367e3a_62561.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0405/151903_b3e1d2d8_62561.png "屏幕截图.png")
 
 ##### 后台登录
 
-![输入图片说明](https://images.gitee.com/uploads/images/2020/0405/132330_e58a5ed0_62561.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0405/151824_5bb69800_62561.png "屏幕截图.png")
 
 ##### 发布博客
 
@@ -59,6 +59,10 @@
 ##### 创建用户
 
 执行 `bundle exec rake 'generate_user['name','email','password']' RAILS_ENV=xxx`
+
+##### 社交链接修改
+
+`mv app/views/layouts/_social_account.html.haml.example app/views/layouts/_social_account.html.haml`
 
 访问 http://127.0.0.1:3003
 
