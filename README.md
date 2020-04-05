@@ -20,15 +20,15 @@
 #### 功能截图
 ##### 首页
 
-![输入图片说明](https://git.oschina.net/uploads/images/2017/1002/132154_93d5b6fd_62561.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0405/131057_033152b7_62561.png "屏幕截图.png")
 
 ##### 文章界面
 
-![输入图片说明](https://git.oschina.net/uploads/images/2017/1002/132208_22c3794b_62561.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0405/131157_4e613208_62561.png "屏幕截图.png")
 
 ##### 搜索功能
 
-![输入图片说明](https://git.oschina.net/uploads/images/2017/1002/132217_eafedaf9_62561.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2020/0405/131227_b2367e3a_62561.png "屏幕截图.png")
 
 ##### 发布博客
 
@@ -40,17 +40,21 @@
 
 #### 使用
 
-项目基于 `Ruby 2.3.1` 及以上
+项目基于 `Ruby 2.3.8` 及以上
 
-1. git clone https://gitee.com/kesin/Blogine
-2. bundle install
-3. cp database.yml.example database.yml  #修改数据库配置
-4. cp blogine.yml.example blogine.yml  #修改博客配置
-5. cp puma.rb.example puma.rb
-6. cd Blogine
+1. git clone https://gitee.com/kesin/blogine
+2. cd blogine
+3. bundle install
+4. cp database.yml.example database.yml  #修改数据库配置
+5. cp blogine.yml.example blogine.yml  #修改博客配置
+6. cp puma.rb.example puma.rb
 7. bundle exec rake db:migrate
 8. cp development.rb.example development.rb
 9. bundle exec puma
+
+##### 创建用户
+
+执行 `bundle exec rake 'generate_user['name','email','password']' RAILS_ENV=xxx`
 
 访问 http://127.0.0.1:3003
 
