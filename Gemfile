@@ -1,9 +1,8 @@
-source 'https://rubygems.org'
-
+source 'https://gems.ruby-china.com'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
-# Use sqlite3 as the database for Active Record
+# Use mysql as the database for Active Record
 gem 'mysql2'
 # Use Puma as the app server
 gem 'puma'
